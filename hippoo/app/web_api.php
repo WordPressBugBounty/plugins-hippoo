@@ -529,3 +529,22 @@ function hippoo_wc_prepare_order_note_author( $response, $note, $request ) {
     $response->set_data($data);
     return $response;
 }
+
+
+/*
+* Custom Event Notification API Route
+*/
+add_action('plugins_loaded', function () {
+    if (class_exists('WC_REST_Controller')) {
+        require_once __DIR__ . '/web_api_notification.php';
+        $controller = new HippooEventNotificationController();
+        $current_db_version = get_option('hippoo_notification_db_version');
+        if ($current_db_version !== HippooEventNotificationController::DB_VERSION) {
+            $controller->init_database();
+        }
+        $controller->register_hooks();
+        add_action('rest_api_init', function () use ($controller) {
+            $controller->register_routes();
+        });
+    }
+}, 999);

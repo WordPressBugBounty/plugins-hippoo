@@ -4,7 +4,7 @@ Donate link: https://Hippoo.app/
 Tags: Hippoo, order notifications, WooCommerce app, Store management app, WooCommerce app alternative
 Requires at least: 5.3
 Tested up to: 6.7
-Stable tag: 1.5.14
+Stable tag: 1.5.15
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Hippoo helps you manage WooCommerce orders, inventory, and analytics from your mobile. Receive real-time notifications and control your store on the go.
@@ -70,6 +70,7 @@ Manage your WooCommerce store on the go with Hippoo. Receive real-time order not
 7. Advanced sale analytics and top selling products
 
 == Changelog ==
+* 1.5.15 - Customize Notifications
 * 1.5.14 - Minor Improvements
 * 1.5.13 - Fix scripts.js url
 * 1.5.12 - Minor Improvements
