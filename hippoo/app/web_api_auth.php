@@ -357,7 +357,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
     }
 
     function is_user_wordpress_admin(){
-        return current_user_can('administrator');
+        return current_user_can('manage_options');
     }
 
 }

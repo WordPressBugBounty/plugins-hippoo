@@ -78,20 +78,39 @@ jQuery(document).ready(function($) {
     });
 
     /* PWA */
-    function toggleRouteNameField() {
+    function togglePwaSettingsFields() {
         if ($('#pwa_plugin_enabled').is(':checked')) {
-            $('#pwa_route_name').prop('disabled', false);
-            $('#pwa_route_name').closest('tr').removeClass('disabled');
+            $('#pwa_route_name, #pwa_custom_css').prop('disabled', false);
+            $('#pwa_route_name, #pwa_custom_css').closest('tr').removeClass('disabled');
         } else {
-            $('#pwa_route_name').prop('disabled', true);
-            $('#pwa_route_name').closest('tr').addClass('disabled');
+            $('#pwa_route_name, #pwa_custom_css').prop('disabled', true);
+            $('#pwa_route_name, #pwa_custom_css').closest('tr').addClass('disabled');
         }
     }
 
-    toggleRouteNameField();
+    togglePwaSettingsFields();
 
     $(document).on('click', '#hippoo_settings #pwa_plugin_enabled', function() {
         console.log("PWA checkbox clicked");
-        toggleRouteNameField();
+        togglePwaSettingsFields();
+    });
+
+    /* Review Banner */
+    $(document).on('click', '.hippoo-dismiss-review', function(event) {
+        event.preventDefault();
+
+        $.ajax({
+            url: hippoo.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'hippoo_dismiss_review',
+                nonce: hippoo.nonce
+            },
+            success: function(response) {
+                if (response.success) {
+                    $('.hippoo-review-banner').remove();
+                }
+            }
+        });
     });
 });

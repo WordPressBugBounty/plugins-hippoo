@@ -67,9 +67,11 @@ class HippooInvoiceControllerWithAuth {
             'show_customer_note' => false,
             'show_product_sku_invoice' => false,
             'footer_description' => '',
+            'invoice_paper_size' => 'A4',
             'shipping_show_logo' => false,
             'shipping_calculate_weight' => false,
-            'shipping_courier_logo' => ''
+            'shipping_courier_logo' => '',
+            'shipping_paper_size' => 'A4',
         ];
     
         $settings = array_merge($default_settings, $settings);

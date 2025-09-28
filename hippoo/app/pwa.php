@@ -39,6 +39,7 @@ class HippooPwa
     {
         if ($this->is_plugin_enabled()) {
             add_rewrite_rule('^' . $this->get_route_name() . '/?$', 'index.php?hippoo_pwa=1', 'top');
+            add_rewrite_rule('^' . $this->get_route_name() . '/custom\.css$', 'index.php?hippoo_custom_css=1', 'top');
             add_rewrite_rule('^' . $this->get_route_name() . '/(.*)', 'index.php?hippoo_serve=$matches[1]', 'top');
         }
     }
@@ -47,6 +48,7 @@ class HippooPwa
     {
         $vars[] = 'hippoo_pwa';
         $vars[] = 'hippoo_serve';
+        $vars[] = 'hippoo_custom_css';
         return $vars;
     }
 
@@ -69,6 +71,14 @@ class HippooPwa
                 status_header(404);
                 exit;
             }
+        }
+
+        if (get_query_var('hippoo_custom_css')) {
+            $custom_css = $this->get_custom_css();
+            header('Content-Type: text/css');
+            header('Cache-Control: public, max-age=86400');
+            echo $custom_css; // phpcs:ignore
+            exit;
         }
     }
 
@@ -97,6 +107,16 @@ class HippooPwa
             'hippoo_settings',
             'hippoo_pwa_section'
         );
+
+        $description = '<p>' . esc_html__( 'Add your own CSS rules for Hippoo Shop. Styles entered here override defaults.', 'hippoo' ) . '</p>';
+        add_settings_field(
+            'pwa_custom_css',
+            __('Custom CSS', 'hippoo') . $description,
+            array($this, 'field_custom_css_render'),
+            'hippoo_settings',
+            'hippoo_pwa_section',
+            array('class' => 'custom-css-row')
+        );
     }
 
     public function field_plugin_enabled_render()
@@ -113,6 +133,13 @@ class HippooPwa
         echo '</label>';
     }
 
+    public function field_custom_css_render()
+    {
+        $custom_css = $this->get_custom_css();
+        $disabled = $this->is_plugin_enabled() ? '' : 'disabled';
+        echo '<textarea id="pwa_custom_css" name="hippoo_settings[pwa_custom_css]" rows="10" cols="50" ' . esc_html($disabled) . '>' . esc_textarea($custom_css) . '</textarea>';
+    }
+
     public function is_plugin_enabled()
     {
         return isset($this->settings['pwa_plugin_enabled']) && $this->settings['pwa_plugin_enabled'];
@@ -121,6 +148,11 @@ class HippooPwa
     public function get_route_name()
     {
         return isset($this->settings['pwa_route_name']) ? $this->settings['pwa_route_name'] : 'hippooshop';
+    }
+
+    public function get_custom_css()
+    {
+        return isset($this->settings['pwa_custom_css']) ? $this->settings['pwa_custom_css'] : '';
     }
 
     private function get_mime_type($file_path)

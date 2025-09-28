@@ -46,9 +46,13 @@ function get_template_params($order_id) {
         }
     }
 
+    $invoice_paper_size = isset($settings['invoice_paper_size']) ? $settings['invoice_paper_size'] : 'A4';
+    $shipping_paper_size = isset($settings['shipping_paper_size']) ? $settings['shipping_paper_size'] : 'A4';
+
     return compact(
         'order', 'one_line_address', 'customer_note', 'settings', 'direction',
-        'shop_logo', 'shipping_courier_logo', 'shop_address', 'invoice_barcode', 'weight', 'items'
+        'shop_logo', 'shipping_courier_logo', 'shop_address', 'invoice_barcode', 'weight', 'items',
+        'invoice_paper_size', 'shipping_paper_size'
     );
 }
 

@@ -3,7 +3,6 @@
 class HippooSettings
 {
     public $slug = 'hippoo_settings';
-    public $hippoo_icon = (hippoo_url . '/images/icon.svg');
     public $settings;
 
     public function __construct()
@@ -17,11 +16,12 @@ class HippooSettings
     public function add_admin_menu()
     {
         add_menu_page(
-            'Hippoo Settings', // Page title
-            'Hippoo', // Menu title
-            'manage_options', // Capability
-            'hippoo_setting_page', // Menu slug
-            array($this, 'settings_page_render') // Callback function
+            'Hippoo Settings',
+            'Hippoo',
+            'manage_options',
+            'hippoo_setting_page',
+            array($this, 'settings_page_render'),
+            (hippoo_url . '/images/icon.svg')
         );
     }
 

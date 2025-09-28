@@ -29,7 +29,7 @@
     vertical-align: middle;
 }
 
-#hippoo_settings .form-table:first-of-type tr:first-child {
+#hippoo_settings .form-table:not(:last-of-type) tr:last-child {
     border-bottom: 1px solid #DFDFDF;
 }
 
@@ -62,6 +62,31 @@
 
 #hippoo_settings h2:first-of-type {
     font-size: 36px;
+}
+
+#hippoo_settings .form-table tr.custom-css-row {
+    display: table-row;
+    width: 100%;
+}
+
+#hippoo_settings .form-table tr.custom-css-row th,
+#hippoo_settings .form-table tr.custom-css-row td {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 0;
+    position: relative;
+}
+
+#hippoo_settings .form-table tr.custom-css-row td {
+    min-height: 225px;
+}
+
+#hippoo_settings .form-table tr.custom-css-row textarea {
+    width: 785px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Tabs */

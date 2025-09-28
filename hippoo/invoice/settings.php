@@ -1,8 +1,8 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
 class HippooInvoiceSettings {
-	public $slug = 'hippoo_invoice_settings';
-	public $hippoo_icon = HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/hippoo-mono.svg';
+    public $slug = 'hippoo_invoice_settings';
+    public $hippoo_icon = HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/hippoo-mono.svg';
     public $settings;
 
     public function __construct() {
@@ -39,7 +39,7 @@ class HippooInvoiceSettings {
         register_setting('hippoo_invoice_settings', $this->slug); // phpcs:ignore
 
         $this->general_settings_init();
-		$this->invoice_settings_init();
+        $this->invoice_settings_init();
         $this->shipping_settings_init();
     }
 
@@ -67,8 +67,8 @@ class HippooInvoiceSettings {
     }
 
     /***** Init Settings *****/
-	public function general_settings_init() {
-		add_settings_section(
+    public function general_settings_init() {
+        add_settings_section(
             'hippoo_general_settings_section',
             __( 'General settings', 'hippoo' ),
             null,
@@ -122,10 +122,10 @@ class HippooInvoiceSettings {
             $this->slug,
             'hippoo_general_settings_section'
         );
-	}
+    }
 
-	public function invoice_settings_init() {
-		add_settings_section(
+    public function invoice_settings_init() {
+        add_settings_section(
             'hippoo_invoice_settings_section',
             __( 'Invoice settings', 'hippoo' ),
             null,
@@ -172,7 +172,15 @@ class HippooInvoiceSettings {
             $this->slug,
             'hippoo_invoice_settings_section'
         );
-	}
+
+        add_settings_field(
+            'invoice_paper_size',
+            __( 'Invoice Paper Size', 'hippoo' ),
+            array( $this, 'invoice_paper_size_render' ),
+            $this->slug,
+            'hippoo_invoice_settings_section'
+        );
+    }
 
     public function shipping_settings_init() {
         add_settings_section(
@@ -203,6 +211,14 @@ class HippooInvoiceSettings {
             'shipping_courier_logo',
             __( 'Courier logo', 'hippoo' ),
             array( $this, 'shipping_courier_logo_render' ),
+            $this->slug,
+            'hippoo_shipping_settings_section'
+        );
+
+        add_settings_field(
+            'shipping_paper_size',
+            __( 'Shipping Label Paper Size', 'hippoo' ),
+            array( $this, 'shipping_paper_size_render' ),
             $this->slug,
             'hippoo_shipping_settings_section'
         );
@@ -311,6 +327,24 @@ class HippooInvoiceSettings {
         <textarea rows="5" cols="35" id="footer_description" name="hippoo_invoice_settings[footer_description]"><?php echo esc_html($value); ?></textarea>
         <?php
     }
+
+    public function invoice_paper_size_render() {
+        $options = [
+            'A4' => 'A4',
+            'A5' => 'A5'
+        ];
+        $selected = isset($this->settings['invoice_paper_size']) ? $this->settings['invoice_paper_size'] : 'A4';
+        ?>
+        <select name="hippoo_invoice_settings[invoice_paper_size]">
+            <?php
+            foreach ($options as $value => $label) {
+                $selected_attr = selected($selected, $value, false);
+                echo '<option value="' . esc_attr($value) . '" ' . esc_html($selected_attr) . '>' . esc_html($label) . '</option>';
+            }
+            ?>
+        </select>
+        <?php
+    }
     
 
     /***** Shipping Render *****/
@@ -336,6 +370,24 @@ class HippooInvoiceSettings {
                 </div>
             </div>
         </div>
+        <?php
+    }
+
+    public function shipping_paper_size_render() {
+        $options = [
+            'A4' => 'A4',
+            'A5' => 'A5'
+        ];
+        $selected = isset($this->settings['shipping_paper_size']) ? $this->settings['shipping_paper_size'] : 'A4';
+        ?>
+        <select name="hippoo_invoice_settings[shipping_paper_size]">
+            <?php
+            foreach ($options as $value => $label) {
+                $selected_attr = selected($selected, $value, false);
+                echo '<option value="' . esc_attr($value) . '" ' . esc_html($selected_attr) . '>' . esc_html($label) . '</option>';
+            }
+            ?>
+        </select>
         <?php
     }
 

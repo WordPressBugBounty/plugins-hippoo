@@ -4,8 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style>
+        @page {
+            <?php
+            $paper_size = isset($settings['shipping_paper_size']) ? $settings['shipping_paper_size'] : 'A4';
+            if ($paper_size === 'A4') {
+                echo 'size: A4; margin: 10mm;';
+            } elseif ($paper_size === 'A5') {
+                echo 'size: A5; margin: 10mm;';
+            }
+            ?>
+        }
+
         body {
             font-family: <?php echo esc_attr( $settings['font_name'] ); ?>;
+            margin: 0;
+            padding: 0;
         }
 
         table {
