@@ -24,9 +24,32 @@
 
 /* General Settigs */
 
+#hippoo_settings .button-primary {
+    background: #1A77B1;
+    color: #FFFFFF;
+    border-radius: 8px;
+    border: none;
+    padding: 5px 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#hippoo_settings .button-primary:hover {
+    background: #146A8E;
+}
+
+#hippoo_settings .nav-tab-wrapper {
+    border-bottom: 1px solid #c3c4c7 !important;
+}
+
 #hippoo_settings .form-table {
     max-width: 800px;
     vertical-align: middle;
+}
+
+#hippoo_settings .form-table tr {
+    position: relative;
 }
 
 #hippoo_settings .form-table:not(:last-of-type) tr:last-child {
@@ -83,10 +106,28 @@
 }
 
 #hippoo_settings .form-table tr.custom-css-row textarea {
-    width: 785px;
+    width: 100%;
+    max-width: 785px;
     position: absolute;
     top: 0;
     left: 0;
+}
+
+@media only screen and (max-width: 782px) {
+    #hippoo_settings .form-table tr td .route-name-field {
+        float: left;
+    }
+
+    #hippoo_settings .form-table th {
+        padding: 20px 10px 20px 0 !important;
+    }
+}
+
+#hippoo_settings #image_size_selection {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Tabs */
@@ -119,6 +160,11 @@
 
 #hippoo_settings .tabs .tab-content.active {
     display: block;
+}
+
+#hippoo_settings .tabs .tab-content .is-locked {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 /* Form Elements */
@@ -232,7 +278,6 @@
     font-size: 12px;
 }
 
-
 /* Notice */
 
 .hippoo-notice {
@@ -279,6 +324,164 @@
 .google-button strong {
     padding: 0 5px;
     color: #000000;
+}
+
+/* API Error Notice */
+
+.hippoo-rest-api-error {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #EB5757;
+    border-radius: 10px;
+    padding: 15px 20px;
+    gap: 10px;
+}
+
+.hippoo-rest-api-error .notice-dismiss {
+    display: none;
+}
+
+.hippoo-rest-api-error .logo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.hippoo-rest-api-error .logo-wrapper img.hippoo-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+}
+
+.hippoo-rest-api-error .logo-wrapper::after {
+    content: '!';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 18px;
+    height: 18px;
+    background: #ff4343;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    color: white;
+    font-size: 9pt;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    line-height: 1;
+}
+
+.hippoo-rest-api-error .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 5px;
+    padding: 0 15px;
+}
+
+.hippoo-rest-api-error .content h4,
+.hippoo-rest-api-error .content p {
+    margin: 0;
+    padding: 0;
+}
+
+.hippoo-rest-api-error .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.hippoo-rest-api-error .actions .button {
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    padding: 5px 40px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hippoo-rest-api-error .actions .hippoo-dismiss-api-error {
+    color: #32435b
+}
+
+.hippoo-rest-api-error .actions .hippoo-retry-api-check {
+    color: #ffffff;
+    background: #32435b;
+}
+
+/* License Notice */
+
+.hippoo-upgrade-banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #B3B3B3;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    gap: 10px;
+}
+
+.rtl .hippoo-upgrade-banner {
+    margin-left: 15px;
+}
+
+.hippoo-upgrade-banner .logo-wrapper img.hippoo-logo {
+    width: 49px;
+    height: 49px;
+}
+
+.hippoo-upgrade-banner .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 5px;
+    padding: 0 15px;
+}
+
+.hippoo-upgrade-banner .content h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2C2C2C;
+}
+
+.hippoo-upgrade-banner .content p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2C2C2C;
+}
+
+.hippoo-upgrade-banner .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.hippoo-upgrade-banner .actions .button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hippoo-upgrade-banner .actions .upgrade-btn {
+    background: #FF8D28;
+    color: #323232;
+    padding: 5px 40px;
+}
+
+.hippoo-upgrade-banner .actions .learn-more {
+    background: none;
+    color: #32435B;
 }
 
 /* Hippoo App Tab */
@@ -368,4 +571,187 @@
 #hippoo_settings .carousel-next {
     background-image: url('../images/next-arrow.svg');
 }
-  
+
+/* Hippoo AI Settings */
+
+#hippoo_settings .hippoo-ai-tab {
+    max-width: 800px;
+}
+
+#hippoo_settings .hippoo-ai-tab input[type="text"],
+#hippoo_settings .hippoo-ai-tab input[type="password"],
+#hippoo_settings .hippoo-ai-tab input[type="number"],
+#hippoo_settings .hippoo-ai-tab select,
+#hippoo_settings .hippoo-ai-tab textarea {
+    width: 100%;
+    min-width: 200px;
+    min-height: 40px;
+}
+
+#hippoo_settings .hippoo-ai-tab select,
+#hippoo_settings .hippoo-ai-tab input[type="number"] {
+    max-width: 200px;
+}
+
+#hippoo_settings .hippoo-ai-tab .field-hint {
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+#hippoo_settings .hippoo-ai-tab .button-outline {
+    min-width: 150px;
+    background: #FFFFFF;
+    border: 1px solid #1A77B1;
+    color: #146A8E;
+    border-radius: 8px;
+    padding: 5px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#hippoo_settings .hippoo-ai-tab .button-outline:hover {
+    background: #E8F7FF;
+}
+
+#hippoo_settings .hippoo-ai-tab .input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    text-wrap: auto;
+}
+
+#hippoo_settings .hippoo-ai-tab .form-table th {
+    width: 200px !important;
+}
+
+#hippoo_settings .hippoo-ai-tab .inline-row th {
+    vertical-align: baseline !important;
+}
+
+#hippoo_settings .hippoo-ai-tab .inline-row td {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#hippoo_settings .hippoo-ai-tab .form-table td > * {
+    float: left !important;
+}
+
+/* Hippoo Integrations Settings */
+#hippoo-integrations-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: #FFFFFF;
+    border-radius: 16px;
+    position: relative;
+    margin-top: 20px;
+}
+
+#hippoo-integrations-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: #E3E3E3;
+    transform: translateX(-50%);
+}
+
+#hippoo-integrations-list .integration-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#hippoo-integrations-list .integration-item:nth-child(n+3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #E3E3E3;
+    z-index: 1;
+}
+
+#hippoo-integrations-list .integration-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    object-fit: cover;
+    background: #F7F7F7;
+    padding: 5px;
+}
+
+#hippoo-integrations-list .integration-info {
+    flex: 1;
+}
+
+#hippoo-integrations-list .integration-info h4 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+}
+
+#hippoo-integrations-list .integration-info h4 a {
+    text-decoration: none;
+    color: #000000;
+}
+
+#hippoo-integrations-list .integration-actions .button {
+    width: 140px;
+    border-radius: 8px;
+    border: none;
+    padding: 5px 30px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#hippoo-integrations-list .integration-actions .button-primary,
+#hippoo-integrations-list .integration-actions .button-primary:hover {
+    background: #32435B;
+    color: #FFFFFF; 
+}
+
+#hippoo-integrations-list .integration-actions .button-secondary,
+#hippoo-integrations-list .integration-actions .button-secondary:hover {
+    background: #F7F7F7;
+    color: #424242; 
+}
+
+#hippoo-integrations-loading {
+    display: none;
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+
+#hippoo-integrations-loading::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #E3E3E3;
+    border-top-color: #32435B;
+    border-radius: 50%;
+    display: inline-block;
+    animation: hippoo-spin 0.9s linear infinite;
+}
+
+@keyframes hippoo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

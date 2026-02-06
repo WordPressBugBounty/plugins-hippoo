@@ -7,8 +7,8 @@
 define( 'HIPPOO_INVOICE_PLUGIN_LANG_DIR', HIPPOO_INVOICE_PLUGIN_PATH . 'languages'. DIRECTORY_SEPARATOR );
 define( 'HIPPOO_INVOICE_PLUGIN_TEMPLATE_PATH', HIPPOO_INVOICE_PLUGIN_PATH . 'templates' . DIRECTORY_SEPARATOR . 'simple' . DIRECTORY_SEPARATOR );
 
-add_action( 'plugins_loaded', 'hippoo_load_textdomain' );
-function hippoo_load_textdomain() {
+add_action( 'plugins_loaded', 'hippoo_invoice_load_textdomain' );
+function hippoo_invoice_load_textdomain() {
     load_plugin_textdomain( 'hippoo-invoice', false, HIPPOO_INVOICE_PLUGIN_LANG_DIR );
 }
 add_action( 'admin_enqueue_scripts', 'hippoo_enqueue_scripts' );
@@ -61,7 +61,7 @@ function hippoo_handle_html_display() {
 
             echo $html_doc; // phpcs:ignore
         } else {
-            echo "You do not have access to view this order.";
+            echo __('You do not have access to view this order.', 'hippoo');
         }
         exit;
     }

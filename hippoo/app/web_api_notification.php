@@ -301,8 +301,8 @@ class HippooEventNotificationController {
         ));
     }
 
-    public function permissions_check( $request ) {
-        return current_user_can( 'manage_options' );
+    public function permissions_check($request) {
+        return current_user_can('manage_options');
     }
 
     public function get_notifications($request) {
@@ -342,7 +342,7 @@ class HippooEventNotificationController {
         );
 
         if (!$notification) {
-            return new WP_Error('not_found', __('Notification not found.', 'hippoo'), array('status' => 404));
+            return new WP_Error('not_found', __('Notification not found.', 'hippoo'), ['status' => 404]);
         }
 
         return rest_ensure_response($notification);
@@ -384,7 +384,7 @@ class HippooEventNotificationController {
         );
 
         if (!$existing) {
-            return new WP_Error('not_found', __('Notification not found.', 'hippoo'), array('status' => 404));
+            return new WP_Error('not_found', __('Notification not found.', 'hippoo'), ['status' => 404]);
         }
 
         $wpdb->update($table_name, $data, array('id' => $id));
@@ -408,7 +408,7 @@ class HippooEventNotificationController {
         );
 
         if (!$notification) {
-            return new WP_Error('not_found', __('Notification not found.', 'hippoo'), array('status' => 404));
+            return new WP_Error('not_found', __('Notification not found.', 'hippoo'), ['status' => 404]);
         }
 
         $wpdb->delete($table_name, array('id' => $id));
@@ -447,13 +447,14 @@ class HippooEventNotificationController {
 
         foreach ($required as $field) {
             if (empty($data[$field])) {
-                return new WP_Error('missing_field', sprintf(__('Missing %s field.', 'hippoo'), $field), array('status' => 400));
+                /* translators: %s: missing required field name */
+                return new WP_Error('missing_field', sprintf(__('Missing %s field.', 'hippoo'), $field), ['status' => 400]);
             }
         }
 
         $available_hooks = $this->get_available_hooks();
         if (!in_array($data['event'], $available_hooks)) {
-            return new WP_Error('invalid_event', __('Invalid event hook.', 'hippoo'), array('status' => 400));
+            return new WP_Error('invalid_event', __('Invalid event hook.', 'hippoo'), ['status' => 400]);
         }
 
         return array(

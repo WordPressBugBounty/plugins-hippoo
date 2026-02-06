@@ -97,7 +97,7 @@ class HippooInvoiceControllerWithAuth {
     
         update_option('hippoo_invoice_settings', $settings);
     
-        return rest_ensure_response( $settings );
+        return rest_ensure_response($settings);
     }
     
 

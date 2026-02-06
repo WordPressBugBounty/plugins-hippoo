@@ -78,14 +78,25 @@ function generate_barcode_html($sku) {
 function generate_html( $order_id, $type ) {
     $type = sanitize_file_name( $type );
 
-    $file_path = HIPPOO_INVOICE_PLUGIN_TEMPLATE_PATH . $type . '.php';
+    $custom_template_path = get_stylesheet_directory() . '/hippoo-' . $type . '.php';
+    if ( ! file_exists( $custom_template_path ) || ! is_readable( $custom_template_path ) ) {
+        $custom_template_path = get_template_directory() . '/hippoo-' . $type . '.php';
+    }
+
+    $file_path = file_exists( $custom_template_path ) && is_readable( $custom_template_path )
+        ? $custom_template_path
+        : HIPPOO_INVOICE_PLUGIN_TEMPLATE_PATH . 'hippoo-' . $type . '.php';
+    
+    $file_path = apply_filters( 'hippoo_invoice_template_path', $file_path, $type, $order_id );
     if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) ) {
         return false;
     }
+
     $template_params = get_template_params( $order_id );
-    if ( is_null($template_params) ) {
+    if ( is_null( $template_params ) ) {
         return '<p>Undefined Order</p>'; 
     }
+
     extract( $template_params  );
     ob_start();
     include $file_path;

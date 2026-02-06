@@ -1,10 +1,10 @@
 === Hippoo Mobile App for WooCommerce ===
 Contributors: Hippooo
 Donate link: https://Hippoo.app/
-Tags: Hippoo, order notifications, WooCommerce app, Store management app, WooCommerce app alternative
+Tags: Hippoo, order notifications, WooCommerce app, Store management app, WooCommerce app alternative, PWA, headless
 Requires at least: 5.3
 Tested up to: 6.7
-Stable tag: 1.5.15
+Stable tag: 1.7.3
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Hippoo helps you manage WooCommerce orders, inventory, and analytics from your mobile. Receive real-time notifications and control your store on the go.
@@ -29,6 +29,13 @@ Manage your WooCommerce store on the go with Hippoo. Receive real-time order not
   <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Invoice & Shipping Label Creation: Generate and customize invoices and shipping labels with automatic order details.</span></li>
 <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">iOS & Android Home Screen Widget: Quickly access your shop reports from your mobile home screen for real-time insights.</span></li>  
   <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Order Product Image API: Enhance order management with product images for better fulfillment and customer satisfaction.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Generate product content automatically using Hippoo AI by uploading or capturing a photo of your items.</span></li>
+
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Seamless integration with Shippo service to create courier shipping labels directly inside the Hippoo application.</span></li>
+
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Support for extensions such as Google Analytics, custom code snippets, customer support ticketing, recent activity logs, and more.</span></li>
+
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Custom event notifications for user registration, comment submission, custom order status changes, and additional triggers.</span></li>
 
   <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Barcode Generation: Display and print barcodes for product SKUs and order IDs. Quickly find orders and products by scanning barcodes.</span></li>
   <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Multi-Shop Management: Add and manage multiple WooCommerce stores for free—all in one app!</span></li>
@@ -70,6 +77,11 @@ Manage your WooCommerce store on the go with Hippoo. Receive real-time order not
 7. Advanced sale analytics and top selling products
 
 == Changelog ==
+* 1.7.3 – Ability to install integrations
+* 1.7.2 –
+* 1.7.1 – Add Gemini Support for AI features
+* 1.7.0 – Introducing Hippoo AI for generating product content from photos
+* 1.6.1 – Added REST API troubleshooter and support for customizable invoice templates.
 * 1.5.15 - Customize Notifications
 * 1.5.14 - Minor Improvements
 * 1.5.13 - Fix scripts.js url

@@ -1,0 +1,861 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Hippoo Mobile app for WooCommerce 1.7.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hippoo\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-12-14T20:22:12+00:00\n"
+"PO-Revision-Date: 2025-12-22 13:48+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: hippoo\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Loco-Version: 2.8.0; wp-6.9; php-8.2.29"
+
+#. Plugin Name of the plugin
+#: hippoo.php
+msgid "Hippoo Mobile app for WooCommerce"
+msgstr "تطبيق هيبو المتنقل لـ WooCommerce"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: hippoo.php
+msgid "https://Hippoo.app/"
+msgstr "https://hippoo.app/"
+
+#. Description of the plugin
+#: hippoo.php
+msgid ""
+"Best WooCommerce App Alternative – Manage orders and products on the go with "
+"real-time notifications, seamless order and product management, and powerful "
+"add-ons. Available for Android & iOS. 🚀."
+msgstr "أفضل بديل لتطبيق WooCommerce – إدارة الطلبات والمنتجات أثناء التنقل مع إشعارات فورية، وإدارة سلسة للطلبات والمنتجات، وإضافات قوية. متاح لأندرويد وiOS. 🚀"
+
+#. Author of the plugin
+#: hippoo.php
+msgid "Hippoo Team"
+msgstr "فريق هيبو"
+
+#: app/ai.php:29
+msgid "Hippoo AI"
+msgstr "هيبو الذكاء الاصطناعي"
+
+#: app/ai.php:69
+msgid "Select AI Provider"
+msgstr "اختر مزود الذكاء الاصطناعي"
+
+#: app/ai.php:77
+msgid "Select model"
+msgstr "اختر النموذج"
+
+#: app/ai.php:85
+msgid "Your API Token"
+msgstr "رمز API الخاص بك"
+
+#: app/ai.php:101
+msgid "System Prompt"
+msgstr "الأمر النظامي"
+
+#: app/ai.php:110
+msgid "Description Prompt"
+msgstr "أمر الوصف"
+
+#: app/ai.php:119
+msgid "Max Tokens"
+msgstr "أقصى عدد من الرموز"
+
+#: app/ai.php:136
+msgid "Connect the AI"
+msgstr "ربط الذكاء الاصطناعي"
+
+#: app/ai.php:137 app/ai.php:197
+msgid ""
+"Generate product descriptions automatically from images using AI. Configure "
+"your preferred model and prompts in the settings below."
+msgstr "إنشاء وصف المنتجات تلقائيًا من الصور باستخدام الذكاء الاصطناعي. قم بتهيئة النموذج المفضل والأوامر في الإعدادات أدناه."
+
+#: app/ai.php:146
+msgid "Chat GPT"
+msgstr "ChatGPT"
+
+#: app/ai.php:147
+msgid "Gemini"
+msgstr "Gemini"
+
+#: app/ai.php:186
+msgid "Enter your API key"
+msgstr "أدخل مفتاح API الخاص بك"
+
+#: app/ai.php:187
+msgid "How can I provide the token?"
+msgstr "كيف يمكنني تقديم الرمز؟"
+
+#: app/ai.php:189
+msgid "Test connection"
+msgstr "اختبار الاتصال"
+
+#: app/ai.php:196
+msgid "AI Product Reader"
+msgstr "قارئ المنتجات بالذكاء الاصطناعي"
+
+#: app/ai.php:198
+msgid "Prompt settings"
+msgstr "إعدادات الأوامر"
+
+#: app/ai.php:199
+msgid ""
+"Customize how the AI generates text by editing the prompts below. Each "
+"prompt guides the AI to produce the desired type of content for your "
+"products. You can adjust these to change tone, style, or structure of the "
+"generated descriptions."
+msgstr "تخصيص طريقة إنشاء النصوص بواسطة الذكاء الاصطناعي من خلال تعديل الأوامر أدناه. كل أمر يوجه الذكاء الاصطناعي لإنتاج نوع المحتوى المطلوب لمنتجاتك. يمكنك تعديلها لتغيير النبرة أو الأسلوب أو الهيكل في الوصف المُنشأ."
+
+#: app/ai.php:209
+msgid ""
+"Sets the general behavior or role of the AI (e.g., “You are a product "
+"description writer for an online store.)"
+msgstr "يحدد السلوك العام أو الدور للذكاء الاصطناعي (مثال: «أنت كاتب وصف منتجات لمتجر إلكتروني».)"
+
+#: app/ai.php:220
+msgid ""
+"Defines how the main product description should be written (e.g., length, "
+"tone, structure)"
+msgstr "يحدد كيفية كتابة وصف المنتج الرئيسي (مثال: الطول، النبرة، الهيكل)"
+
+#: app/ai.php:243 app/ai.php:357 app/ai.php:428
+msgid ""
+"You haven’t provided an API key. Please go to the Hippoo settings page and "
+"add your API key to connect to the AI."
+msgstr "لم تقم بتقديم مفتاح API. يرجى الذهاب إلى صفحة إعدادات هيبو وإضافة مفتاح API الخاص بك للاتصال بالذكاء الاصطناعي."
+
+#: app/ai.php:251 app/ai.php:404 app/ai.php:442 app/ai.php:473
+msgid "Unsupported AI provider."
+msgstr "مزود ذكاء اصطناعي غير مدعوم."
+
+#: app/ai.php:257 app/ai.php:454
+msgid "Failed to connect to AI service."
+msgstr "فشل الاتصال بخدمة الذكاء الاصطناعي."
+
+#: app/ai.php:272
+msgid "Invalid provider"
+msgstr "مزود غير صالح"
+
+#: app/ai.php:346
+msgid "Too many requests. Please try again later."
+msgstr "طلبات كثيرة جداً. يرجى المحاولة لاحقاً."
+
+#: app/ai.php:544
+msgid "Invalid parameters provided"
+msgstr "المعلمات المقدمة غير صالحة"
+
+#: app/ai.php:571
+msgid ""
+"Analyze product images and related descriptions to generate high-quality, "
+"engaging, and SEO-optimized product content. Focus on identifying key visual "
+"details such as type, color, material, and purpose to create accurate, "
+"natural, and persuasive descriptions suitable for e-commerce platforms."
+msgstr "تحليل صور المنتجات والوصف المرتبط لإنشاء محتوى منتج عالي الجودة وجذاب ومحسّن لمحركات البحث. التركيز على تحديد التفاصيل البصرية الرئيسية مثل النوع واللون والمادة والغرض لإنشاء وصف دقيق وطبيعي ومقنع مناسب لمنصات التجارة الإلكترونية."
+
+#: app/ai.php:578
+msgid ""
+"Review the provided product image and its details to understand the item’s "
+"appearance, features, and intended use. Then generate a compelling product "
+"title, short summary, detailed description, and a list of relevant SEO "
+"keywords based on your analysis."
+msgstr "مراجعة صورة المنتج المقدمة وتفاصيلها لفهم مظهر العنصر وميزاته والاستخدام المقصود. ثم إنشاء عنوان منتج جذاب وملخص قصير ووصف مفصل وقائمة بكلمات مفتاحية ذات صلة بتحسين محركات البحث بناءً على التحليل."
+
+#: app/ai.php:608
+msgid "Failed to download image: "
+msgstr "فشل تنزيل الصورة: "
+
+#: app/ai.php:614
+msgid "No valid image provided."
+msgstr "لم يتم تقديم صورة صالحة."
+
+#: app/ai.php:624
+msgid "Invalid image file."
+msgstr "ملف صورة غير صالح."
+
+#: app/ai.php:629
+msgid "Supported formats: jpg, png, webp"
+msgstr "الصيغ المدعومة: jpg، png، webp"
+
+#: app/ai.php:634
+msgid "Failed to open image editor."
+msgstr "فشل فتح محرر الصور."
+
+#: app/ai.php:648
+msgid "Could not save optimized image."
+msgstr "تعذر حفظ الصورة المحسنة."
+
+#: app/ai.php:652
+msgid "Optimized image exceeds 2MB."
+msgstr "الصورة المحسنة تتجاوز 2 ميغابايت."
+
+#: app/ai.php:694 app/ai.php:825
+msgid ""
+"You MUST only respond with a clean HTML block suitable for WordPress editor, "
+"no markdown, no backticks, no explanations."
+msgstr "يجب أن ترد فقط بكتلة HTML نظيفة مناسبة لمحرر ووردبريس، بدون markdown، بدون علامات اقتباس معكوسة، بدون تفسيرات."
+
+#: app/ai.php:749
+msgid "Unexpected response from OpenAI."
+msgstr "رد غير متوقع من OpenAI."
+
+#: app/ai.php:754
+msgid "Max token limit reached for this prompt."
+msgstr "تم الوصول إلى الحد الأقصى للرموز لهذا الأمر."
+
+#: app/ai.php:766
+msgid "OpenAI did not return any text. Try increasing max_tokens."
+msgstr "لم يرد OpenAI أي نص. جرب زيادة max_tokens."
+
+#: app/ai.php:862
+msgid "Unexpected response from Gemini."
+msgstr "رد غير متوقع من Gemini."
+
+#: app/ai.php:869
+msgid "Gemini did not return any text. Try increasing max_tokens."
+msgstr "لم يرد Gemini أي نص. جرب زيادة max_tokens."
+
+#: app/app.php:62
+msgid "Help Center"
+msgstr "مركز المساعدة"
+
+#: app/app.php:63
+msgid "Feature Request"
+msgstr "طلب ميزة"
+
+#: app/app.php:64
+msgid "Customer Support"
+msgstr "دعم العملاء"
+
+#: app/app.php:76 app/app.php:85
+msgid "Latest blog posts on Hippoo"
+msgstr "أحدث مقالات المدونة في هيبو"
+
+#: app/app.php:93
+msgid "Read more on our blog"
+msgstr "اقرأ المزيد في مدونتنا"
+
+#: app/app.php:123
+msgid ""
+"Enjoying the Hippoo Mobile App for WooCommerce? We would love to hear your "
+"feedback! Please take a moment to leave a review."
+msgstr "هل تستمتع بتطبيق هيبو المتنقل لـ WooCommerce؟ نحب أن نسمع رأيك! يرجى تخصيص لحظة لترك تقييم."
+
+#: app/app.php:125
+msgid "Leave a Review"
+msgstr "ترك تقييم"
+
+#: app/app.php:126 app/app.php:182
+msgid "Dismiss"
+msgstr "إغلاق"
+
+#: app/app.php:174
+msgid "Hippoo Logo"
+msgstr "شعار هيبو"
+
+#: app/app.php:177
+msgid "Hippoo app can’t connect to your WooCommerce"
+msgstr "تطبيق هيبو لا يمكنه الاتصال بـ WooCommerce الخاص بك"
+
+#: app/app.php:184
+msgid "Try again"
+msgstr "حاول مرة أخرى"
+
+#: app/app.php:226
+msgid "Upgrade to Hippoo Premium"
+msgstr "الترقية إلى هيبو بريميوم"
+
+#: app/app.php:227
+msgid ""
+"Upgrade to Hippoo Premium for custom event notifications, full extension "
+"access, Shippo integration, advanced analytics, and smart AI tools."
+msgstr "الترقية إلى هيبو بريميوم للحصول على إشعارات أحداث مخصصة، وصول كامل للإضافات، تكامل Shippo، تحليلات متقدمة، وأدوات ذكاء اصطناعي ذكية."
+
+#: app/app.php:234
+msgid "Learn more"
+msgstr "معرفة المزيد"
+
+#: app/app.php:239
+msgid "Upgrade"
+msgstr "ترقية"
+
+#: app/bugsnag.php:100
+msgid ""
+"Enable this option to send anonymous usage statistics and error reports. "
+"This helps us identify issues and improve Hippoo. No personal data will be "
+"collected."
+msgstr "فعّل هذا الخيار لإرسال إحصائيات استخدام مجهولة وتقارير الأخطاء. هذا يساعدنا في تحديد المشكلات وتحسين هيبو. لن يتم جمع أي بيانات شخصية."
+
+#: app/bugsnag.php:103
+msgid "Help Improve Hippoo"
+msgstr "ساعد في تحسين هيبو"
+
+#: app/integrations.php:27 app/integrations.php:37
+msgid "Hippoo Integrations"
+msgstr "تكاملات هيبو"
+
+#: app/integrations.php:38
+msgid ""
+"Integrations are free WordPress plugins that bring new features to both "
+"WooCommerce and the Hippoo App. They are completely free to install and use "
+"in WooCommerce. A Premium license is required to use these features inside "
+"the Hippoo App."
+msgstr "التكاملات هي إضافات ووردبريس مجانية تضيف ميزات جديدة لكل من WooCommerce وتطبيق هيبو. هي مجانية تمامًا للتثبيت والاستخدام في WooCommerce. مطلوب ترخيص بريميوم لاستخدام هذه الميزات داخل تطبيق هيبو."
+
+#: app/integrations.php:54 app/integrations.php:152
+msgid "Failed to fetch integrations."
+msgstr "فشل جلب التكاملات."
+
+#: app/integrations.php:68 app/integrations.php:168
+msgid "Invalid or unauthorized plugin."
+msgstr "إضافة غير صالحة أو غير مصرح بها."
+
+#: app/integrations.php:77
+msgid "Already active."
+msgstr "مفعلة بالفعل."
+
+#: app/integrations.php:88
+msgid "Activated successfully."
+msgstr "تم التفعيل بنجاح."
+
+#: app/integrations.php:99
+msgid "Installed successfully."
+msgstr "تم التثبيت بنجاح."
+
+#: app/integrations.php:176
+msgid "Plugin already installed."
+msgstr "الإضافة مثبتة بالفعل."
+
+#: app/integrations.php:186
+msgid "Plugin installed successfully."
+msgstr "تم تثبيت الإضافة بنجاح."
+
+#: app/integrations.php:202
+msgid "Plugin already active."
+msgstr "الإضافة مفعلة بالفعل."
+
+#: app/integrations.php:213
+msgid "Plugin activated successfully."
+msgstr "تم تفعيل الإضافة بنجاح."
+
+#: app/integrations.php:218
+msgid "Plugin is not active."
+msgstr "الإضافة غير مفعلة."
+
+#: app/integrations.php:224
+msgid "Failed to deactivate plugin."
+msgstr "فشل إلغاء تفعيل الإضافة."
+
+#: app/integrations.php:229
+msgid "Plugin deactivated successfully."
+msgstr "تم إلغاء تفعيل الإضافة بنجاح."
+
+#: app/integrations.php:233
+msgid "Invalid action."
+msgstr "إجراء غير صالح."
+
+#: app/integrations.php:251
+msgid "Installation failed."
+msgstr "فشل التثبيت."
+
+#: app/pwa.php:100
+msgid ""
+"Showcase your products with a clean, minimal design. This lightweight theme "
+"creates a mobile-friendly product display. Use the link below as an "
+"Instagram-style shop to share your products. We recommend keeping it enabled."
+msgstr "عرض منتجاتك بتصميم نظيف وبسيط. هذا القالب الخفيف ينشئ عرض منتجات مناسب للهواتف المحمولة. استخدم الرابط أدناه كمتجر على طراز إنستغرام لمشاركة منتجاتك. نوصي بالإبقاء عليه مفعلاً."
+
+#: app/pwa.php:103
+msgid "Hippoo Mobile Storefront"
+msgstr "واجهة متجر هيبو المتنقلة"
+
+#: app/pwa.php:111
+msgid "Storefront address"
+msgstr "عنوان الواجهة"
+
+#: app/pwa.php:117
+msgid ""
+"Add your own CSS rules for Hippoo Shop. Styles entered here override "
+"defaults."
+msgstr "أضف قواعد CSS الخاصة بك لمتجر هيبو. الأنماط المدخلة هنا تتجاوز الافتراضية."
+
+#: app/pwa.php:120
+msgid "Custom CSS"
+msgstr "CSS مخصص"
+
+#: app/settings.php:17 app/settings.php:175
+msgid "Hippoo Settings"
+msgstr "إعدادات هيبو"
+
+#: app/settings.php:18 app/web_api.php:98
+msgid "Hippoo"
+msgstr "هيبو"
+
+#: app/settings.php:39
+msgid ""
+"Provides PDF invoices and shipping labels for easy printing. Also generates "
+"barcodes for orders and product SKUs inside the WooCommerce dashboard, "
+"allowing you to scan them with the Hippoo WooCommerce app's barcode scanner "
+"to quickly find orders and products."
+msgstr "يوفر فواتير PDF وملصقات شحن للطباعة السهلة. كما يولد رموز باركود للطلبات وSKU المنتجات داخل لوحة تحكم WooCommerce، مما يتيح مسحها باستخدام ماسح الباركود في تطبيق هيبو للعثور السريع على الطلبات والمنتجات."
+
+#: app/settings.php:42
+msgid "Enable Hippoo invoice and shipping label"
+msgstr "تفعيل فاتورة هيبو وملصق الشحن"
+
+#: app/settings.php:102 invoice/settings.php:54
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: app/settings.php:103
+msgid "Hippoo App"
+msgstr "تطبيق هيبو"
+
+#: app/settings.php:122
+msgid "Hippoo Woocommerce app"
+msgstr "تطبيق WooCommerce هيبو"
+
+#: app/settings.php:123
+msgid ""
+"Hippoo! is not just a shop management app, it's also a platform that enables "
+"you to extend its capabilities. With the ability to install extensions, you "
+"can customize your experience and add new features to the app. Browse and "
+"install other Hippoo plugins from our app to enhance your store's "
+"functionality."
+msgstr "هيبو ليس مجرد تطبيق لإدارة المتجر، بل هو منصة تتيح لك توسيع إمكانياته. مع القدرة على تثبيت الإضافات، يمكنك تخصيص تجربتك وإضافة ميزات جديدة للتطبيق. تصفح وتثبيت إضافات هيبو الأخرى من تطبيقنا لتحسين وظائف متجرك."
+
+#: app/settings.php:125 app/settings.php:126
+msgid "Download Hippoo Android app"
+msgstr "تنزيل تطبيق هيبو لأندرويد"
+
+#: app/settings.php:129 app/settings.php:130
+msgid "Download Hippoo iOS app"
+msgstr "تنزيل تطبيق هيبو لـ iOS"
+
+#: app/settings.php:134
+msgid "Scan QR code with your Android phone to install the app"
+msgstr "امسح رمز QR بهاتف أندرويد الخاص بك لتثبيت التطبيق"
+
+#: app/settings.php:135
+msgid "QR Code"
+msgstr "رمز QR"
+
+#: app/settings.php:141
+msgid "App screenshot 1"
+msgstr "لقطة شاشة التطبيق 1"
+
+#: app/settings.php:142
+msgid "App screenshot 2"
+msgstr "لقطة شاشة التطبيق 2"
+
+#: app/settings.php:143
+msgid "App screenshot 3"
+msgstr "لقطة شاشة التطبيق 3"
+
+#: app/settings.php:144
+msgid "App screenshot 4"
+msgstr "لقطة شاشة التطبيق 4"
+
+#: app/settings.php:145
+msgid "App screenshot 5"
+msgstr "لقطة شاشة التطبيق 5"
+
+#: app/settings.php:171
+msgid "Settings saved successfully."
+msgstr "تم حفظ الإعدادات بنجاح."
+
+#. translators: %s: URL to the Permalink Settings page in wp-admin
+#: app/utils.php:46
+msgid ""
+"Hippoo can’t connect because your WordPress permalinks are set to “Plain”. "
+"To enable the WordPress REST API, open your <a href=\"%s\">Permalink "
+"Settings</a> and select Post name or Custom Structure, then save changes."
+msgstr "لا يمكن لـ هيبو الاتصال لأن روابط ووردبريس الدائمة مضبوطة على «بسيط». لتفعيل REST API في ووردبريس، افتح <a href=\"%s\">إعدادات الروابط الدائمة</a> واختر اسم المقالة أو هيكل مخصص، ثم احفظ التغييرات."
+
+#: app/utils.php:56
+msgid ""
+"Hippoo can’t connect because the WordPress REST API has been disabled by a "
+"theme or plugin."
+msgstr "لا يمكن لـ هيبو الاتصال لأن REST API في ووردبريس تم تعطيله بواسطة قالب أو إضافة."
+
+#: app/utils.php:69
+msgid ""
+"Hippoo can’t connect to your website because the WordPress REST API is not "
+"responding. Please check your firewall or hosting settings."
+msgstr "لا يمكن لـ هيبو الاتصال بموقعك لأن REST API في ووردبريس لا يستجيب. يرجى التحقق من إعدادات الجدار الناري أو الاستضافة."
+
+#: app/utils.php:80
+msgid ""
+"Hippoo can’t connect to your site because the WordPress REST API is "
+"restricted. Please allow public access to the REST API."
+msgstr "لا يمكن لـ هيبو الاتصال بموقعك لأن REST API في ووردبريس مقيد. يرجى السماح بالوصول العام إلى REST API."
+
+#: app/utils.php:86
+msgid ""
+"Hippoo can’t connect because something on your site (like a security plugin "
+"or server rule) is blocking access to the WordPress REST API."
+msgstr "لا يمكن لـ هيبو الاتصال لأن شيئًا ما في موقعك (مثل إضافة أمان أو قاعدة خادم) يحظر الوصول إلى REST API في ووردبريس."
+
+#: app/utils.php:92
+msgid ""
+"Hippoo can’t connect because the WordPress API endpoint wasn’t found. Please "
+"make sure your WordPress installation is complete and .htaccess is correctly "
+"configured."
+msgstr "لا يمكن لـ هيبو الاتصال لأن نقطة نهاية API ووردبريس لم تُعثر. يرجى التأكد من اكتمال تثبيت ووردبريس وتهيئة ملف .htaccess بشكل صحيح."
+
+#: app/utils.php:98
+msgid ""
+"Hippoo can’t connect right now because your site returned an internal error "
+"when trying to reach the WordPress REST API."
+msgstr "لا يمكن لـ هيبو الاتصال الآن لأن موقعك أعاد خطأ داخلي عند محاولة الوصول إلى REST API في ووردبريس."
+
+#: app/utils.php:108
+msgid ""
+"Hippoo can’t connect because essential WordPress API routes are missing. A "
+"plugin may have disabled them."
+msgstr "لا يمكن لـ هيبو الاتصال لأن مسارات API أساسية في ووردبريس مفقودة. ربما قامت إضافة بتعطيلها."
+
+#: app/web_api.php:126 app/web_api.php:180
+msgid "Invalid token."
+msgstr "رمز غير صالح."
+
+#: app/web_api.php:133
+msgid "Invalid JSON payload."
+msgstr "حمولة JSON غير صالحة."
+
+#: app/web_api.php:147
+msgid "No valid token data."
+msgstr "لا توجد بيانات رمز صالحة."
+
+#: app/web_api.php:200
+msgid "Unauthenticated. No token found. Please reauthenticate."
+msgstr "غير مصادق عليه. لم يتم العثور على رمز. يرجى إعادة المصادقة."
+
+#: app/web_api.php:206
+msgid "Unauthenticated. No token data found."
+msgstr "غير مصادق عليه. لم يتم العثور على بيانات رمز."
+
+#: app/web_api.php:216
+msgid "Auto Redirect"
+msgstr "إعادة توجيه تلقائي"
+
+#: app/web_api.php:217
+msgid "This page will automatically redirect in a few seconds..."
+msgstr "سيتم إعادة توجيه هذه الصفحة تلقائيًا في بضع ثوانٍ..."
+
+#: app/web_api.php:242
+msgid "You can get the data from here"
+msgstr "يمكنك الحصول على البيانات من هنا"
+
+#: app/web_api.php:248
+msgid "Unauthenticated, No Token Data"
+msgstr "غير مصادق عليه، بدون بيانات رمز"
+
+#: app/web_api.php:348
+msgid "Country code must be a valid two-letter uppercase code."
+msgstr "يجب أن يكون رمز البلد رمزًا صالحًا مكونًا من حرفين كبيرين."
+
+#: app/web_api.php:353
+msgid "Invalid or unauthorized country code."
+msgstr "رمز بلد غير صالح أو غير مصرح."
+
+#: app/web_api.php:420
+msgid "Image saved successfully."
+msgstr "تم حفظ الصورة بنجاح."
+
+#: app/web_api.php:433
+msgid "Image deleted successfully."
+msgstr "تم حذف الصورة بنجاح."
+
+#: app/web_api.php:435
+msgid "Image not found!"
+msgstr "لم يتم العثور على الصورة!"
+
+#. translators: 1: order ID, 2: order status
+#: app/web_api.php:661
+msgid "Order %1$d %2$s!"
+msgstr "الطلب %1$d %2$s!"
+
+#. translators: %d: number of items in the order
+#: app/web_api.php:663
+msgid "%d items"
+msgstr "%d عناصر"
+
+#. translators: %s: order status
+#: app/web_api.php:666
+msgid "Status: %s"
+msgstr "الحالة: %s"
+
+#: app/web_api.php:701
+msgid "Product is out of stock!"
+msgstr "المنتج غير متوفر في المخزون!"
+
+#: app/web_api.php:702
+msgid "Product "
+msgstr "منتج "
+
+#: app/web_api_auth.php:40
+msgid "Array of media item IDs to delete."
+msgstr "مصفوفة من معرفات العناصر الإعلامية للحذف."
+
+#: app/web_api_auth.php:156
+msgid "Invalid or missing file."
+msgstr "ملف غير صالح أو مفقود."
+
+#: app/web_api_auth.php:167
+msgid "Failed to read file content."
+msgstr "فشل قراءة محتوى الملف."
+
+#: app/web_api_auth.php:174
+msgid "Media upload failed."
+msgstr "فشل رفع الوسائط."
+
+#: app/web_api_auth.php:189
+msgid "Failed to create attachment."
+msgstr "فشل إنشاء المرفق."
+
+#: app/web_api_auth.php:218
+msgid "Attachment not found."
+msgstr "لم يتم العثور على المرفق."
+
+#: app/web_api_auth.php:224
+msgid "Error deleting the attachment."
+msgstr "خطأ في حذف المرفق."
+
+#: app/web_api_auth.php:233
+msgid "Attachment(s) deleted successfully."
+msgstr "تم حذف المرفق(ات) بنجاح."
+
+#: app/web_api_auth.php:241
+msgid "Nothing to delete."
+msgstr "لا يوجد شيء لحذفه."
+
+#: app/web_api_notification.php:345 app/web_api_notification.php:387 app/web_api_notification.php:411
+msgid "Notification not found."
+msgstr "لم يتم العثور على الإشعار."
+
+#. translators: %s: missing required field name
+#: app/web_api_notification.php:451
+msgid "Missing %s field."
+msgstr "حقل %s مفقود."
+
+#: app/web_api_notification.php:457
+msgid "Invalid event hook."
+msgstr "خطاف حدث غير صالح."
+
+#: invoice/main.php:64
+msgid "You do not have access to view this order."
+msgstr "ليس لديك صلاحية لعرض هذا الطلب."
+
+#: invoice/settings.php:50
+msgid "Hippoo invoice and shipping label"
+msgstr "فاتورة هيبو وملصق الشحن"
+
+#: invoice/settings.php:73
+msgid "General settings"
+msgstr "الإعدادات العامة"
+
+#: invoice/settings.php:80
+msgid "Shop logo"
+msgstr "شعار المتجر"
+
+#: invoice/settings.php:88
+msgid "Language direction"
+msgstr "اتجاه اللغة"
+
+#: invoice/settings.php:96
+msgid "Show barcode(Order id) in order list"
+msgstr "إظهار الباركود (معرف الطلب) في قائمة الطلبات"
+
+#: invoice/settings.php:104
+msgid "Show barcode(Order id) in order details"
+msgstr "إظهار الباركود (معرف الطلب) في تفاصيل الطلب"
+
+#: invoice/settings.php:112
+msgid "Show barcode(SKU) in products list"
+msgstr "إظهار الباركود (SKU) في قائمة المنتجات"
+
+#: invoice/settings.php:120
+msgid "Show barcode(SKU) in products details"
+msgstr "إظهار الباركود (SKU) في تفاصيل المنتجات"
+
+#: invoice/settings.php:130
+msgid "Invoice settings"
+msgstr "إعدادات الفاتورة"
+
+#: invoice/settings.php:137 invoice/settings.php:203
+msgid "Paper Size"
+msgstr "حجم الورق"
+
+#: invoice/settings.php:145
+msgid "Font name"
+msgstr "اسم الخط"
+
+#: invoice/settings.php:153 invoice/settings.php:211
+msgid "Show logo"
+msgstr "إظهار الشعار"
+
+#: invoice/settings.php:161
+msgid "Show customer note"
+msgstr "إظهار ملاحظة العميل"
+
+#: invoice/settings.php:169
+msgid "Show product SKU in invoice"
+msgstr "إظهار SKU المنتج في الفاتورة"
+
+#: invoice/settings.php:177
+msgid "Footer description"
+msgstr "وصف التذييل"
+
+#: invoice/settings.php:196
+msgid "Shipping label settings"
+msgstr "إعدادات ملصق الشحن"
+
+#: invoice/settings.php:219
+msgid "Calculate Weight"
+msgstr "حساب الوزن"
+
+#: invoice/settings.php:227
+msgid "Courier logo"
+msgstr "شعار شركة الشحن"
+
+#: invoice/settings.php:251 invoice/templates/simple/hippoo-factor.php:154 invoice/templates/simple/hippoo-label.php:91
+msgid "Shop Logo"
+msgstr "شعار المتجر"
+
+#: invoice/settings.php:253 invoice/settings.php:390
+msgid "Upload Logo"
+msgstr "رفع الشعار"
+
+#: invoice/settings.php:254 invoice/settings.php:391
+msgid "Remove"
+msgstr "إزالة"
+
+#: invoice/settings.php:255
+msgid "512x512 is perfect size for logo"
+msgstr "الحجم المثالي للشعار هو 512x512"
+
+#: invoice/settings.php:360
+msgid "Exclamation Icon"
+msgstr "أيقونة التعجب"
+
+#: invoice/settings.php:363
+msgid "Need more invoice or shipping label customization?"
+msgstr "هل تحتاج إلى تخصيص أكثر للفاتورة أو ملصق الشحن؟"
+
+#: invoice/settings.php:364
+msgid ""
+"You can customize your invoice layout by copying the template file from the "
+"plugin folder to your active theme folder. Then edit the copied file to "
+"adjust the design, paper size, or language to fit your needs."
+msgstr "يمكنك تخصيص تخطيط الفاتورة بنسخ ملف القالب من مجلد الإضافة إلى مجلد القالب النشط. ثم قم بتحرير الملف المنسوخ لتعديل التصميم أو حجم الورق أو اللغة حسب احتياجاتك."
+
+#: invoice/settings.php:365
+msgid "Learn more here"
+msgstr "تعرف على المزيد هنا"
+
+#: invoice/settings.php:428
+msgid "Setting saved."
+msgstr "تم حفظ الإعداد."
+
+#: invoice/templates/simple/hippoo-factor.php:3 invoice/templates/simple/hippoo-factor.php:162 invoice/templates/simple/hippoo-label.php:113
+msgid "Invoice"
+msgstr "فاتورة"
+
+#: invoice/templates/simple/hippoo-factor.php:164 invoice/templates/simple/hippoo-label.php:115
+msgid "Invoice Barcode"
+msgstr "باركود الفاتورة"
+
+#: invoice/templates/simple/hippoo-factor.php:178
+msgid "Bill to:"
+msgstr "الفاتورة إلى:"
+
+#: invoice/templates/simple/hippoo-factor.php:180
+msgid "Customer note:"
+msgstr "ملاحظة العميل:"
+
+#: invoice/templates/simple/hippoo-factor.php:196
+msgid "Item"
+msgstr "عنصر"
+
+#: invoice/templates/simple/hippoo-factor.php:198 invoice/woocommerce/product.php:27
+msgid "SKU"
+msgstr "SKU"
+
+#: invoice/templates/simple/hippoo-factor.php:200
+msgid "Qty"
+msgstr "الكمية"
+
+#: invoice/templates/simple/hippoo-factor.php:201
+msgid "Price"
+msgstr "السعر"
+
+#: invoice/templates/simple/hippoo-factor.php:202
+msgid "Amount"
+msgstr "المبلغ"
+
+#: invoice/templates/simple/hippoo-factor.php:216
+msgid "Product SKU Barcode"
+msgstr "باركود SKU المنتج"
+
+#: invoice/templates/simple/hippoo-factor.php:229
+msgid "Subtotal"
+msgstr "المجموع الفرعي"
+
+#: invoice/templates/simple/hippoo-factor.php:235
+msgid "Discount"
+msgstr "الخصم"
+
+#: invoice/templates/simple/hippoo-factor.php:242
+msgid "Tax"
+msgstr "الضريبة"
+
+#: invoice/templates/simple/hippoo-factor.php:248
+msgid "Total"
+msgstr "الإجمالي"
+
+#: invoice/templates/simple/hippoo-label.php:3
+msgid "Label"
+msgstr "ملصق"
+
+#: invoice/templates/simple/hippoo-label.php:86
+msgid "From:"
+msgstr "من:"
+
+#: invoice/templates/simple/hippoo-label.php:97
+msgid "Ship to:"
+msgstr "الشحن إلى:"
+
+#: invoice/templates/simple/hippoo-label.php:107
+msgid "Weight:"
+msgstr "الوزن:"
+
+#: invoice/templates/simple/hippoo-label.php:118
+msgid "Courier Logo"
+msgstr "شعار شركة الشحن"
+
+#: invoice/woocommerce/order-copy.php:46 invoice/woocommerce/order.php:72
+msgid "Barcode"
+msgstr "باركود"
+
+#: invoice/woocommerce/order-copy.php:160
+msgid "Custom Meta Box"
+msgstr "صندوق ميتا مخصص"
+
+#: invoice/woocommerce/order-test.php:48
+msgid "Validate Address"
+msgstr "التحقق من العنوان"
+
+#: invoice/woocommerce/order.php:215
+msgid "Order ID Barcode"
+msgstr "باركود معرف الطلب"
+
+#: invoice/woocommerce/product.php:51
+msgid "Product Barcode (SKU)"
+msgstr "باركود المنتج (SKU)"

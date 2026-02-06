@@ -9,15 +9,13 @@ class HippooSettings
     {
         add_action('admin_menu', array($this, 'add_admin_menu'));
         add_action('admin_init', array($this, 'settings_init'));
-
-        $this->settings = get_option($this->slug, []);
     }
 
     public function add_admin_menu()
     {
         add_menu_page(
-            'Hippoo Settings',
-            'Hippoo',
+            __('Hippoo Settings', 'hippoo'),
+            __('Hippoo', 'hippoo'),
             'manage_options',
             'hippoo_setting_page',
             array($this, 'settings_page_render'),
@@ -27,10 +25,12 @@ class HippooSettings
 
     public function settings_init()
     {
+        $this->settings = get_option($this->slug, []);
+        
         register_setting('hippoo_settings', $this->slug); // phpcs:ignore
 
         add_settings_section(
-            'hippoo_invoice_settings_section',
+            'hippoo_general_settings_section',
             null,
             null,
             $this->slug
@@ -42,16 +42,25 @@ class HippooSettings
             __('Enable Hippoo invoice and shipping label', 'hippoo') . $description,
             array($this, 'invoice_plugin_enabled_render'),
             $this->slug,
-            'hippoo_invoice_settings_section'
+            'hippoo_general_settings_section'
         );
-    }
 
-    /***** Helper Function *****/
-    public function render_checkbox_input($name, $value_key) {
-        $value = isset($this->settings[$value_key]) ? $this->settings[$value_key] : 0;
-        ?>
-        <input type="checkbox" class="switch" name="hippoo_invoice_settings[<?php echo esc_attr($name); ?>]" <?php checked($value, 1); ?> value="1">
-        <?php
+        // $description = '<p>' . esc_html__( 'Enable this option to automatically optimize and compress product images uploaded through the Hippoo WooCommerce app. This setting only applies to images uploaded in Hippoo and will not affect uploads made directly through WordPress or other tools.', 'hippoo' ) . '</p>';
+        // add_settings_field(
+        //     'image_optimization_enabled',
+        //     __('Optimize and Compress Images Uploaded in Hippoo App', 'hippoo') . $description,
+        //     array($this, 'image_optimization_enabled_render'),
+        //     $this->slug,
+        //     'hippoo_general_settings_section'
+        // );
+
+        // add_settings_field(
+        //     'image_size_selection',
+        //     __('Image size', 'hippoo'),
+        //     array($this, 'image_size_selection_render'),
+        //     $this->slug,
+        //     'hippoo_general_settings_section'
+        // );
     }
 
     public function invoice_plugin_enabled_render()
@@ -62,64 +71,127 @@ class HippooSettings
     <?php
     }
 
+    public function image_optimization_enabled_render()
+    {
+        $value = isset($this->settings['image_optimization_enabled']) ? $this->settings['image_optimization_enabled'] : 0;
+    ?>
+        <input type="hidden" name="hippoo_settings[image_optimization_enabled]" value="0">
+        <input type="checkbox" class="switch" id="image_optimization_enabled" name="hippoo_settings[image_optimization_enabled]" <?php checked($value, 1); ?> value="1">
+    <?php
+    }
+
+    public function image_size_selection_render()
+    {
+        $selected_size = isset($this->settings['image_size_selection']) ? $this->settings['image_size_selection'] : 'large';
+        $image_sizes = hippoo_get_available_image_sizes();
+        $disabled = isset($this->settings['image_optimization_enabled']) && $this->settings['image_optimization_enabled'] ? '' : 'disabled';
+        
+        echo '<select id="image_size_selection" name="hippoo_settings[image_size_selection]" ' . $disabled . '>';
+        foreach ($image_sizes as $size => $dimensions) {
+            $selected = selected($selected_size, $size, false);
+            echo '<option value="' . esc_attr($size) . '" ' . $selected . '>' . esc_html($size) . ' (' . $dimensions['width'] . '×' . $dimensions['height'] . ')</option>';
+        }
+        echo '</select>';
+    }
+
     public function settings_page_render()
     {
-    ?>
-        <form id="hippoo_settings" action="options.php" method="post">
-    <h2><?php esc_html_e('Hippoo Settings', 'hippoo'); ?></h2>
-    <div class="tabs">
-        <h2 class="nav-tab-wrapper">
-            <a href="#tab-settings" class="nav-tab nav-tab-active"><?php esc_html_e('Settings', 'hippoo'); ?></a>
-            <a href="#tab-app" class="nav-tab"><?php esc_html_e('Hippoo App', 'hippoo'); ?></a>
-        </h2>
+        $tabs = apply_filters(
+            'hippoo_settings_tabs',
+            [
+                'settings' => esc_html__('Settings', 'hippoo'),
+                'app' => esc_html__('Hippoo App', 'hippoo'),
+            ]
+        );
 
-        <div id="tab-settings" class="tab-content active">
-            <?php
-            settings_fields('hippoo_settings');
-            do_settings_sections('hippoo_settings');
-            submit_button();
-            ?>
-        </div>
-
-        <div id="tab-app" class="tab-content">
-            <div class="introduction">
-                <div class="details">
-                    <h2><?php esc_html_e('Hippoo Woocommerce app', 'hippoo'); ?></h2>
-                    <p><?php esc_html_e('Hippoo! is not just a shop management app, it\'s also a platform that enables you to extend its capabilities. With the ability to install extensions, you can customize your experience and add new features to the app. Browse and install other Hippoo plugins from our app to enhance your store\'s functionality.', 'hippoo'); ?></p>
-                    <a href="https://play.google.com/store/apps/details?id=io.hippo" target="_blank" class="google-button">
-                        <img src="<?php echo esc_url(HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/google-play.svg'); ?>" alt="<?php esc_attr_e('Download Hippoo Android app', 'hippoo'); ?>" />
-                        <strong><?php esc_html_e('Download Hippoo Android app', 'hippoo'); ?></strong>
-                    </a>
-                    <a href="https://apps.apple.com/ee/app/hippoo-woocommerce-admin-app/id1667265325" target="_blank" class="google-button">
-                        <img src="<?php echo esc_url(HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/apple.svg'); ?>" alt="<?php esc_attr_e('Download Hippoo iOS app', 'hippoo'); ?>" />
-                        <strong><?php esc_html_e('Download Hippoo iOS app', 'hippoo'); ?></strong>
-                    </a>
-                </div>
-                <div class="qrcode">
-                    <p><?php esc_html_e('Scan QR code with your Android phone to install the app', 'hippoo'); ?></p>
-                    <img src="<?php echo esc_url(HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/qrcode.png'); ?>" alt="<?php esc_attr_e('QR Code', 'hippoo'); ?>" />
-                </div>
-            </div>
-            <div id="image-carousel">
-                <div class="carousel-wrapper">
-                    <div class="carousel-inner">
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/1.png'); ?>" alt="<?php esc_attr_e('App screenshot 1', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/2.png'); ?>" alt="<?php esc_attr_e('App screenshot 2', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/3.png'); ?>" alt="<?php esc_attr_e('App screenshot 3', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/4.png'); ?>" alt="<?php esc_attr_e('App screenshot 4', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/5.png'); ?>" alt="<?php esc_attr_e('App screenshot 5', 'hippoo'); ?>" />
+        $tab_contents = apply_filters(
+            'hippoo_settings_tab_contents',
+            [
+                'settings' => function() {
+                    ob_start();
+                    settings_fields('hippoo_settings');
+                    do_settings_sections('hippoo_settings');
+                    submit_button();
+                    return ob_get_clean();
+                },
+                'app' => function() {
+                    ob_start();
+                    ?>
+                    <div class="introduction">
+                        <div class="details">
+                            <h2><?php esc_html_e('Hippoo Woocommerce app', 'hippoo'); ?></h2>
+                            <p><?php esc_html_e('Hippoo! is not just a shop management app, it\'s also a platform that enables you to extend its capabilities. With the ability to install extensions, you can customize your experience and add new features to the app. Browse and install other Hippoo plugins from our app to enhance your store\'s functionality.', 'hippoo'); ?></p>
+                            <a href="https://play.google.com/store/apps/details?id=io.hippo" target="_blank" class="google-button">
+                                <img src="<?php echo esc_url(HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/google-play.svg'); ?>" alt="<?php esc_attr_e('Download Hippoo Android app', 'hippoo'); ?>" />
+                                <strong><?php esc_html_e('Download Hippoo Android app', 'hippoo'); ?></strong>
+                            </a>
+                            <a href="https://apps.apple.com/ee/app/hippoo-woocommerce-admin-app/id1667265325" target="_blank" class="google-button">
+                                <img src="<?php echo esc_url(HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/apple.svg'); ?>" alt="<?php esc_attr_e('Download Hippoo iOS app', 'hippoo'); ?>" />
+                                <strong><?php esc_html_e('Download Hippoo iOS app', 'hippoo'); ?></strong>
+                            </a>
+                        </div>
+                        <div class="qrcode">
+                            <p><?php esc_html_e('Scan QR code with your Android phone to install the app', 'hippoo'); ?></p>
+                            <img src="<?php echo esc_url(HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/qrcode.png'); ?>" alt="<?php esc_attr_e('QR Code', 'hippoo'); ?>" />
+                        </div>
                     </div>
+                    <div id="image-carousel">
+                        <div class="carousel-wrapper">
+                            <div class="carousel-inner">
+                                <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/1.png'); ?>" alt="<?php esc_attr_e('App screenshot 1', 'hippoo'); ?>" />
+                                <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/2.png'); ?>" alt="<?php esc_attr_e('App screenshot 2', 'hippoo'); ?>" />
+                                <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/3.png'); ?>" alt="<?php esc_attr_e('App screenshot 3', 'hippoo'); ?>" />
+                                <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/4.png'); ?>" alt="<?php esc_attr_e('App screenshot 4', 'hippoo'); ?>" />
+                                <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/5.png'); ?>" alt="<?php esc_attr_e('App screenshot 5', 'hippoo'); ?>" />
+                            </div>
+                        </div>
+                        <div class="carousel-nav">
+                            <span class="carousel-arrow prev"><i class="carousel-prev"></i></span>
+                            <span class="carousel-arrow next"><i class="carousel-next"></i></span>
+                        </div>
+                    </div>
+                    <?php
+                    return ob_get_clean();
+                },
+            ]
+        );
+
+        $active_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'settings';
+        $active_tab = apply_filters('hippoo_settings_active_tab', $active_tab);
+
+        foreach (array_keys($tabs) as $tab_id) {
+            $default_content = isset($tab_contents[$tab_id]) ? $tab_contents[$tab_id]() : '';
+            $tab_contents[$tab_id] = apply_filters("hippoo_settings_tab_content_{$tab_id}", $default_content, $tab_id);
+        }
+
+        do_action('hippoo_before_settings_page');
+    ?>
+        
+        <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated']): ?>
+            <div class="updated notice is-dismissible"><p><?php _e('Settings saved successfully.', 'hippoo'); ?></p></div>
+        <?php endif; ?>
+        
+        <div id="hippoo_settings">
+            <h2><?php esc_html_e('Hippoo Settings', 'hippoo'); ?></h2>
+            <div class="tabs">
+                <div class="nav-tab-wrapper">
+                    <?php foreach ($tabs as $id => $label): ?>
+                        <a href="<?php echo esc_url(add_query_arg('tab', $id, admin_url('admin.php?page=hippoo_setting_page'))); ?>" class="nav-tab <?php echo $id === $active_tab ? 'nav-tab-active' : ''; ?>">
+                            <?php echo esc_html($label); ?>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
-                <div class="carousel-nav">
-                    <span class="carousel-arrow prev"><i class="carousel-prev"></i></span>
-                    <span class="carousel-arrow next"><i class="carousel-next"></i></span>
-                </div>
+
+                <?php foreach ($tabs as $id => $label): ?>
+                    <div id="tab-<?php echo esc_attr($id); ?>" class="tab-content <?php echo $id === $active_tab ? 'active' : ''; ?>">
+                        <form action="options.php" method="post">
+                            <?php echo $tab_contents[$id]; ?>
+                        </form>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-</form>
-
-<?php
+    <?php
     }
 }
 

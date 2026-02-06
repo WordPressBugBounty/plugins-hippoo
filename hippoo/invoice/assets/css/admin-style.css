@@ -403,4 +403,55 @@
 #hippoo_invoice_settings .carousel-next {
     background-image: url('../img/next-arrow.svg');
 }
-  
+
+/* Invoice Notice */
+
+.hippoo-invoice-notice {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border: 2px solid #79B2EA;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.hippoo-invoice-notice .logo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.hippoo-invoice-notice .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 5px;
+    padding: 0 15px;
+}
+
+.hippoo-invoice-notice .content h4,
+.hippoo-invoice-notice .content p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+tr.invoice-notice-row {
+    display: table-row;
+    width: 100%;
+}
+
+tr.invoice-notice-row th {
+    display: none;
+}
+
+tr.invoice-notice-row td {
+    display: block;
+    min-height: 120px;
+    padding: 0 !important;
+}
+
+@media only screen and (min-width: 767px) {
+    tr.invoice-notice-row .hippoo-invoice-notice {
+        position: absolute;
+    }
+}

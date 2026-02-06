@@ -37,7 +37,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
                     'sanitize_callback' => 'rest_sanitize_request_arg',
                     'validate_callback' => 'rest_validate_request_arg',
                     'type'              => 'array',
-                    'description'       => 'Array of media item IDs to delete.',
+                    'description'       => __('Array of media item IDs to delete.', 'hippoo'),
                 ),
             )
         );
@@ -153,7 +153,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
 
     function hippoo_media_upload() {
         if (empty($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-            return new WP_Error('invalid_file', 'Invalid or missing file.', ['status' => 400]);
+            return new WP_Error('invalid_file', __('Invalid or missing file.', 'hippoo'), ['status' => 400]);
         }
     
         $file = $_FILES['file'];
@@ -164,14 +164,14 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
         // Read file content
         $file_content = file_get_contents($file_tmp_path);
         if ($file_content === false) {
-            return new WP_Error('file_read_error', 'Failed to read file content.', ['status' => 500]);
+            return new WP_Error('file_read_error', __('Failed to read file content.', 'hippoo'), ['status' => 500]);
         }
     
         // Upload the file
         $upload = wp_upload_bits($file_name, null, $file_content);
     
         if (!empty($upload['error'])) {
-            return new WP_Error('upload_failed', 'Media upload failed.', ['status' => 500]);
+            return new WP_Error('upload_failed', __('Media upload failed.', 'hippoo'), ['status' => 500]);
         }
     
         // Prepare attachment data
@@ -186,7 +186,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
         $attachment_id = wp_insert_attachment($attachment, $upload['file']);
     
         if (is_wp_error($attachment_id)) {
-            return new WP_Error('attachment_failed', 'Failed to create attachment.', ['status' => 500]);
+            return new WP_Error('attachment_failed', __('Failed to create attachment.', 'hippoo'), ['status' => 500]);
         }
     
         // Generate metadata and update attachment
@@ -215,13 +215,13 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
 
                 $attachment_path = get_attached_file($attachment_id);
                 if (!$attachment_path) {
-                    return new WP_Error('invalid_attachment', 'Attachment not found.', ['status' => 404]);
+                    return new WP_Error('invalid_attachment', __('Attachment not found.', 'hippoo'), ['status' => 404]);
                 }
 
                 $deleted = wp_delete_attachment($attachment_id, true);
 
                 if ($deleted === false) {
-                    return new WP_Error('delete_error', 'Error deleting the attachment.', ['status' => 500]);
+                    return new WP_Error('delete_error', __('Error deleting the attachment.', 'hippoo'), ['status' => 500]);
                 }
 
                 $attachment_ids_deleted[] = $attachment_id;
@@ -230,7 +230,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
 
             $response =  array(
                 'status' => 'success',
-                'message' => 'Attachment(s) deleted successfully.',
+                'message' => __('Attachment(s) deleted successfully.', 'hippoo'),
                 'attachment_ids_deleted' => $attachment_ids_deleted
             );
             return new WP_REST_Response($response, 200);
@@ -238,7 +238,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
 
         $response =  array(
             'status' => 'problem',
-            'message' => 'Nothing to delete'
+            'message' => __('Nothing to delete.', 'hippoo'),
         );
         return new WP_REST_Response($response, 404);
     }
@@ -352,8 +352,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
         }, $settings);
     
         update_option('hippoo_settings', $settings);
-    
-        return rest_ensure_response( $settings );
+        return rest_ensure_response($settings);
     }
 
     function is_user_wordpress_admin(){

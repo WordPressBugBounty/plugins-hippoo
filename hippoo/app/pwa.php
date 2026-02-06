@@ -40,7 +40,7 @@ class HippooPwa
         if ($this->is_plugin_enabled()) {
             add_rewrite_rule('^' . $this->get_route_name() . '/?$', 'index.php?hippoo_pwa=1', 'top');
             add_rewrite_rule('^' . $this->get_route_name() . '/custom\.css$', 'index.php?hippoo_custom_css=1', 'top');
-            add_rewrite_rule('^' . $this->get_route_name() . '/(.*)', 'index.php?hippoo_serve=$matches[1]', 'top');
+            add_rewrite_rule('^' . $this->get_route_name() . '/(.+?)/?$', 'index.php?hippoo_serve=$matches[1]', 'top');
         }
     }
 
@@ -55,22 +55,28 @@ class HippooPwa
     public function template_redirect()
     {
         if (get_query_var('hippoo_pwa')) {
-            include hippoo_path.'pwa'.DIRECTORY_SEPARATOR.'index.html';
+            include hippoo_path . 'pwa' . DIRECTORY_SEPARATOR . 'index.html';
             exit;
         }
 
         if ($serve_path = get_query_var('hippoo_serve')) {
-            $file_path = hippoo_path.'pwa'.DIRECTORY_SEPARATOR.$serve_path;
+            $base       = realpath(hippoo_path . 'pwa');
+            $file_path  = realpath($base . DIRECTORY_SEPARATOR . $serve_path);
+            
+            if (!$file_path || strpos($file_path, $base) !== 0) {
+                include $base . DIRECTORY_SEPARATOR . 'index.html';
+                exit;
+            }
 
             if (file_exists($file_path)) {
                 $mime_type = $this->get_mime_type($file_path);
                 header('Content-Type: ' . $mime_type);
                 readfile($file_path); // phpcs:ignore
                 exit;
-            } else {
-                status_header(404);
-                exit;
             }
+
+            include $base . DIRECTORY_SEPARATOR . 'index.html';
+            exit;
         }
 
         if (get_query_var('hippoo_custom_css')) {
@@ -126,8 +132,9 @@ class HippooPwa
 
     public function field_route_name_render()
     {
-        $disabled = $this->is_plugin_enabled() ? '' : 'disabled';
-        echo '<label for="pwa_route_name">';
+        // $disabled = $this->is_plugin_enabled() ? '' : 'disabled';
+        $disabled = 'disabled';
+        echo '<label for="pwa_route_name" class="route-name-field">';
         echo esc_html(preg_replace('#^https?://#', '', get_site_url()) . '/ ');
         echo '<input type="text" id="pwa_route_name" name="hippoo_settings[pwa_route_name]" value="' . esc_attr($this->get_route_name()) . '" ' . esc_html($disabled) . '>';
         echo '</label>';

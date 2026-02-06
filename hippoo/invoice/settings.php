@@ -8,7 +8,7 @@ class HippooInvoiceSettings {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
         add_action( 'admin_init', array( $this, 'settings_init' ) );
-        add_action( 'admin_notices', array( $this, 'admin_notice' ) );
+        // add_action( 'admin_notices', array( $this, 'admin_notice' ) );
         add_action( 'wp_ajax_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
         add_action( 'wp_ajax_nopriv_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
         $this->settings = get_option( $this->slug, [] );
@@ -17,8 +17,8 @@ class HippooInvoiceSettings {
     public function add_admin_menu() {
         add_submenu_page(
             'hippoo_setting_page', // Parent slug
-            'Hippoo Invoice', // Page title
-            'Hippoo Invoice', // Menu title
+            __('Hippoo Invoice', 'hippoo'), // Page title
+            __('Hippoo Invoice', 'hippoo'), // Menu title
             'manage_options', // Capability
             $this->slug, // Menu slug
             array($this, 'settings_page_render') // Callback function
@@ -132,6 +132,13 @@ class HippooInvoiceSettings {
             $this->slug
         );
 
+        add_settings_field(
+            'invoice_paper_size',
+            __( 'Paper Size', 'hippoo' ),
+            array( $this, 'invoice_paper_size_render' ),
+            $this->slug,
+            'hippoo_invoice_settings_section'
+        );
         
         add_settings_field(
             'font_name',
@@ -174,11 +181,12 @@ class HippooInvoiceSettings {
         );
 
         add_settings_field(
-            'invoice_paper_size',
-            __( 'Invoice Paper Size', 'hippoo' ),
-            array( $this, 'invoice_paper_size_render' ),
+            'invoice_notice',
+            '',
+            array( $this, 'invoice_notice_render' ),
             $this->slug,
-            'hippoo_invoice_settings_section'
+            'hippoo_invoice_settings_section',
+            array( 'class' => 'invoice-notice-row' )
         );
     }
 
@@ -190,6 +198,13 @@ class HippooInvoiceSettings {
             $this->slug
         );
 
+        add_settings_field(
+            'shipping_paper_size',
+            __( 'Paper Size', 'hippoo' ),
+            array( $this, 'shipping_paper_size_render' ),
+            $this->slug,
+            'hippoo_shipping_settings_section'
+        );
 
         add_settings_field(
             'shipping_show_logo',
@@ -211,14 +226,6 @@ class HippooInvoiceSettings {
             'shipping_courier_logo',
             __( 'Courier logo', 'hippoo' ),
             array( $this, 'shipping_courier_logo_render' ),
-            $this->slug,
-            'hippoo_shipping_settings_section'
-        );
-
-        add_settings_field(
-            'shipping_paper_size',
-            __( 'Shipping Label Paper Size', 'hippoo' ),
-            array( $this, 'shipping_paper_size_render' ),
             $this->slug,
             'hippoo_shipping_settings_section'
         );
@@ -343,6 +350,21 @@ class HippooInvoiceSettings {
             }
             ?>
         </select>
+        <?php
+    }
+
+    public function invoice_notice_render() {
+        ?>
+        <div class="notice notice-info hippoo-invoice-notice">
+            <div class="logo-wrapper">
+                <img src="<?php echo esc_url(hippoo_url . 'images/info.svg'); ?>" alt="<?php esc_attr_e('Exclamation Icon', 'hippoo'); ?>" class="exclamation-icon">
+            </div>
+            <div class="content">
+                <h4><?php esc_html_e('Need more invoice or shipping label customization?', 'hippoo'); ?></h4>
+                <p><?php esc_html_e('You can customize your invoice layout by copying the template file from the plugin folder to your active theme folder. Then edit the copied file to adjust the design, paper size, or language to fit your needs.', 'hippoo'); ?></p>
+                <p><a href="<?php echo esc_url('https://hippoo.app/docs/how-to-customize-invoice-and-shipping-label-templates-in-hippoo/'); ?>" target="_blank"><?php esc_html_e('Learn more here', 'hippoo'); ?></a></p>
+            </div>
+        </div>
         <?php
     }
     
