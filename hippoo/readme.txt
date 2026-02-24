@@ -4,7 +4,7 @@ Donate link: https://Hippoo.app/
 Tags: Hippoo, order notifications, WooCommerce app, Store management app, WooCommerce app alternative, PWA, headless
 Requires at least: 5.3
 Tested up to: 6.7
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Hippoo helps you manage WooCommerce orders, inventory, and analytics from your mobile. Receive real-time notifications and control your store on the go.
@@ -43,6 +43,11 @@ Manage your WooCommerce store on the go with Hippoo. Receive real-time order not
 
   <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Hundreds More Features: Enjoy a comprehensive toolset with exclusive WooCommerce management features you won’t find in other apps!</span></li>
 </ol>
+<h5><b>Why Use Hippoo Role &amp; Permissions?</b></h5>
+<span style="font-weight: 400;">Hippoo <b>Role &amp; Permissions</b> gives you <b>fine-grained control</b> over what each team member can see and do inside the Hippoo app. You can <b>limit access by user role</b> to key areas like <b>Orders</b>, <b>Products</b>, <b>Customers</b>, and <b>Reviews</b>, so staff only see what they need.</span>
+<br /><br />
+<span style="font-weight: 400;">For example, you can allow a role to view orders but hide <b>prices</b>, restrict visibility of <b>customer address</b> and <b>phone number</b>, control access to <b>sales analytics</b>, and decide which <b>order details</b> or <b>product fields</b> (like <b>SKU</b> and stock) are visible. This helps improve <b>data privacy</b>, reduce mistakes, and keep your store operations <b>secure and organized</b>.</span>
+
 
 <h5><b>Progressive Web App (PWA) Support</b></h5>  
 <span style="font-weight: 400;">Hippoo WooCommerce now enables a <b>PWA for your store</b>, allowing customers to install it on their devices. By default, a "Designed by Hippoo WooCommerce app" credit appears under the PWA. The entire PWA feature can be disabled in the settings.</span>  
@@ -77,6 +82,7 @@ Manage your WooCommerce store on the go with Hippoo. Receive real-time order not
 7. Advanced sale analytics and top selling products
 
 == Changelog ==
+* 1.7.4 – Role and Permissions in Rest-API level
 * 1.7.3 – Ability to install integrations
 * 1.7.2 –
 * 1.7.1 – Add Gemini Support for AI features

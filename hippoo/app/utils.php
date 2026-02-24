@@ -149,7 +149,7 @@ function hippoo_check_user_license() {
     $licenses = wp_list_pluck($data['Licenses'], 'Sku');
 
     // Premium SKUs
-    $premium_skus = ['premium', 'hippoo_premium', '14-days-trial'];
+    $premium_skus = ['premium', 'hippoopremium', 'hippoo_premium', '14-days-trial'];
 
     foreach ($licenses as $sku) {
         if (in_array($sku, $premium_skus)) {
