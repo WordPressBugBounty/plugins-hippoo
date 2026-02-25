@@ -21,11 +21,11 @@ class HippooIntegrations
 
     public function add_settings_tab($tabs)
     {
-        $tabs['integrations'] = [
-            'label'    => esc_html__('Hippoo Integrations', 'hippoo'),
-            'priority' => 40,
-        ];
-        return $tabs;
+        $position = max(0, count($tabs) - 1);
+        
+        return array_slice($tabs, 0, $position, true)
+            + ['integrations' => esc_html__('Hippoo Integrations', 'hippoo')]
+            + array_slice($tabs, $position, null, true);
     }
 
     public function add_settings_tab_content($contents)
@@ -49,7 +49,7 @@ class HippooIntegrations
     {
         check_ajax_referer('hippoo_nonce', 'nonce');
 
-        $products = self::get_products();
+        $products = $this->get_products();
         if (!$products) {
             wp_send_json_error(__('Failed to fetch integrations.', 'hippoo'));
         }
@@ -106,19 +106,6 @@ class HippooIntegrations
             'methods'             => 'GET',
             'callback'            => array($this, 'rest_plugins_list'),
             'permission_callback' => array($this, 'rest_permission_check'),
-            'args' => array(
-                'page'     => array(
-                    'type'        => 'integer',
-                    'default'     => 1,
-                    'minimum'     => 1,
-                ),
-                'per_page' => array(
-                    'type'        => 'integer',
-                    'default'     => 10,
-                    'minimum'     => 1,
-                    'maximum'     => 100,
-                ),
-            ),
         ));
 
         register_rest_route($this->namespace, '/manage-plugin', array(
@@ -160,26 +147,14 @@ class HippooIntegrations
 
     public function rest_plugins_list($request)
     {
-        $products = self::get_products();
+        $products = $this->get_products();
         if (!$products) {
             return new WP_Error('fetch_failed', __('Failed to fetch integrations.', 'hippoo'), ['status' => 500]);
         }
 
-        $plugins = $this->build_plugins_list($products);
-
-        $page     = max(1, (int) $request['page']);
-        $per_page = max(1, min(100, (int) $request['per_page']));
-        $offset   = ($page - 1) * $per_page;
-
-        $total = count($plugins);
-        $paginated_plugins = array_slice($plugins, $offset, $per_page);
-
-        $response = rest_ensure_response($paginated_plugins);
-
-        $response->header('X-WP-Total', (int) $total);
-        $response->header('X-WP-TotalPages', ceil($total / $per_page));
-
-        return $response;
+        return rest_ensure_response(
+            $this->build_plugins_list($products)
+        );
     }
 
     public function rest_manage_plugin($request)
@@ -258,30 +233,6 @@ class HippooIntegrations
         return new WP_Error('bad_request', __('Invalid action.', 'hippoo'), ['status' => 400]);
     }
 
-    public static function get_products()
-    {
-        $cache_key = 'hippoo_products';
-        $products  = wp_cache_get($cache_key);
-
-        if ($products !== false) {
-            return $products;
-        }
-
-        $response = wp_remote_get(self::PRODUCTS_ENDPOINT, ['timeout' => 30]);
-        if (is_wp_error($response)) {
-            return false;
-        }
-
-        $products = json_decode(wp_remote_retrieve_body($response), true);
-        if (!is_array($products)) {
-            return false;
-        }
-
-        wp_cache_set($cache_key, $products, '', HOUR_IN_SECONDS);
-
-        return $products;
-    }
-
     private function install_plugin($slug)
     {
         if (!class_exists('Plugin_Upgrader')) {
@@ -318,13 +269,37 @@ class HippooIntegrations
 
     private function is_allowed_plugin($slug)
     {
-        $products = self::get_products();
+        $products = $this->get_products();
         if (!$products) {
             return false;
         }
 
         $allowed_slugs = array_column($products, 'slug');
         return in_array($slug, $allowed_slugs, true);
+    }
+
+    private function get_products()
+    {
+        $cache_key = 'hippoo_products';
+        $products  = wp_cache_get($cache_key);
+
+        if ($products !== false) {
+            return $products;
+        }
+
+        $response = wp_remote_get(self::PRODUCTS_ENDPOINT, ['timeout' => 30]);
+        if (is_wp_error($response)) {
+            return false;
+        }
+
+        $products = json_decode(wp_remote_retrieve_body($response), true);
+        if (!is_array($products)) {
+            return false;
+        }
+
+        wp_cache_set($cache_key, $products, '', HOUR_IN_SECONDS);
+
+        return $products;
     }
 
     private function build_plugins_list(array $products)
@@ -346,25 +321,17 @@ class HippooIntegrations
                 $status = 'installed';
             }
 
-            $screenshots = array_values(array_filter(array_map(function ($img) {
-                return $img['src'] ?? null;
-            }, $product['images'] ?? [])));
-
-            $main_image = $screenshots[0] ?? '';
-            $screenshots = array_slice($screenshots, 1);
-
             $result[] = [
                 'id'          => $product['id'],
                 'name'        => wp_strip_all_tags($product['name']),
                 'slug'        => $slug,
+                'image'       => $product['images'][0]['src'] ?? '',
                 'description' => wp_kses_post(
                     $product['short_description'] ?: $product['description']
                 ),
                 'status'      => $status,
                 'plugin_file' => $plugin_file,
                 'detail_url'  => "https://wordpress.org/plugins/{$slug}/",
-                'image'       => $main_image,
-                'screenshots' => $screenshots,
             ];
         }
 

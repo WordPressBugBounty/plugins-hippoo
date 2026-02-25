@@ -2,6 +2,7 @@
 
 class HippooAI
 {
+    public $settings;
     public $namespace = 'hippoo-ai/v1';
 
     const GPT_MODELS = ['gpt-5', 'gpt-4', 'gpt-4o', 'gpt-4o-mini'];
@@ -22,11 +23,11 @@ class HippooAI
 
     public function add_settings_tab($tabs)
     {
-        $tabs['ai'] = [
-            'label'    => esc_html__('Hippoo AI', 'hippoo'),
-            'priority' => 20,
-        ];
-        return $tabs;
+        $position = max(0, count($tabs) - 1);
+        
+        return array_slice($tabs, 0, $position, true)
+            + ['ai' => esc_html__('Hippoo AI', 'hippoo')]
+            + array_slice($tabs, $position, null, true);
     }
 
     public function add_settings_tab_content($contents)
@@ -36,13 +37,11 @@ class HippooAI
             ob_start();
             ?>
             <div class="hippoo-ai-tab <?php echo ($license_status === 'basic') ? 'is-locked' : ''; ?>">
-                <form action="options.php" method="post">
-                    <?php
-                    settings_fields('hippoo_ai_settings');
-                    do_settings_sections('hippoo_ai_settings');
-                    submit_button();
-                    ?>
-                </form>
+                <?php
+                settings_fields('hippoo_ai_settings');
+                do_settings_sections('hippoo_ai_settings');
+                submit_button();
+                ?>
             </div>
             <?php
             return ob_get_clean();
@@ -52,6 +51,8 @@ class HippooAI
 
     public function settings_init()
     {
+        $this->settings = get_option('hippoo_ai_settings', []);
+
         register_setting('hippoo_ai_settings', 'hippoo_ai_settings', [
             'sanitize_callback' => [$this, 'sanitize_ai_settings']
         ]);
@@ -139,8 +140,7 @@ class HippooAI
 
     public function field_ai_provider_render()
     {
-        $settings = get_option('hippoo_ai_settings', []);
-        $value = isset($settings['ai_provider']) ? $settings['ai_provider'] : 'gpt';
+        $value = isset($this->settings['ai_provider']) ? $this->settings['ai_provider'] : 'gpt';
         ?>
         <select class="select" name="hippoo_ai_settings[ai_provider]">
             <option value="gpt" <?php selected($value, 'gpt'); ?>><?php esc_html_e('Chat GPT', 'hippoo'); ?></option>
@@ -151,9 +151,8 @@ class HippooAI
 
     public function field_ai_model_render()
     {
-        $settings = get_option('hippoo_ai_settings', []);
-        $value = isset($settings['ai_model']) ? $settings['ai_model'] : 'gpt-4o';
-        $provider = isset($settings['ai_provider']) ? $settings['ai_provider'] : 'gpt';
+        $value = isset($this->settings['ai_model']) ? $this->settings['ai_model'] : 'gpt-4o';
+        $provider = isset($this->settings['ai_provider']) ? $this->settings['ai_provider'] : 'gpt';
         
         if ($provider === 'gpt') {
             ?>
@@ -181,8 +180,7 @@ class HippooAI
 
     public function field_api_token_render()
     {
-        $settings = get_option('hippoo_ai_settings', []);
-        $value = isset($settings['api_token']) ? $settings['api_token'] : '';
+        $value = isset($this->settings['api_token']) ? $this->settings['api_token'] : '';
         ?>
         <div class="input-group">
             <input type="password" class="input" name="hippoo_ai_settings[api_token]" value="<?php echo esc_attr($value); ?>" placeholder="<?php esc_html_e('Enter your API key', 'hippoo'); ?>">
@@ -204,8 +202,7 @@ class HippooAI
 
     public function field_system_prompt_render()
     {
-        $settings = get_option('hippoo_ai_settings', []);
-        $value = isset($settings['system_prompt']) ? $settings['system_prompt'] : self::get_default_system_prompt();
+        $value = isset($this->settings['system_prompt']) ? $this->settings['system_prompt'] : self::get_default_system_prompt();
         ?>
         <div class="input-group">
             <textarea class="textarea" name="hippoo_ai_settings[system_prompt]"><?php echo esc_textarea($value); ?></textarea>
@@ -216,8 +213,7 @@ class HippooAI
 
     public function field_description_prompt_render()
     {
-        $settings = get_option('hippoo_ai_settings', []);
-        $value = isset($settings['description_prompt']) ? $settings['description_prompt'] : self::get_default_description_prompt();
+        $value = isset($this->settings['description_prompt']) ? $this->settings['description_prompt'] : self::get_default_description_prompt();
         ?>
         <div class="input-group">
             <textarea class="textarea" name="hippoo_ai_settings[description_prompt]"><?php echo esc_textarea($value); ?></textarea>
@@ -228,8 +224,7 @@ class HippooAI
 
     public function field_max_tokens_render()
     {
-        $settings = get_option('hippoo_ai_settings', []);
-        $value = isset($settings['max_tokens']) ? intval($settings['max_tokens']) : 800;
+        $value = isset($this->settings['max_tokens']) ? intval($this->settings['max_tokens']) : 800;
         ?>
         <div class="input-group">
             <input type="number" class="input" name="hippoo_ai_settings[max_tokens]" value="<?php echo esc_attr($value); ?>" min="1">

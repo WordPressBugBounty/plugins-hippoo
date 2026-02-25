@@ -1,7 +1,9 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
 class HippooInvoiceSettings {
+    public $slug = 'hippoo_invoice_settings';
     public $hippoo_icon = HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/hippoo-mono.svg';
+    public $settings;
 
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
@@ -9,6 +11,7 @@ class HippooInvoiceSettings {
         // add_action( 'admin_notices', array( $this, 'admin_notice' ) );
         add_action( 'wp_ajax_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
         add_action( 'wp_ajax_nopriv_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
+        $this->settings = get_option( $this->slug, [] );
     }
 
     public function add_admin_menu() {
@@ -17,7 +20,7 @@ class HippooInvoiceSettings {
             __('Hippoo Invoice', 'hippoo'), // Page title
             __('Hippoo Invoice', 'hippoo'), // Menu title
             'manage_options', // Capability
-            'hippoo_invoice_settings', // Menu slug
+            $this->slug, // Menu slug
             array($this, 'settings_page_render') // Callback function
         );
         // Enqueue media scripts on the settings page
@@ -25,14 +28,15 @@ class HippooInvoiceSettings {
     }
 
     public function enqueue_media_uploader($hook) {
-        if ($hook !== 'hippoo_page_hippoo_invoice_settings' ) {
+        $this_hook = 'hippoo_page_'. $this->slug;
+        if ($hook !== $this_hook ) {
             return;
         }
         wp_enqueue_media();
     }
 
     public function settings_init() {
-        register_setting('hippoo_invoice_settings', 'hippoo_invoice_settings'); // phpcs:ignore
+        register_setting('hippoo_invoice_settings', $this->slug); // phpcs:ignore
 
         $this->general_settings_init();
         $this->invoice_settings_init();
@@ -68,14 +72,14 @@ class HippooInvoiceSettings {
             'hippoo_general_settings_section',
             __( 'General settings', 'hippoo' ),
             null,
-            'hippoo_invoice_settings'
+            $this->slug
         );
 
         add_settings_field(
             'shop_logo',
             __( 'Shop logo', 'hippoo' ),
             array( $this, 'shop_logo_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_general_settings_section'
         );
 
@@ -83,7 +87,7 @@ class HippooInvoiceSettings {
             'language_direction',
             __( 'Language direction', 'hippoo' ),
             array( $this, 'language_direction_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_general_settings_section'
         );
 
@@ -91,7 +95,7 @@ class HippooInvoiceSettings {
             'show_barcode_order_list',
             __( 'Show barcode(Order id) in order list', 'hippoo' ),
             array( $this, 'show_barcode_order_list_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_general_settings_section'
         );
 
@@ -99,7 +103,7 @@ class HippooInvoiceSettings {
             'show_barcode_order_details',
             __( 'Show barcode(Order id) in order details', 'hippoo' ),
             array( $this, 'show_barcode_order_details_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_general_settings_section'
         );
 
@@ -107,7 +111,7 @@ class HippooInvoiceSettings {
             'show_barcode_products_list',
             __( 'Show barcode(SKU) in products list', 'hippoo' ),
             array( $this, 'show_barcode_products_list_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_general_settings_section'
         );
 
@@ -115,7 +119,7 @@ class HippooInvoiceSettings {
             'show_barcode_products_details',
             __( 'Show barcode(SKU) in products details', 'hippoo' ),
             array( $this, 'show_barcode_products_details_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_general_settings_section'
         );
     }
@@ -125,14 +129,14 @@ class HippooInvoiceSettings {
             'hippoo_invoice_settings_section',
             __( 'Invoice settings', 'hippoo' ),
             null,
-            'hippoo_invoice_settings'
+            $this->slug
         );
 
         add_settings_field(
             'invoice_paper_size',
             __( 'Paper Size', 'hippoo' ),
             array( $this, 'invoice_paper_size_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_invoice_settings_section'
         );
         
@@ -140,7 +144,7 @@ class HippooInvoiceSettings {
             'font_name',
             __( 'Font name', 'hippoo' ),
             array( $this, 'font_name_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_invoice_settings_section'
         );
 
@@ -148,7 +152,7 @@ class HippooInvoiceSettings {
             'invoice_show_logo',
             __( 'Show logo', 'hippoo' ),
             array( $this, 'invoice_show_logo_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_invoice_settings_section'
         );
 
@@ -156,7 +160,7 @@ class HippooInvoiceSettings {
             'show_customer_note',
             __( 'Show customer note', 'hippoo' ),
             array( $this, 'show_customer_note_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_invoice_settings_section'
         );
 
@@ -164,7 +168,7 @@ class HippooInvoiceSettings {
             'show_product_sku_invoice',
             __( 'Show product SKU in invoice', 'hippoo' ),
             array( $this, 'show_product_sku_invoice_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_invoice_settings_section'
         );
 
@@ -172,7 +176,7 @@ class HippooInvoiceSettings {
             'footer_description',
             __( 'Footer description', 'hippoo' ),
             array( $this, 'footer_description_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_invoice_settings_section'
         );
 
@@ -180,7 +184,7 @@ class HippooInvoiceSettings {
             'invoice_notice',
             '',
             array( $this, 'invoice_notice_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_invoice_settings_section',
             array( 'class' => 'invoice-notice-row' )
         );
@@ -191,14 +195,14 @@ class HippooInvoiceSettings {
             'hippoo_shipping_settings_section',
             __( 'Shipping label settings', 'hippoo' ),
             null,
-            'hippoo_invoice_settings'
+            $this->slug
         );
 
         add_settings_field(
             'shipping_paper_size',
             __( 'Paper Size', 'hippoo' ),
             array( $this, 'shipping_paper_size_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_shipping_settings_section'
         );
 
@@ -206,7 +210,7 @@ class HippooInvoiceSettings {
             'shipping_show_logo',
             __( 'Show logo', 'hippoo' ),
             array( $this, 'shipping_show_logo_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_shipping_settings_section'
         );
 
@@ -214,7 +218,7 @@ class HippooInvoiceSettings {
             'shipping_calculate_weight',
             __( 'Calculate Weight', 'hippoo' ),
             array( $this, 'shipping_calculate_weight_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_shipping_settings_section'
         );
 
@@ -222,7 +226,7 @@ class HippooInvoiceSettings {
             'shipping_courier_logo',
             __( 'Courier logo', 'hippoo' ),
             array( $this, 'shipping_courier_logo_render' ),
-            'hippoo_invoice_settings',
+            $this->slug,
             'hippoo_shipping_settings_section'
         );
     }
@@ -230,8 +234,7 @@ class HippooInvoiceSettings {
     /***** Helper Function *****/
 
     public function render_checkbox_input($name, $value_key) {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
-        $value = isset($settings[$value_key]) ? $settings[$value_key] : 0;
+        $value = isset($this->settings[$value_key]) ? $this->settings[$value_key] : 0;
         ?>
         <input type="checkbox" class="switch" name="hippoo_invoice_settings[<?php echo esc_attr($name); ?>]" <?php checked($value, 1); ?> value="1">
         <?php
@@ -240,8 +243,7 @@ class HippooInvoiceSettings {
     /***** General Render *****/
 
     public function shop_logo_render() {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
-        $image_url = isset($settings['shop_logo']) ? esc_url($settings['shop_logo']) : '';
+        $image_url = isset($this->settings['shop_logo']) ? esc_url($this->settings['shop_logo']) : '';
         ?>
         <div class="shop_logo media_uploader_wrapper">
             <div class="uploader">
@@ -259,14 +261,12 @@ class HippooInvoiceSettings {
     
 
     public function language_direction_render() {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
-
         $options = [
             'LTR' => 'Left-to-Right',
             'RTL' => 'Right-to-Left'
         ];
     
-        $selected = isset( $settings['language_direction'] ) ? $settings['language_direction'] : '';
+        $selected = isset( $this->settings['language_direction'] ) ? $this->settings['language_direction'] : '';
     
         ?>
         <select name="hippoo_invoice_settings[language_direction]">
@@ -300,9 +300,8 @@ class HippooInvoiceSettings {
     }
 
     public function font_name_render() {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
         $options = ['Tahoma', 'Arial'];
-        $selected = isset($settings['font_name']) ? $settings['font_name'] : '';
+        $selected = isset($this->settings['font_name']) ? $this->settings['font_name'] : '';
         ?>
         <select name="hippoo_invoice_settings[font_name]">
             <?php
@@ -330,20 +329,18 @@ class HippooInvoiceSettings {
     }
 
     public function footer_description_render() {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
-        $value = isset( $settings['footer_description'] ) ? esc_textarea( $settings['footer_description'] ) : '';
+        $value = isset( $this->settings['footer_description'] ) ? esc_textarea( $this->settings['footer_description'] ) : '';
         ?>
         <textarea rows="5" cols="35" id="footer_description" name="hippoo_invoice_settings[footer_description]"><?php echo esc_html($value); ?></textarea>
         <?php
     }
 
     public function invoice_paper_size_render() {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
         $options = [
             'A4' => 'A4',
             'A5' => 'A5'
         ];
-        $selected = isset($settings['invoice_paper_size']) ? $settings['invoice_paper_size'] : 'A4';
+        $selected = isset($this->settings['invoice_paper_size']) ? $this->settings['invoice_paper_size'] : 'A4';
         ?>
         <select name="hippoo_invoice_settings[invoice_paper_size]">
             <?php
@@ -383,8 +380,7 @@ class HippooInvoiceSettings {
     }
     
     public function shipping_courier_logo_render() {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
-        $image_url = isset( $settings['shipping_courier_logo'] ) ? $settings['shipping_courier_logo'] : '';
+        $image_url = isset( $this->settings['shipping_courier_logo'] ) ? $this->settings['shipping_courier_logo'] : '';
         ?>
         <div class="courier_logo media_uploader_wrapper">
             <div class="uploader">
@@ -400,12 +396,11 @@ class HippooInvoiceSettings {
     }
 
     public function shipping_paper_size_render() {
-        $settings = get_option( 'hippoo_invoice_settings', [] );
         $options = [
             'A4' => 'A4',
             'A5' => 'A5'
         ];
-        $selected = isset($settings['shipping_paper_size']) ? $settings['shipping_paper_size'] : 'A4';
+        $selected = isset($this->settings['shipping_paper_size']) ? $this->settings['shipping_paper_size'] : 'A4';
         ?>
         <select name="hippoo_invoice_settings[shipping_paper_size]">
             <?php

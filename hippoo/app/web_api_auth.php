@@ -301,13 +301,15 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
             }
         }
 
-        $plugins_info = apply_filters('hippoo_system_info_extensions', $plugins_info, $request);
-
         return new WP_REST_Response($plugins_info, 200);
     }
     
     function get_setting($request) {
-        $settings = get_option('hippoo_settings', []);
+        $settings = get_option('hippoo_settings');
+    
+        if (empty($settings)) {
+            $settings = [];
+        }
 
         $default_settings = [
             'invoice_plugin_enabled' => false,
@@ -336,8 +338,10 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
 
         
     public function update_setting( $request ) {
-        $settings = get_option('hippoo_settings', []);
-        
+        $settings = get_option('hippoo_settings');
+        if (empty($settings)) {
+            $settings = [];
+        }
         $new_settings = json_decode( $request->get_body(), true );
     
         $settings = array_merge($settings, $new_settings);

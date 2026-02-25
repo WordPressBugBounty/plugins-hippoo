@@ -1,78 +1,81 @@
-# Copyright (C) 2026 Hippoo Team
-# This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce için Hippoo Mobil Uygulaması 1.7.4\n"
+"Project-Id-Version: Hippoo Mobile app for WooCommerce 1.7.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hippoo\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Turkish <tr_TR@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: Turkish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-23T21:06:33+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"POT-Creation-Date: 2025-12-14T20:22:12+00:00\n"
+"PO-Revision-Date: 2025-12-22 13:48+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hippoo\n"
 "Language: tr_TR\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Loco-Version: 2.8.0; wp-6.9; php-8.2.29"
 
 #. Plugin Name of the plugin
 #: hippoo.php
 msgid "Hippoo Mobile app for WooCommerce"
-msgstr "WooCommerce için Hippoo Mobil Uygulaması"
+msgstr "Hippoo WooCommerce Mobil Uygulaması"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
 #: hippoo.php
 msgid "https://Hippoo.app/"
-msgstr "https://Hippoo.app/"
+msgstr "https://hippoo.app/"
 
 #. Description of the plugin
 #: hippoo.php
-msgid "Best WooCommerce App Alternative – Manage orders and products on the go with real-time notifications, seamless order and product management, and powerful add-ons. Available for Android & iOS. 🚀."
-msgstr "En iyi WooCommerce Uygulama Alternatifi: Gerçek zamanlı bildirimler, sorunsuz sipariş ve ürün yönetimi ile güçlü eklentiler sayesinde siparişlerinizi ve ürünlerinizi her yerden yönetin. Android ve iOS için mevcut 🚀."
+msgid ""
+"Best WooCommerce App Alternative – Manage orders and products on the go with "
+"real-time notifications, seamless order and product management, and powerful "
+"add-ons. Available for Android & iOS. 🚀."
+msgstr "En iyi WooCommerce uygulama alternatifi – Gerçek zamanlı bildirimler, sorunsuz sipariş ve ürün yönetimi ve güçlü eklentilerle hareket halindeyken sipariş ve ürünleri yönetin. Android ve iOS için mevcut. 🚀"
 
 #. Author of the plugin
 #: hippoo.php
 msgid "Hippoo Team"
 msgstr "Hippoo Ekibi"
 
-#: app/ai.php:26
+#: app/ai.php:29
 msgid "Hippoo AI"
-msgstr "Hippoo AI"
+msgstr "Hippoo Yapay Zeka"
 
-#: app/ai.php:68
+#: app/ai.php:69
 msgid "Select AI Provider"
-msgstr "AI Sağlayıcısını Seç"
+msgstr "Yapay Zeka Sağlayıcısı Seçin"
 
-#: app/ai.php:76
+#: app/ai.php:77
 msgid "Select model"
-msgstr "Model seç"
+msgstr "Model seçin"
 
-#: app/ai.php:84
+#: app/ai.php:85
 msgid "Your API Token"
-msgstr "API Token'ınız"
+msgstr "API Anahtarınız"
 
-#: app/ai.php:100
+#: app/ai.php:101
 msgid "System Prompt"
-msgstr "Sistem İstemi"
+msgstr "Sistem İpucu"
 
-#: app/ai.php:109
+#: app/ai.php:110
 msgid "Description Prompt"
-msgstr "Açıklama İstemi"
+msgstr "Açıklama İpucu"
 
-#: app/ai.php:118
+#: app/ai.php:119
 msgid "Max Tokens"
 msgstr "Maksimum Token"
 
-#: app/ai.php:135
-msgid "Connect the AI"
-msgstr "AI'yi Bağla"
-
 #: app/ai.php:136
-#: app/ai.php:199
-msgid "Generate product descriptions automatically from images using AI. Configure your preferred model and prompts in the settings below."
-msgstr "AI kullanarak ürün açıklamalarını görsellerden otomatik olarak oluşturun. Tercih ettiğiniz modeli ve istemleri aşağıdaki ayarlardan yapılandırın."
+msgid "Connect the AI"
+msgstr "Yapay Zekayı Bağla"
+
+#: app/ai.php:137 app/ai.php:197
+msgid ""
+"Generate product descriptions automatically from images using AI. Configure "
+"your preferred model and prompts in the settings below."
+msgstr "Yapay zeka kullanarak görsellerden otomatik ürün açıklamaları oluşturun. Tercih ettiğiniz modeli ve ipuçlarını aşağıdaki ayarlarda yapılandırın."
 
 #: app/ai.php:146
 msgid "Chat GPT"
@@ -82,221 +85,240 @@ msgstr "ChatGPT"
 msgid "Gemini"
 msgstr "Gemini"
 
-#: app/ai.php:188
+#: app/ai.php:186
 msgid "Enter your API key"
 msgstr "API anahtarınızı girin"
 
-#: app/ai.php:189
+#: app/ai.php:187
 msgid "How can I provide the token?"
 msgstr "Token'ı nasıl sağlayabilirim?"
 
-#: app/ai.php:191
+#: app/ai.php:189
 msgid "Test connection"
 msgstr "Bağlantıyı test et"
 
-#: app/ai.php:198
+#: app/ai.php:196
 msgid "AI Product Reader"
-msgstr "AI Ürün Okuyucu"
+msgstr "Yapay Zeka Ürün Okuyucu"
 
-#: app/ai.php:200
+#: app/ai.php:198
 msgid "Prompt settings"
-msgstr "İstem ayarları"
+msgstr "İpucu ayarları"
 
-#: app/ai.php:201
-msgid "Customize how the AI generates text by editing the prompts below. Each prompt guides the AI to produce the desired type of content for your products. You can adjust these to change tone, style, or structure of the generated descriptions."
-msgstr "Aşağıdaki istemleri düzenleyerek AI'nin metin üretme şeklini özelleştirin. Her istem, AI'yi ürünleriniz için istenen içerik türünü üretmesi için yönlendirir. Üretilen açıklamaların tonunu, stilini veya yapısını değiştirmek için bunları ayarlayabilirsiniz."
+#: app/ai.php:199
+msgid ""
+"Customize how the AI generates text by editing the prompts below. Each "
+"prompt guides the AI to produce the desired type of content for your "
+"products. You can adjust these to change tone, style, or structure of the "
+"generated descriptions."
+msgstr "Aşağıdaki ipuçlarını düzenleyerek yapay zekanın metin üretme şeklini özelleştirin. Her ipucu, yapay zekayı ürünleriniz için istenen içerik türünü üretmeye yönlendirir. Üretilen açıklamaların tonunu, stilini veya yapısını değiştirmek için bunları ayarlayabilirsiniz."
 
-#: app/ai.php:212
-msgid "Sets the general behavior or role of the AI (e.g., “You are a product description writer for an online store.)"
-msgstr "AI'nin genel davranışını veya rolünü belirler (ör. “Bir çevrimiçi mağaza için ürün açıklaması yazarı­sınız.)"
+#: app/ai.php:209
+msgid ""
+"Sets the general behavior or role of the AI (e.g., “You are a product "
+"description writer for an online store.)"
+msgstr "Yapay zekanın genel davranışını veya rolünü belirler (ör. „Bir online mağaza için ürün açıklaması yazarıdır.“)"
 
-#: app/ai.php:224
-msgid "Defines how the main product description should be written (e.g., length, tone, structure)"
-msgstr "Ana ürün açıklamasının nasıl yazılması gerektiğini tanımlar (ör. uzunluk, ton, yapı)"
+#: app/ai.php:220
+msgid ""
+"Defines how the main product description should be written (e.g., length, "
+"tone, structure)"
+msgstr "Ana ürün açıklamasının nasıl yazılacağını tanımlar (ör. uzunluk, ton, yapı)"
 
-#: app/ai.php:248
-#: app/ai.php:362
-#: app/ai.php:433
-msgid "You haven’t provided an API key. Please go to the Hippoo settings page and add your API key to connect to the AI."
-msgstr "Bir API anahtarı sağlamadınız. Lütfen Hippoo ayarlar sayfasına gidin ve AI'ye bağlanmak için API anahtarınızı ekleyin."
+#: app/ai.php:243 app/ai.php:357 app/ai.php:428
+msgid ""
+"You haven’t provided an API key. Please go to the Hippoo settings page and "
+"add your API key to connect to the AI."
+msgstr "API anahtarı sağlamadınız. Lütfen Hippoo ayarlar sayfasına gidin ve yapay zekaya bağlanmak için API anahtarınızı ekleyin."
 
-#: app/ai.php:256
-#: app/ai.php:409
-#: app/ai.php:447
-#: app/ai.php:478
+#: app/ai.php:251 app/ai.php:404 app/ai.php:442 app/ai.php:473
 msgid "Unsupported AI provider."
-msgstr "Desteklenmeyen AI sağlayıcısı."
+msgstr "Desteklenmeyen yapay zeka sağlayıcısı."
 
-#: app/ai.php:262
-#: app/ai.php:459
+#: app/ai.php:257 app/ai.php:454
 msgid "Failed to connect to AI service."
-msgstr "AI hizmetine bağlanılamadı."
+msgstr "Yapay zeka servisine bağlanılamadı."
 
-#: app/ai.php:277
+#: app/ai.php:272
 msgid "Invalid provider"
 msgstr "Geçersiz sağlayıcı"
 
-#: app/ai.php:351
+#: app/ai.php:346
 msgid "Too many requests. Please try again later."
 msgstr "Çok fazla istek. Lütfen daha sonra tekrar deneyin."
 
-#: app/ai.php:549
+#: app/ai.php:544
 msgid "Invalid parameters provided"
 msgstr "Geçersiz parametreler sağlandı"
 
-#: app/ai.php:576
-msgid "Analyze product images and related descriptions to generate high-quality, engaging, and SEO-optimized product content. Focus on identifying key visual details such as type, color, material, and purpose to create accurate, natural, and persuasive descriptions suitable for e-commerce platforms."
-msgstr "Yüksek kaliteli, ilgi çekici ve SEO için optimize edilmiş ürün içeriği oluşturmak üzere ürün görsellerini ve ilgili açıklamaları analiz edin. E-ticaret platformlarına uygun doğru, doğal ve ikna edici açıklamalar üretmek için tür, renk, malzeme ve amaç gibi temel görsel ayrıntıları belirlemeye odaklanın."
+#: app/ai.php:571
+msgid ""
+"Analyze product images and related descriptions to generate high-quality, "
+"engaging, and SEO-optimized product content. Focus on identifying key visual "
+"details such as type, color, material, and purpose to create accurate, "
+"natural, and persuasive descriptions suitable for e-commerce platforms."
+msgstr "Yüksek kaliteli, ilgi çekici ve SEO için optimize edilmiş ürün içeriği üretmek amacıyla ürün görsellerini ve ilgili açıklamaları analiz edin. Tip, renk, malzeme ve amaç gibi temel görsel detayları belirlemeye odaklanarak e-ticaret platformları için uygun, doğru, doğal ve ikna edici açıklamalar oluşturun."
 
-#: app/ai.php:583
-msgid "Review the provided product image and its details to understand the item’s appearance, features, and intended use. Then generate a compelling product title, short summary, detailed description, and a list of relevant SEO keywords based on your analysis."
-msgstr "Ürünün görünümünü, özelliklerini ve kullanım amacını anlamak için sağlanan ürün görselini ve ayrıntılarını inceleyin. Ardından analiziniz doğrultusunda etkileyici bir ürün başlığı, kısa özet, detaylı açıklama ve ilgili SEO anahtar kelimeleri listesi oluşturun."
+#: app/ai.php:578
+msgid ""
+"Review the provided product image and its details to understand the item’s "
+"appearance, features, and intended use. Then generate a compelling product "
+"title, short summary, detailed description, and a list of relevant SEO "
+"keywords based on your analysis."
+msgstr "Sağlanan ürün görselini ve detaylarını inceleyerek ürünün görünümünü, özelliklerini ve amaçlanan kullanımını anlayın. Ardından analiziniz temelinde ilgi çekici bir ürün başlığı, kısa özet, detaylı açıklama ve ilgili SEO anahtar kelimeleri listesi üretin."
 
-#: app/ai.php:613
+#: app/ai.php:608
 msgid "Failed to download image: "
 msgstr "Görsel indirilemedi: "
 
-#: app/ai.php:619
+#: app/ai.php:614
 msgid "No valid image provided."
-msgstr "Geçerli bir görsel sağlanmadı."
+msgstr "Geçerli görsel sağlanmadı."
 
-#: app/ai.php:629
+#: app/ai.php:624
 msgid "Invalid image file."
 msgstr "Geçersiz görsel dosyası."
 
-#: app/ai.php:634
+#: app/ai.php:629
 msgid "Supported formats: jpg, png, webp"
 msgstr "Desteklenen formatlar: jpg, png, webp"
 
-#: app/ai.php:639
+#: app/ai.php:634
 msgid "Failed to open image editor."
 msgstr "Görsel düzenleyici açılamadı."
 
-#: app/ai.php:653
+#: app/ai.php:648
 msgid "Could not save optimized image."
 msgstr "Optimize edilmiş görsel kaydedilemedi."
 
-#: app/ai.php:657
+#: app/ai.php:652
 msgid "Optimized image exceeds 2MB."
-msgstr "Optimize edilmiş görsel 2MB’ı aşıyor."
+msgstr "Optimize edilmiş görsel 2 MB'ı aşıyor."
 
-#: app/ai.php:699
-#: app/ai.php:830
-msgid "You MUST only respond with a clean HTML block suitable for WordPress editor, no markdown, no backticks, no explanations."
-msgstr "YALNIZCA WordPress editörüne uygun temiz bir HTML bloğu ile yanıt vermelisiniz; markdown yok, ters tırnak yok, açıklama yok."
+#: app/ai.php:694 app/ai.php:825
+msgid ""
+"You MUST only respond with a clean HTML block suitable for WordPress editor, "
+"no markdown, no backticks, no explanations."
+msgstr "YALNIZCA WordPress editörüne uygun temiz bir HTML bloğu ile yanıt vermelisiniz, markdown yok, ters tırnak yok, açıklama yok."
+
+#: app/ai.php:749
+msgid "Unexpected response from OpenAI."
+msgstr "OpenAI'dan beklenmeyen yanıt."
 
 #: app/ai.php:754
-msgid "Unexpected response from OpenAI."
-msgstr "OpenAI’den beklenmeyen yanıt."
-
-#: app/ai.php:759
 msgid "Max token limit reached for this prompt."
-msgstr "Bu istem için maksimum token limitine ulaşıldı."
+msgstr "Bu ipucu için maksimum token sınırına ulaşıldı."
 
-#: app/ai.php:771
+#: app/ai.php:766
 msgid "OpenAI did not return any text. Try increasing max_tokens."
 msgstr "OpenAI herhangi bir metin döndürmedi. max_tokens değerini artırmayı deneyin."
 
-#: app/ai.php:867
+#: app/ai.php:862
 msgid "Unexpected response from Gemini."
-msgstr "Gemini’den beklenmeyen yanıt."
+msgstr "Gemini'den beklenmeyen yanıt."
 
-#: app/ai.php:874
+#: app/ai.php:869
 msgid "Gemini did not return any text. Try increasing max_tokens."
 msgstr "Gemini herhangi bir metin döndürmedi. max_tokens değerini artırmayı deneyin."
 
-#: app/app.php:80
+#: app/app.php:62
 msgid "Help Center"
 msgstr "Yardım Merkezi"
 
-#: app/app.php:81
+#: app/app.php:63
 msgid "Feature Request"
 msgstr "Özellik Talebi"
 
-#: app/app.php:82
+#: app/app.php:64
 msgid "Customer Support"
 msgstr "Müşteri Desteği"
 
-#: app/app.php:94
-#: app/app.php:103
+#: app/app.php:76 app/app.php:85
 msgid "Latest blog posts on Hippoo"
-msgstr "Hippoo’daki en yeni blog yazıları"
+msgstr "Hippoo'daki son blog yazıları"
 
-#: app/app.php:111
+#: app/app.php:93
 msgid "Read more on our blog"
-msgstr "Blogumuzda daha fazlasını okuyun"
+msgstr "Blogumuzda daha fazla oku"
 
-#: app/app.php:141
-msgid "Enjoying the Hippoo Mobile App for WooCommerce? We would love to hear your feedback! Please take a moment to leave a review."
-msgstr "WooCommerce için Hippoo Mobil Uygulamasını beğeniyor musunuz? Geri bildiriminizi duymayı çok isteriz! Lütfen bir değerlendirme bırakmak için bir dakikanızı ayırın."
+#: app/app.php:123
+msgid ""
+"Enjoying the Hippoo Mobile App for WooCommerce? We would love to hear your "
+"feedback! Please take a moment to leave a review."
+msgstr "Hippoo WooCommerce Mobil Uygulamasını beğendiniz mi? Görüşlerinizi duymak isteriz! Lütfen bir inceleme bırakmak için bir dakikanızı ayırın."
 
-#: app/app.php:143
+#: app/app.php:125
 msgid "Leave a Review"
-msgstr "Değerlendirme bırak"
+msgstr "İnceleme Bırak"
 
-#: app/app.php:144
-#: app/app.php:200
+#: app/app.php:126 app/app.php:182
 msgid "Dismiss"
 msgstr "Kapat"
 
-#: app/app.php:192
+#: app/app.php:174
 msgid "Hippoo Logo"
 msgstr "Hippoo Logosu"
 
-#: app/app.php:195
+#: app/app.php:177
 msgid "Hippoo app can’t connect to your WooCommerce"
-msgstr "Hippoo uygulaması WooCommerce’inize bağlanamıyor"
+msgstr "Hippoo uygulaması WooCommerce'inize bağlanamıyor"
 
-#: app/app.php:202
+#: app/app.php:184
 msgid "Try again"
 msgstr "Tekrar dene"
 
-#: app/app.php:244
+#: app/app.php:226
 msgid "Upgrade to Hippoo Premium"
-msgstr "Hippoo Premium’a yükselt"
+msgstr "Hippoo Premium'a Yükselt"
 
-#: app/app.php:245
-msgid "Upgrade to Hippoo Premium for custom event notifications, full extension access, Shippo integration, advanced analytics, and smart AI tools."
-msgstr "Özel etkinlik bildirimleri, tüm eklentilere erişim, Shippo entegrasyonu, gelişmiş analizler ve akıllı AI araçları için Hippoo Premium’a yükseltin."
+#: app/app.php:227
+msgid ""
+"Upgrade to Hippoo Premium for custom event notifications, full extension "
+"access, Shippo integration, advanced analytics, and smart AI tools."
+msgstr "Özel etkinlik bildirimleri, tüm eklentilere tam erişim, Shippo entegrasyonu, gelişmiş analizler ve akıllı yapay zeka araçları için Hippoo Premium'a yükseltin."
 
-#: app/app.php:252
+#: app/app.php:234
 msgid "Learn more"
 msgstr "Daha fazla bilgi"
 
-#: app/app.php:257
+#: app/app.php:239
 msgid "Upgrade"
 msgstr "Yükselt"
 
 #: app/bugsnag.php:100
-msgid "Enable this option to send anonymous usage statistics and error reports. This helps us identify issues and improve Hippoo. No personal data will be collected."
-msgstr "Anonim kullanım istatistiklerini ve hata raporlarını göndermek için bu seçeneği etkinleştirin. Bu, sorunları tespit etmemize ve Hippoo’yu iyileştirmemize yardımcı olur. Hiçbir kişisel veri toplanmaz."
+msgid ""
+"Enable this option to send anonymous usage statistics and error reports. "
+"This helps us identify issues and improve Hippoo. No personal data will be "
+"collected."
+msgstr "Anonim kullanım istatistikleri ve hata raporları göndermek için bu seçeneği etkinleştirin. Bu, sorunları tespit etmemize ve Hippoo'yu geliştirmemize yardımcı olur. Kişisel veri toplanmaz."
 
 #: app/bugsnag.php:103
 msgid "Help Improve Hippoo"
-msgstr "Hippoo’yu geliştirmeye yardımcı olun"
+msgstr "Hippoo'yu Geliştirmeye Yardımcı Ol"
 
-#: app/integrations.php:25
-#: app/integrations.php:37
+#: app/integrations.php:27 app/integrations.php:37
 msgid "Hippoo Integrations"
 msgstr "Hippoo Entegrasyonları"
 
 #: app/integrations.php:38
-msgid "Integrations are free WordPress plugins that bring new features to both WooCommerce and the Hippoo App. They are completely free to install and use in WooCommerce. A Premium license is required to use these features inside the Hippoo App."
-msgstr "Entegrasyonlar, hem WooCommerce’e hem de Hippoo Uygulamasına yeni özellikler ekleyen ücretsiz WordPress eklentileridir. WooCommerce içinde kurulumu ve kullanımı tamamen ücretsizdir. Bu özellikleri Hippoo Uygulaması içinde kullanmak için Premium lisans gerekir."
+msgid ""
+"Integrations are free WordPress plugins that bring new features to both "
+"WooCommerce and the Hippoo App. They are completely free to install and use "
+"in WooCommerce. A Premium license is required to use these features inside "
+"the Hippoo App."
+msgstr "Entegrasyonlar, hem WooCommerce hem de Hippoo Uygulamasına yeni özellikler getiren ücretsiz WordPress eklentileridir. WooCommerce'te tamamen ücretsiz kurulur ve kullanılır. Bu özelliklerin Hippoo Uygulaması içinde kullanılması için Premium lisans gereklidir."
 
-#: app/integrations.php:54
-#: app/integrations.php:165
+#: app/integrations.php:54 app/integrations.php:152
 msgid "Failed to fetch integrations."
 msgstr "Entegrasyonlar alınamadı."
 
-#: app/integrations.php:68
-#: app/integrations.php:193
+#: app/integrations.php:68 app/integrations.php:168
 msgid "Invalid or unauthorized plugin."
 msgstr "Geçersiz veya yetkisiz eklenti."
 
 #: app/integrations.php:77
 msgid "Already active."
-msgstr "Zaten etkin."
+msgstr "Zaten aktif."
 
 #: app/integrations.php:88
 msgid "Activated successfully."
@@ -306,454 +328,200 @@ msgstr "Başarıyla etkinleştirildi."
 msgid "Installed successfully."
 msgstr "Başarıyla yüklendi."
 
-#: app/integrations.php:201
+#: app/integrations.php:176
 msgid "Plugin already installed."
 msgstr "Eklenti zaten yüklü."
 
-#: app/integrations.php:211
+#: app/integrations.php:186
 msgid "Plugin installed successfully."
 msgstr "Eklenti başarıyla yüklendi."
 
-#: app/integrations.php:227
+#: app/integrations.php:202
 msgid "Plugin already active."
-msgstr "Eklenti zaten etkin."
+msgstr "Eklenti zaten aktif."
 
-#: app/integrations.php:238
+#: app/integrations.php:213
 msgid "Plugin activated successfully."
 msgstr "Eklenti başarıyla etkinleştirildi."
 
-#: app/integrations.php:243
+#: app/integrations.php:218
 msgid "Plugin is not active."
-msgstr "Eklenti etkin değil."
+msgstr "Eklenti aktif değil."
 
-#: app/integrations.php:249
+#: app/integrations.php:224
 msgid "Failed to deactivate plugin."
 msgstr "Eklenti devre dışı bırakılamadı."
 
-#: app/integrations.php:254
+#: app/integrations.php:229
 msgid "Plugin deactivated successfully."
 msgstr "Eklenti başarıyla devre dışı bırakıldı."
 
-#: app/integrations.php:258
+#: app/integrations.php:233
 msgid "Invalid action."
 msgstr "Geçersiz işlem."
 
-#: app/integrations.php:300
+#: app/integrations.php:251
 msgid "Installation failed."
 msgstr "Kurulum başarısız."
 
-#: app/permissions.php:58
-#: app/permissions.php:73
-msgid "Role & permissions"
-msgstr "Rol ve izinler"
-
-#: app/permissions.php:74
-msgid "Control what data each user role can see in the Hippoo app, including orders, revenue, customers, and reviews and more. These settings are managed by admins and applied directly at the API level for better data security."
-msgstr "Hippoo uygulamasında her kullanıcı rolünün görebileceği verileri kontrol edin: siparişler, gelir, müşteriler, değerlendirmeler ve daha fazlası. Bu ayarlar yöneticiler tarafından yönetilir ve daha iyi veri güvenliği için doğrudan API düzeyinde uygulanır."
-
-#: app/permissions.php:77
-msgid "Select role"
-msgstr "Rol seç"
-
-#: app/permissions.php:80
-msgid "Select role to manage permission"
-msgstr "İzinleri yönetmek için rol seçin"
-
-#: app/permissions.php:110
-#: app/permissions.php:135
-#: app/permissions.php:154
-msgid "Invalid request."
-msgstr "Geçersiz istek."
-
-#: app/permissions.php:115
-msgid "Role already exists."
-msgstr "Rol zaten mevcut."
-
-#. translators: %s: role name
-#: app/permissions.php:805
-msgid "%s permissions"
-msgstr "%s izinleri"
-
-#: app/permissions.php:808
-#: invoice/settings.php:252
-#: invoice/settings.php:395
-msgid "Remove"
-msgstr "Kaldır"
-
-#: app/permissions.php:821
-msgid "General"
-msgstr "Genel"
-
-#: app/permissions.php:824
-msgid "Enable access for this role"
-msgstr "Bu rol için erişimi etkinleştir"
-
-#: app/permissions.php:828
-msgid "Read-only mode"
-msgstr "Salt okunur mod"
-
-#: app/permissions.php:836
-msgid "Orders"
-msgstr "Siparişler"
-
-#: app/permissions.php:838
-#: app/permissions.php:936
-#: app/permissions.php:1005
-#: app/permissions.php:1038
-msgid "Select all"
-msgstr "Tümünü seç"
-
-#: app/permissions.php:840
-#: app/permissions.php:938
-#: app/permissions.php:1007
-#: app/permissions.php:1040
-msgid "Deselect all"
-msgstr "Tüm seçimleri kaldır"
-
-#: app/permissions.php:845
-msgid "Access orders"
-msgstr "Siparişlere erişim"
-
-#: app/permissions.php:849
-msgid "Order count"
-msgstr "Sipariş sayısı"
-
-#: app/permissions.php:853
-msgid "Order totals"
-msgstr "Sipariş toplamları"
-
-#: app/permissions.php:857
-msgid "Order details"
-msgstr "Sipariş detayları"
-
-#: app/permissions.php:863
-#: app/permissions.php:1016
-msgid "Name"
-msgstr "Ad"
-
-#: app/permissions.php:867
-msgid "Items"
-msgstr "Ürünler"
-
-#: app/permissions.php:871
-msgid "Taxes"
-msgstr "Vergiler"
-
-#: app/permissions.php:875
-msgid "Shipping info"
-msgstr "Kargo bilgileri"
-
-#: app/permissions.php:879
-msgid "Order statuses"
-msgstr "Sipariş durumları"
-
-#: app/permissions.php:883
-msgid "Coupon info"
-msgstr "Kupon bilgileri"
-
-#: app/permissions.php:887
-msgid "Payment info"
-msgstr "Ödeme bilgileri"
-
-#: app/permissions.php:891
-msgid "Customer info"
-msgstr "Müşteri bilgileri"
-
-#: app/permissions.php:895
-msgid "Order note"
-msgstr "Sipariş notu"
-
-#: app/permissions.php:899
-msgid "Order custom fields"
-msgstr "Sipariş özel alanları"
-
-#: app/permissions.php:903
-msgid "Customer note"
-msgstr "Müşteri notu"
-
-#: app/permissions.php:907
-#: invoice/templates/simple/hippoo-factor.php:3
-#: invoice/templates/simple/hippoo-factor.php:162
-#: invoice/templates/simple/hippoo-label.php:113
-msgid "Invoice"
-msgstr "Fatura"
-
-#: app/permissions.php:911
-msgid "Shipping label"
-msgstr "Kargo etiketi"
-
-#: app/permissions.php:916
-msgid "Allowed order status"
-msgstr "İzin verilen sipariş durumları"
-
-#: app/permissions.php:934
-msgid "Products"
-msgstr "Ürünler"
-
-#: app/permissions.php:943
-msgid "Access products"
-msgstr "Ürünlere erişim"
-
-#: app/permissions.php:947
-msgid "Product name"
-msgstr "Ürün adı"
-
-#: app/permissions.php:951
-msgid "Prices"
-msgstr "Fiyatlar"
-
-#: app/permissions.php:955
-msgid "Stock quantity"
-msgstr "Stok miktarı"
-
-#: app/permissions.php:959
-msgid "Out of stock list"
-msgstr "Stokta olmayanlar listesi"
-
-#: app/permissions.php:963
-#: invoice/templates/simple/hippoo-factor.php:198
-#: invoice/woocommerce/product.php:24
-msgid "SKU"
-msgstr "SKU"
-
-#: app/permissions.php:967
-msgid "Status"
-msgstr "Durum"
-
-#: app/permissions.php:971
-msgid "Limit to categories"
-msgstr "Kategorilerle sınırla"
-
-#: app/permissions.php:985
-msgid "Limit to product type"
-msgstr "Ürün türüyle sınırla"
-
-#: app/permissions.php:1003
-msgid "Customers"
-msgstr "Müşteriler"
-
-#: app/permissions.php:1012
-msgid "Access customers"
-msgstr "Müşterilere erişim"
-
-#: app/permissions.php:1020
-msgid "Address"
-msgstr "Adres"
-
-#: app/permissions.php:1024
-msgid "Phone number"
-msgstr "Telefon numarası"
-
-#: app/permissions.php:1028
-msgid "Email"
-msgstr "E-posta"
-
-#: app/permissions.php:1036
-msgid "Reviews"
-msgstr "Değerlendirmeler"
-
-#: app/permissions.php:1045
-msgid "Access reviews"
-msgstr "Değerlendirmelere erişim"
-
-#: app/permissions.php:1049
-msgid "Reviewer name"
-msgstr "Değerlendirenin adı"
-
-#: app/permissions.php:1053
-msgid "Review content"
-msgstr "Değerlendirme içeriği"
-
-#: app/permissions.php:1060
-msgid "Sale analytics"
-msgstr "Satış analitiği"
-
-#: app/permissions.php:1063
-msgid "Show sale analytics"
-msgstr "Satış analitiğini göster"
-
-#: app/permissions.php:1070
-msgid "Coupons"
-msgstr "Kuponlar"
-
-#: app/permissions.php:1073
-msgid "Access coupons"
-msgstr "Kuponlara erişim"
-
-#: app/permissions.php:1080
-#: app/settings.php:101
-#: invoice/settings.php:50
-msgid "Settings"
-msgstr "Ayarlar"
-
-#: app/permissions.php:1083
-msgid "Show shop settings"
-msgstr "Mağaza ayarlarını göster"
-
-#: app/permissions.php:1090
-msgid "App features"
-msgstr "Uygulama özellikleri"
-
-#: app/permissions.php:1093
-msgid "Access extensions"
-msgstr "Eklentilere erişim"
-
-#: app/permissions.php:1097
-msgid "Limit to selected extensions"
-msgstr "Seçili eklentilerle sınırla"
-
-#: app/permissions.php:1113
-msgid "Settings updated successfully."
-msgstr "Ayarlar başarıyla güncellendi."
-
-#: app/permissions.php:1116
-msgid "Save changes"
-msgstr "Değişiklikleri kaydet"
-
-#. translators: %s: role name
-#: app/permissions.php:1127
-msgid "Delete %s role permissions?"
-msgstr "%s rolünün izinleri silinsin mi?"
-
-#: app/permissions.php:1129
-msgid "This will remove all custom access rules for this role. This action can’t be undone."
-msgstr "Bu işlem, bu role ait tüm özel erişim kurallarını kaldırır. Bu işlem geri alınamaz."
-
-#: app/permissions.php:1131
-msgid "Cancel"
-msgstr "İptal"
-
-#: app/permissions.php:1132
-msgid "Delete"
-msgstr "Sil"
-
-#: app/pwa.php:98
-msgid "Showcase your products with a clean, minimal design. This lightweight theme creates a mobile-friendly product display. Use the link below as an Instagram-style shop to share your products. We recommend keeping it enabled."
-msgstr "Ürünlerinizi temiz ve minimal bir tasarımla sergileyin. Bu hafif tema, mobil uyumlu bir ürün vitrini oluşturur. Ürünlerinizi paylaşmak için aşağıdaki bağlantıyı Instagram tarzı bir mağaza olarak kullanın. Etkin bırakmanızı öneririz."
-
-#: app/pwa.php:101
+#: app/pwa.php:100
+msgid ""
+"Showcase your products with a clean, minimal design. This lightweight theme "
+"creates a mobile-friendly product display. Use the link below as an "
+"Instagram-style shop to share your products. We recommend keeping it enabled."
+msgstr "Ürünlerinizi temiz ve minimal bir tasarımla sergileyin. Bu hafif tema mobil dostu ürün gösterimi oluşturur. Aşağıdaki bağlantıyı Instagram tarzı mağaza olarak kullanarak ürünlerinizi paylaşın. Etkin kalmasını öneririz."
+
+#: app/pwa.php:103
 msgid "Hippoo Mobile Storefront"
-msgstr "Hippoo Mobil Vitrin"
+msgstr "Hippoo Mobil Mağaza Vitrin"
 
-#: app/pwa.php:109
+#: app/pwa.php:111
 msgid "Storefront address"
 msgstr "Vitrin adresi"
 
-#: app/pwa.php:115
-msgid "Add your own CSS rules for Hippoo Shop. Styles entered here override defaults."
-msgstr "Hippoo Shop için kendi CSS kurallarınızı ekleyin. Buraya girilen stiller varsayılanların üzerine yazılır."
+#: app/pwa.php:117
+msgid ""
+"Add your own CSS rules for Hippoo Shop. Styles entered here override "
+"defaults."
+msgstr "Hippoo Mağazası için kendi CSS kurallarınızı ekleyin. Burada girilen stiller varsayılanları geçersiz kılar."
 
-#: app/pwa.php:118
+#: app/pwa.php:120
 msgid "Custom CSS"
 msgstr "Özel CSS"
 
-#: app/settings.php:17
-#: app/settings.php:194
+#: app/settings.php:17 app/settings.php:175
 msgid "Hippoo Settings"
 msgstr "Hippoo Ayarları"
 
-#: app/settings.php:18
-#: app/web_api.php:98
+#: app/settings.php:18 app/web_api.php:98
 msgid "Hippoo"
 msgstr "Hippoo"
 
-#: app/settings.php:37
-msgid "Provides PDF invoices and shipping labels for easy printing. Also generates barcodes for orders and product SKUs inside the WooCommerce dashboard, allowing you to scan them with the Hippoo WooCommerce app's barcode scanner to quickly find orders and products."
-msgstr "Kolay yazdırma için PDF faturaları ve kargo etiketleri sağlar. Ayrıca WooCommerce panosu içinde siparişler ve ürün SKU’ları için barkodlar oluşturur; böylece Hippoo WooCommerce uygulamasının barkod tarayıcısı ile tarayıp siparişleri ve ürünleri hızlıca bulabilirsiniz."
+#: app/settings.php:39
+msgid ""
+"Provides PDF invoices and shipping labels for easy printing. Also generates "
+"barcodes for orders and product SKUs inside the WooCommerce dashboard, "
+"allowing you to scan them with the Hippoo WooCommerce app's barcode scanner "
+"to quickly find orders and products."
+msgstr "Kolay yazdırma için PDF fatura ve kargo etiketleri sağlar. WooCommerce panelinde sipariş ve ürün SKU'ları için barkod üretir, Hippoo uygulamasının barkod tarayıcısı ile hızlıca sipariş ve ürün bulmanızı sağlar."
 
-#: app/settings.php:40
+#: app/settings.php:42
 msgid "Enable Hippoo invoice and shipping label"
-msgstr "Hippoo faturasını ve kargo etiketini etkinleştir"
+msgstr "Hippoo fatura ve kargo etiketini etkinleştir"
 
-#: app/settings.php:105
+#: app/settings.php:102 invoice/settings.php:54
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: app/settings.php:103
 msgid "Hippoo App"
 msgstr "Hippoo Uygulaması"
 
-#: app/settings.php:133
+#: app/settings.php:122
 msgid "Hippoo Woocommerce app"
-msgstr "Hippoo WooCommerce uygulaması"
+msgstr "Hippoo WooCommerce Uygulaması"
 
-#: app/settings.php:134
-msgid "Hippoo! is not just a shop management app, it's also a platform that enables you to extend its capabilities. With the ability to install extensions, you can customize your experience and add new features to the app. Browse and install other Hippoo plugins from our app to enhance your store's functionality."
-msgstr "Hippoo yalnızca bir mağaza yönetim uygulaması değil, aynı zamanda yeteneklerini genişletmenizi sağlayan bir platformdur. Eklenti kurabilme özelliğiyle deneyiminizi özelleştirebilir ve uygulamaya yeni özellikler ekleyebilirsiniz. Mağazanızın işlevlerini geliştirmek için uygulamamızdan diğer Hippoo eklentilerini göz atın ve yükleyin."
+#: app/settings.php:123
+msgid ""
+"Hippoo! is not just a shop management app, it's also a platform that enables "
+"you to extend its capabilities. With the ability to install extensions, you "
+"can customize your experience and add new features to the app. Browse and "
+"install other Hippoo plugins from our app to enhance your store's "
+"functionality."
+msgstr "Hippoo sadece bir mağaza yönetim uygulaması değil, aynı zamanda yeteneklerini genişletmenizi sağlayan bir platformdur. Eklenti yükleme özelliğiyle deneyiminizi kişiselleştirebilir ve uygulamaya yeni özellikler ekleyebilirsiniz. Mağazanızın işlevselliğini artırmak için uygulamamızdan diğer Hippoo eklentilerini inceleyin ve yükleyin."
 
-#: app/settings.php:136
-#: app/settings.php:137
+#: app/settings.php:125 app/settings.php:126
 msgid "Download Hippoo Android app"
 msgstr "Hippoo Android uygulamasını indir"
 
-#: app/settings.php:140
-#: app/settings.php:141
+#: app/settings.php:129 app/settings.php:130
 msgid "Download Hippoo iOS app"
 msgstr "Hippoo iOS uygulamasını indir"
 
-#: app/settings.php:145
+#: app/settings.php:134
 msgid "Scan QR code with your Android phone to install the app"
-msgstr "Uygulamayı yüklemek için Android telefonunuzla QR kodunu tarayın"
+msgstr "Uygulamayı yüklemek için Android telefonunuzla QR kodu tarayın"
 
-#: app/settings.php:146
+#: app/settings.php:135
 msgid "QR Code"
-msgstr "QR Kodu"
+msgstr "QR Kod"
 
-#: app/settings.php:152
+#: app/settings.php:141
 msgid "App screenshot 1"
 msgstr "Uygulama ekran görüntüsü 1"
 
-#: app/settings.php:153
+#: app/settings.php:142
 msgid "App screenshot 2"
 msgstr "Uygulama ekran görüntüsü 2"
 
-#: app/settings.php:154
+#: app/settings.php:143
 msgid "App screenshot 3"
 msgstr "Uygulama ekran görüntüsü 3"
 
-#: app/settings.php:155
+#: app/settings.php:144
 msgid "App screenshot 4"
 msgstr "Uygulama ekran görüntüsü 4"
 
-#: app/settings.php:156
+#: app/settings.php:145
 msgid "App screenshot 5"
 msgstr "Uygulama ekran görüntüsü 5"
 
-#: app/settings.php:190
+#: app/settings.php:171
 msgid "Settings saved successfully."
 msgstr "Ayarlar başarıyla kaydedildi."
 
 #. translators: %s: URL to the Permalink Settings page in wp-admin
 #: app/utils.php:46
-msgid "Hippoo can’t connect because your WordPress permalinks are set to “Plain”. To enable the WordPress REST API, open your <a href=\"%s\">Permalink Settings</a> and select Post name or Custom Structure, then save changes."
-msgstr "Hippoo bağlanamıyor çünkü WordPress kalıcı bağlantılarınız “Plain” olarak ayarlı. WordPress REST API’yi etkinleştirmek için <a href=\"%s\">Kalıcı Bağlantı Ayarları</a>nı açın ve “Yazı ismi” veya “Özel yapı”yı seçip değişiklikleri kaydedin."
+msgid ""
+"Hippoo can’t connect because your WordPress permalinks are set to “Plain”. "
+"To enable the WordPress REST API, open your <a href=\"%s\">Permalink "
+"Settings</a> and select Post name or Custom Structure, then save changes."
+msgstr "Hippoo bağlanamıyor çünkü WordPress kalıcı bağlantılarınız “Düz” olarak ayarlanmış. WordPress REST API'yi etkinleştirmek için <a href=\"%s\">Kalıcı Bağlantı Ayarları</a>'nı açın ve Yazı adı veya Özel Yapı seçeneğini seçip değişiklikleri kaydedin."
 
 #: app/utils.php:56
-msgid "Hippoo can’t connect because the WordPress REST API has been disabled by a theme or plugin."
+msgid ""
+"Hippoo can’t connect because the WordPress REST API has been disabled by a "
+"theme or plugin."
 msgstr "Hippoo bağlanamıyor çünkü WordPress REST API bir tema veya eklenti tarafından devre dışı bırakılmış."
 
 #: app/utils.php:69
-msgid "Hippoo can’t connect to your website because the WordPress REST API is not responding. Please check your firewall or hosting settings."
-msgstr "Hippoo web sitenize bağlanamıyor çünkü WordPress REST API yanıt vermiyor. Lütfen güvenlik duvarınızı veya barındırma ayarlarınızı kontrol edin."
+msgid ""
+"Hippoo can’t connect to your website because the WordPress REST API is not "
+"responding. Please check your firewall or hosting settings."
+msgstr "Hippoo web sitenize bağlanamıyor çünkü WordPress REST API yanıt vermiyor. Lütfen güvenlik duvarı veya barındırma ayarlarınızı kontrol edin."
 
 #: app/utils.php:80
-msgid "Hippoo can’t connect to your site because the WordPress REST API is restricted. Please allow public access to the REST API."
-msgstr "Hippoo sitenize bağlanamıyor çünkü WordPress REST API kısıtlı. Lütfen REST API’ye herkese açık erişime izin verin."
+msgid ""
+"Hippoo can’t connect to your site because the WordPress REST API is "
+"restricted. Please allow public access to the REST API."
+msgstr "Hippoo sitenize bağlanamıyor çünkü WordPress REST API kısıtlanmış. Lütfen REST API'ye genel erişime izin verin."
 
 #: app/utils.php:86
-msgid "Hippoo can’t connect because something on your site (like a security plugin or server rule) is blocking access to the WordPress REST API."
-msgstr "Hippoo bağlanamıyor çünkü sitenizdeki bir şey (güvenlik eklentisi veya sunucu kuralı gibi) WordPress REST API’ye erişimi engelliyor."
+msgid ""
+"Hippoo can’t connect because something on your site (like a security plugin "
+"or server rule) is blocking access to the WordPress REST API."
+msgstr "Hippoo bağlanamıyor çünkü sitenizde bir şey (güvenlik eklentisi veya sunucu kuralı gibi) WordPress REST API erişimini engelliyor."
 
 #: app/utils.php:92
-msgid "Hippoo can’t connect because the WordPress API endpoint wasn’t found. Please make sure your WordPress installation is complete and .htaccess is correctly configured."
-msgstr "Hippoo bağlanamıyor çünkü WordPress API uç noktası bulunamadı. Lütfen WordPress kurulumunuzun tamam olduğundan ve .htaccess dosyasının doğru yapılandırıldığından emin olun."
+msgid ""
+"Hippoo can’t connect because the WordPress API endpoint wasn’t found. Please "
+"make sure your WordPress installation is complete and .htaccess is correctly "
+"configured."
+msgstr "Hippoo bağlanamıyor çünkü WordPress API uç noktası bulunamadı. Lütfen WordPress kurulumunuzun tam olduğunu ve .htaccess dosyasının doğru yapılandırıldığını kontrol edin."
 
 #: app/utils.php:98
-msgid "Hippoo can’t connect right now because your site returned an internal error when trying to reach the WordPress REST API."
-msgstr "Hippoo şu anda bağlanamıyor çünkü WordPress REST API’ye ulaşmaya çalışırken siteniz bir dahili hata döndürdü."
+msgid ""
+"Hippoo can’t connect right now because your site returned an internal error "
+"when trying to reach the WordPress REST API."
+msgstr "Hippoo şu anda bağlanamıyor çünkü siteniz WordPress REST API'ye ulaşmaya çalışırken iç hata döndürdü."
 
 #: app/utils.php:108
-msgid "Hippoo can’t connect because essential WordPress API routes are missing. A plugin may have disabled them."
-msgstr "Hippoo bağlanamıyor çünkü gerekli WordPress API rotaları eksik. Bir eklenti bunları devre dışı bırakmış olabilir."
+msgid ""
+"Hippoo can’t connect because essential WordPress API routes are missing. A "
+"plugin may have disabled them."
+msgstr "Hippoo bağlanamıyor çünkü temel WordPress API yolları eksik. Bir eklenti bunları devre dışı bırakmış olabilir."
 
-#: app/web_api.php:126
-#: app/web_api.php:180
+#: app/web_api.php:126 app/web_api.php:180
 msgid "Invalid token."
 msgstr "Geçersiz token."
 
@@ -767,7 +535,7 @@ msgstr "Geçerli token verisi yok."
 
 #: app/web_api.php:200
 msgid "Unauthenticated. No token found. Please reauthenticate."
-msgstr "Kimlik doğrulanmadı. Token bulunamadı. Lütfen yeniden kimlik doğrulayın."
+msgstr "Kimlik doğrulanmadı. Token bulunamadı. Lütfen tekrar kimlik doğrulayın."
 
 #: app/web_api.php:206
 msgid "Unauthenticated. No token data found."
@@ -791,7 +559,7 @@ msgstr "Kimlik doğrulanmadı, Token Verisi Yok"
 
 #: app/web_api.php:348
 msgid "Country code must be a valid two-letter uppercase code."
-msgstr "Ülke kodu geçerli, iki harfli büyük bir kod olmalıdır."
+msgstr "Ülke kodu geçerli iki büyük harf kodu olmalıdır."
 
 #: app/web_api.php:353
 msgid "Invalid or unauthorized country code."
@@ -834,7 +602,7 @@ msgstr "Ürün "
 
 #: app/web_api_auth.php:40
 msgid "Array of media item IDs to delete."
-msgstr "Silinecek medya öğesi ID’leri dizisi."
+msgstr "Silinecek medya öğesi ID'leri dizisi."
 
 #: app/web_api_auth.php:156
 msgid "Invalid or missing file."
@@ -858,7 +626,7 @@ msgstr "Ek bulunamadı."
 
 #: app/web_api_auth.php:224
 msgid "Error deleting the attachment."
-msgstr "Eki silerken hata oluştu."
+msgstr "Ek silinirken hata oluştu."
 
 #: app/web_api_auth.php:233
 msgid "Attachment(s) deleted successfully."
@@ -868,9 +636,7 @@ msgstr "Ek(ler) başarıyla silindi."
 msgid "Nothing to delete."
 msgstr "Silinecek bir şey yok."
 
-#: app/web_api_notification.php:345
-#: app/web_api_notification.php:387
-#: app/web_api_notification.php:411
+#: app/web_api_notification.php:345 app/web_api_notification.php:387 app/web_api_notification.php:411
 msgid "Notification not found."
 msgstr "Bildirim bulunamadı."
 
@@ -885,130 +651,130 @@ msgstr "Geçersiz etkinlik kancası."
 
 #: invoice/main.php:64
 msgid "You do not have access to view this order."
-msgstr "Bu siparişi görüntüleme erişiminiz yok."
+msgstr "Bu siparişi görüntüleme yetkiniz yok."
 
-#: invoice/settings.php:17
-#: invoice/settings.php:18
-msgid "Hippoo Invoice"
-msgstr "Hippoo Fatura"
-
-#: invoice/settings.php:46
+#: invoice/settings.php:50
 msgid "Hippoo invoice and shipping label"
 msgstr "Hippoo fatura ve kargo etiketi"
 
-#: invoice/settings.php:69
+#: invoice/settings.php:73
 msgid "General settings"
 msgstr "Genel ayarlar"
 
-#: invoice/settings.php:76
+#: invoice/settings.php:80
 msgid "Shop logo"
 msgstr "Mağaza logosu"
 
-#: invoice/settings.php:84
+#: invoice/settings.php:88
 msgid "Language direction"
 msgstr "Dil yönü"
 
-#: invoice/settings.php:92
+#: invoice/settings.php:96
 msgid "Show barcode(Order id) in order list"
-msgstr "Sipariş listesinde barkodu (Sipariş ID) göster"
+msgstr "Sipariş listesinde barkod (Sipariş ID) göster"
 
-#: invoice/settings.php:100
+#: invoice/settings.php:104
 msgid "Show barcode(Order id) in order details"
-msgstr "Sipariş detaylarında barkodu (Sipariş ID) göster"
+msgstr "Sipariş detaylarında barkod (Sipariş ID) göster"
 
-#: invoice/settings.php:108
+#: invoice/settings.php:112
 msgid "Show barcode(SKU) in products list"
-msgstr "Ürün listesinde barkodu (SKU) göster"
+msgstr "Ürün listesinde barkod (SKU) göster"
 
-#: invoice/settings.php:116
+#: invoice/settings.php:120
 msgid "Show barcode(SKU) in products details"
-msgstr "Ürün detaylarında barkodu (SKU) göster"
+msgstr "Ürün detaylarında barkod (SKU) göster"
 
-#: invoice/settings.php:126
+#: invoice/settings.php:130
 msgid "Invoice settings"
 msgstr "Fatura ayarları"
 
-#: invoice/settings.php:133
-#: invoice/settings.php:199
+#: invoice/settings.php:137 invoice/settings.php:203
 msgid "Paper Size"
 msgstr "Kağıt Boyutu"
 
-#: invoice/settings.php:141
+#: invoice/settings.php:145
 msgid "Font name"
 msgstr "Yazı tipi adı"
 
-#: invoice/settings.php:149
-#: invoice/settings.php:207
+#: invoice/settings.php:153 invoice/settings.php:211
 msgid "Show logo"
-msgstr "Logoyu göster"
+msgstr "Logo göster"
 
-#: invoice/settings.php:157
+#: invoice/settings.php:161
 msgid "Show customer note"
 msgstr "Müşteri notunu göster"
 
-#: invoice/settings.php:165
+#: invoice/settings.php:169
 msgid "Show product SKU in invoice"
-msgstr "Faturada ürün SKU’sunu göster"
+msgstr "Faturada ürün SKU'sunu göster"
 
-#: invoice/settings.php:173
+#: invoice/settings.php:177
 msgid "Footer description"
-msgstr "Alt bilgi açıklaması"
+msgstr "Altbilgi açıklaması"
 
-#: invoice/settings.php:192
+#: invoice/settings.php:196
 msgid "Shipping label settings"
 msgstr "Kargo etiketi ayarları"
 
-#: invoice/settings.php:215
+#: invoice/settings.php:219
 msgid "Calculate Weight"
 msgstr "Ağırlığı Hesapla"
 
-#: invoice/settings.php:223
+#: invoice/settings.php:227
 msgid "Courier logo"
 msgstr "Kargo firması logosu"
 
-#: invoice/settings.php:249
-#: invoice/templates/simple/hippoo-factor.php:154
-#: invoice/templates/simple/hippoo-label.php:91
+#: invoice/settings.php:251 invoice/templates/simple/hippoo-factor.php:154 invoice/templates/simple/hippoo-label.php:91
 msgid "Shop Logo"
 msgstr "Mağaza Logosu"
 
-#: invoice/settings.php:251
-#: invoice/settings.php:394
+#: invoice/settings.php:253 invoice/settings.php:390
 msgid "Upload Logo"
-msgstr "Logo yükle"
+msgstr "Logo Yükle"
 
-#: invoice/settings.php:253
+#: invoice/settings.php:254 invoice/settings.php:391
+msgid "Remove"
+msgstr "Kaldır"
+
+#: invoice/settings.php:255
 msgid "512x512 is perfect size for logo"
-msgstr "512x512 logo için ideal boyuttur"
+msgstr "Logo için 512x512 mükemmel boyuttur"
 
-#: invoice/settings.php:363
+#: invoice/settings.php:360
 msgid "Exclamation Icon"
 msgstr "Ünlem Simgesi"
 
-#: invoice/settings.php:366
+#: invoice/settings.php:363
 msgid "Need more invoice or shipping label customization?"
-msgstr "Fatura veya kargo etiketi için daha fazla özelleştirme mi gerekiyor?"
+msgstr "Daha fazla fatura veya kargo etiketi özelleştirmesi mi gerekiyor?"
 
-#: invoice/settings.php:367
-msgid "You can customize your invoice layout by copying the template file from the plugin folder to your active theme folder. Then edit the copied file to adjust the design, paper size, or language to fit your needs."
-msgstr "Şablon dosyasını eklenti klasöründen etkin temanızın klasörüne kopyalayarak fatura düzeninizi özelleştirebilirsiniz. Ardından kopyalanan dosyayı düzenleyerek tasarımı, kağıt boyutunu veya dili ihtiyaçlarınıza göre ayarlayın."
+#: invoice/settings.php:364
+msgid ""
+"You can customize your invoice layout by copying the template file from the "
+"plugin folder to your active theme folder. Then edit the copied file to "
+"adjust the design, paper size, or language to fit your needs."
+msgstr "Fatura düzeninizi özelleştirmek için şablon dosyasını eklenti klasöründen aktif tema klasörünüze kopyalayabilirsiniz. Ardından kopyalanan dosyayı düzenleyerek tasarımı, kağıt boyutunu veya dili ihtiyaçlarınıza göre ayarlayın."
 
-#: invoice/settings.php:368
+#: invoice/settings.php:365
 msgid "Learn more here"
-msgstr "Buradan daha fazlasını öğrenin"
+msgstr "Burada daha fazla bilgi edinin"
 
-#: invoice/settings.php:433
+#: invoice/settings.php:428
 msgid "Setting saved."
 msgstr "Ayar kaydedildi."
 
-#: invoice/templates/simple/hippoo-factor.php:164
-#: invoice/templates/simple/hippoo-label.php:115
+#: invoice/templates/simple/hippoo-factor.php:3 invoice/templates/simple/hippoo-factor.php:162 invoice/templates/simple/hippoo-label.php:113
+msgid "Invoice"
+msgstr "Fatura"
+
+#: invoice/templates/simple/hippoo-factor.php:164 invoice/templates/simple/hippoo-label.php:115
 msgid "Invoice Barcode"
 msgstr "Fatura Barkodu"
 
 #: invoice/templates/simple/hippoo-factor.php:178
 msgid "Bill to:"
-msgstr "Fatura Edilen:"
+msgstr "Fatura adresi:"
 
 #: invoice/templates/simple/hippoo-factor.php:180
 msgid "Customer note:"
@@ -1016,7 +782,11 @@ msgstr "Müşteri notu:"
 
 #: invoice/templates/simple/hippoo-factor.php:196
 msgid "Item"
-msgstr "Kalem"
+msgstr "Ürün"
+
+#: invoice/templates/simple/hippoo-factor.php:198 invoice/woocommerce/product.php:27
+msgid "SKU"
+msgstr "Stok Kodu"
 
 #: invoice/templates/simple/hippoo-factor.php:200
 msgid "Qty"
@@ -1032,11 +802,11 @@ msgstr "Tutar"
 
 #: invoice/templates/simple/hippoo-factor.php:216
 msgid "Product SKU Barcode"
-msgstr "Ürün SKU Barkodu"
+msgstr "Ürün Stok Kodu Barkodu"
 
 #: invoice/templates/simple/hippoo-factor.php:229
 msgid "Subtotal"
-msgstr "Ara toplam"
+msgstr "Ara Toplam"
 
 #: invoice/templates/simple/hippoo-factor.php:235
 msgid "Discount"
@@ -1070,8 +840,7 @@ msgstr "Ağırlık:"
 msgid "Courier Logo"
 msgstr "Kargo Firması Logosu"
 
-#: invoice/woocommerce/order-copy.php:46
-#: invoice/woocommerce/order.php:72
+#: invoice/woocommerce/order-copy.php:46 invoice/woocommerce/order.php:72
 msgid "Barcode"
 msgstr "Barkod"
 
@@ -1087,6 +856,6 @@ msgstr "Adresi Doğrula"
 msgid "Order ID Barcode"
 msgstr "Sipariş ID Barkodu"
 
-#: invoice/woocommerce/product.php:48
+#: invoice/woocommerce/product.php:51
 msgid "Product Barcode (SKU)"
-msgstr "Ürün Barkodu (SKU)"
+msgstr "Ürün Barkodu (Stok Kodu)"

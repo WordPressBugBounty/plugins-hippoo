@@ -1,20 +1,19 @@
-# Copyright (C) 2026 Hippoo Team
-# This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: App móvel Hippoo para WooCommerce 1.7.4\n"
+"Project-Id-Version: Hippoo Mobile app for WooCommerce 1.7.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/hippoo\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Portuguese <pt@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: Portuguese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-23T21:06:33+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"POT-Creation-Date: 2025-12-14T20:22:12+00:00\n"
+"PO-Revision-Date: 2025-12-22 13:48+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Domain: hippoo\n"
 "Language: pt_PT\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Loco-Version: 2.8.0; wp-6.9; php-8.2.29"
 
 #. Plugin Name of the plugin
 #: hippoo.php
@@ -25,54 +24,58 @@ msgstr "App móvel Hippoo para WooCommerce"
 #. Author URI of the plugin
 #: hippoo.php
 msgid "https://Hippoo.app/"
-msgstr "https://Hippoo.app/"
+msgstr "https://hippoo.app/"
 
 #. Description of the plugin
 #: hippoo.php
-msgid "Best WooCommerce App Alternative – Manage orders and products on the go with real-time notifications, seamless order and product management, and powerful add-ons. Available for Android & iOS. 🚀."
-msgstr "A melhor alternativa à app do WooCommerce: gira encomendas e produtos em qualquer lugar com notificações em tempo real, gestão de encomendas e produtos sem complicações e add-ons poderosos. Disponível para Android e iOS 🚀."
+msgid ""
+"Best WooCommerce App Alternative – Manage orders and products on the go with "
+"real-time notifications, seamless order and product management, and powerful "
+"add-ons. Available for Android & iOS. 🚀."
+msgstr "A melhor alternativa à app WooCommerce – Gerencie pedidos e produtos em movimento com notificações em tempo real, gestão fluida de pedidos e produtos, e add-ons poderosos. Disponível para Android e iOS. 🚀"
 
 #. Author of the plugin
 #: hippoo.php
 msgid "Hippoo Team"
 msgstr "Equipa Hippoo"
 
-#: app/ai.php:26
+#: app/ai.php:29
 msgid "Hippoo AI"
-msgstr "Hippoo AI"
+msgstr "Hippoo IA"
 
-#: app/ai.php:68
+#: app/ai.php:69
 msgid "Select AI Provider"
 msgstr "Selecionar fornecedor de IA"
 
-#: app/ai.php:76
+#: app/ai.php:77
 msgid "Select model"
 msgstr "Selecionar modelo"
 
-#: app/ai.php:84
+#: app/ai.php:85
 msgid "Your API Token"
-msgstr "O seu token de API"
+msgstr "O teu token API"
 
-#: app/ai.php:100
+#: app/ai.php:101
 msgid "System Prompt"
 msgstr "Prompt do sistema"
 
-#: app/ai.php:109
+#: app/ai.php:110
 msgid "Description Prompt"
 msgstr "Prompt de descrição"
 
-#: app/ai.php:118
+#: app/ai.php:119
 msgid "Max Tokens"
-msgstr "Máx. de tokens"
+msgstr "Máximo de tokens"
 
-#: app/ai.php:135
+#: app/ai.php:136
 msgid "Connect the AI"
 msgstr "Ligar a IA"
 
-#: app/ai.php:136
-#: app/ai.php:199
-msgid "Generate product descriptions automatically from images using AI. Configure your preferred model and prompts in the settings below."
-msgstr "Gere descrições de produtos automaticamente a partir de imagens usando IA. Configure o modelo e os prompts preferidos nas definições abaixo."
+#: app/ai.php:137 app/ai.php:197
+msgid ""
+"Generate product descriptions automatically from images using AI. Configure "
+"your preferred model and prompts in the settings below."
+msgstr "Gere descrições de produtos automaticamente a partir de imagens usando IA. Configure o modelo preferido e os prompts nas definições abaixo."
 
 #: app/ai.php:146
 msgid "Chat GPT"
@@ -82,215 +85,234 @@ msgstr "ChatGPT"
 msgid "Gemini"
 msgstr "Gemini"
 
-#: app/ai.php:188
+#: app/ai.php:186
 msgid "Enter your API key"
-msgstr "Introduza a sua chave de API"
+msgstr "Introduza a tua chave API"
 
-#: app/ai.php:189
+#: app/ai.php:187
 msgid "How can I provide the token?"
 msgstr "Como posso fornecer o token?"
 
-#: app/ai.php:191
+#: app/ai.php:189
 msgid "Test connection"
 msgstr "Testar ligação"
 
-#: app/ai.php:198
+#: app/ai.php:196
 msgid "AI Product Reader"
-msgstr "Leitor de produtos por IA"
+msgstr "Leitor de produtos com IA"
 
-#: app/ai.php:200
+#: app/ai.php:198
 msgid "Prompt settings"
 msgstr "Definições de prompts"
 
-#: app/ai.php:201
-msgid "Customize how the AI generates text by editing the prompts below. Each prompt guides the AI to produce the desired type of content for your products. You can adjust these to change tone, style, or structure of the generated descriptions."
-msgstr "Personalize como a IA gera texto ao editar os prompts abaixo. Cada prompt orienta a IA para produzir o tipo de conteúdo desejado para os seus produtos. Pode ajustá-los para alterar o tom, o estilo ou a estrutura das descrições geradas."
+#: app/ai.php:199
+msgid ""
+"Customize how the AI generates text by editing the prompts below. Each "
+"prompt guides the AI to produce the desired type of content for your "
+"products. You can adjust these to change tone, style, or structure of the "
+"generated descriptions."
+msgstr "Personalize como a IA gera texto editando os prompts abaixo. Cada prompt orienta a IA a produzir o tipo de conteúdo desejado para os teus produtos. Podes ajustá-los para alterar o tom, estilo ou estrutura das descrições geradas."
 
-#: app/ai.php:212
-msgid "Sets the general behavior or role of the AI (e.g., “You are a product description writer for an online store.)"
-msgstr "Define o comportamento geral ou o papel da IA (por exemplo: “É um redator de descrições de produto para uma loja online.”)"
+#: app/ai.php:209
+msgid ""
+"Sets the general behavior or role of the AI (e.g., “You are a product "
+"description writer for an online store.)"
+msgstr "Define o comportamento geral ou papel da IA (ex.: «És um redator de descrições de produtos para uma loja online».)"
 
-#: app/ai.php:224
-msgid "Defines how the main product description should be written (e.g., length, tone, structure)"
-msgstr "Define como a descrição principal do produto deve ser escrita (por exemplo: comprimento, tom, estrutura)"
+#: app/ai.php:220
+msgid ""
+"Defines how the main product description should be written (e.g., length, "
+"tone, structure)"
+msgstr "Define como deve ser escrita a descrição principal do produto (ex.: comprimento, tom, estrutura)"
 
-#: app/ai.php:248
-#: app/ai.php:362
-#: app/ai.php:433
-msgid "You haven’t provided an API key. Please go to the Hippoo settings page and add your API key to connect to the AI."
-msgstr "Não forneceu uma chave de API. Vá à página de definições do Hippoo e adicione a sua chave de API para ligar à IA."
+#: app/ai.php:243 app/ai.php:357 app/ai.php:428
+msgid ""
+"You haven’t provided an API key. Please go to the Hippoo settings page and "
+"add your API key to connect to the AI."
+msgstr "Não forneceste uma chave API. Vai à página de definições do Hippoo e adiciona a tua chave API para ligar à IA."
 
-#: app/ai.php:256
-#: app/ai.php:409
-#: app/ai.php:447
-#: app/ai.php:478
+#: app/ai.php:251 app/ai.php:404 app/ai.php:442 app/ai.php:473
 msgid "Unsupported AI provider."
 msgstr "Fornecedor de IA não suportado."
 
-#: app/ai.php:262
-#: app/ai.php:459
+#: app/ai.php:257 app/ai.php:454
 msgid "Failed to connect to AI service."
 msgstr "Falha ao ligar ao serviço de IA."
 
-#: app/ai.php:277
+#: app/ai.php:272
 msgid "Invalid provider"
 msgstr "Fornecedor inválido"
 
-#: app/ai.php:351
+#: app/ai.php:346
 msgid "Too many requests. Please try again later."
-msgstr "Demasiados pedidos. Por favor, tente novamente mais tarde."
+msgstr "Demasiados pedidos. Por favor, tenta novamente mais tarde."
 
-#: app/ai.php:549
+#: app/ai.php:544
 msgid "Invalid parameters provided"
 msgstr "Parâmetros fornecidos inválidos"
 
-#: app/ai.php:576
-msgid "Analyze product images and related descriptions to generate high-quality, engaging, and SEO-optimized product content. Focus on identifying key visual details such as type, color, material, and purpose to create accurate, natural, and persuasive descriptions suitable for e-commerce platforms."
-msgstr "Analise imagens de produtos e descrições relacionadas para gerar conteúdo de produto de alta qualidade, envolvente e otimizado para SEO. Foque-se em identificar detalhes visuais essenciais como tipo, cor, material e finalidade para criar descrições precisas, naturais e persuasivas, adequadas a plataformas de e-commerce."
+#: app/ai.php:571
+msgid ""
+"Analyze product images and related descriptions to generate high-quality, "
+"engaging, and SEO-optimized product content. Focus on identifying key visual "
+"details such as type, color, material, and purpose to create accurate, "
+"natural, and persuasive descriptions suitable for e-commerce platforms."
+msgstr "Analisa imagens de produtos e descrições relacionadas para gerar conteúdo de produto de alta qualidade, envolvente e otimizado para SEO. Concentra-te na identificação de detalhes visuais chave como tipo, cor, material e finalidade para criar descrições precisas, naturais e persuasivas adequadas para plataformas de comércio eletrónico."
 
-#: app/ai.php:583
-msgid "Review the provided product image and its details to understand the item’s appearance, features, and intended use. Then generate a compelling product title, short summary, detailed description, and a list of relevant SEO keywords based on your analysis."
-msgstr "Revise a imagem do produto fornecida e os seus detalhes para compreender a aparência, as características e o uso pretendido. Depois, com base na sua análise, gere um título apelativo, um resumo curto, uma descrição detalhada e uma lista de palavras-chave SEO relevantes."
+#: app/ai.php:578
+msgid ""
+"Review the provided product image and its details to understand the item’s "
+"appearance, features, and intended use. Then generate a compelling product "
+"title, short summary, detailed description, and a list of relevant SEO "
+"keywords based on your analysis."
+msgstr "Revisa a imagem do produto fornecida e os seus detalhes para compreender a aparência, características e uso pretendido do artigo. Em seguida, gera um título de produto atraente, um resumo curto, uma descrição detalhada e uma lista de palavras-chave SEO relevantes com base na tua análise."
 
-#: app/ai.php:613
+#: app/ai.php:608
 msgid "Failed to download image: "
-msgstr "Falha ao descarregar a imagem: "
+msgstr "Falha ao transferir a imagem: "
 
-#: app/ai.php:619
+#: app/ai.php:614
 msgid "No valid image provided."
 msgstr "Não foi fornecida uma imagem válida."
 
-#: app/ai.php:629
+#: app/ai.php:624
 msgid "Invalid image file."
 msgstr "Ficheiro de imagem inválido."
 
-#: app/ai.php:634
+#: app/ai.php:629
 msgid "Supported formats: jpg, png, webp"
 msgstr "Formatos suportados: jpg, png, webp"
 
-#: app/ai.php:639
+#: app/ai.php:634
 msgid "Failed to open image editor."
 msgstr "Falha ao abrir o editor de imagens."
 
-#: app/ai.php:653
+#: app/ai.php:648
 msgid "Could not save optimized image."
 msgstr "Não foi possível guardar a imagem otimizada."
 
-#: app/ai.php:657
+#: app/ai.php:652
 msgid "Optimized image exceeds 2MB."
 msgstr "A imagem otimizada excede 2 MB."
 
-#: app/ai.php:699
-#: app/ai.php:830
-msgid "You MUST only respond with a clean HTML block suitable for WordPress editor, no markdown, no backticks, no explanations."
-msgstr "DEVE responder apenas com um bloco de HTML limpo adequado ao editor do WordPress, sem markdown, sem crases e sem explicações."
+#: app/ai.php:694 app/ai.php:825
+msgid ""
+"You MUST only respond with a clean HTML block suitable for WordPress editor, "
+"no markdown, no backticks, no explanations."
+msgstr "DEVE responder APENAS com um bloco HTML limpo adequado para o editor do WordPress, sem markdown, sem crases invertidas, sem explicações."
+
+#: app/ai.php:749
+msgid "Unexpected response from OpenAI."
+msgstr "Resposta inesperada do OpenAI."
 
 #: app/ai.php:754
-msgid "Unexpected response from OpenAI."
-msgstr "Resposta inesperada da OpenAI."
-
-#: app/ai.php:759
 msgid "Max token limit reached for this prompt."
 msgstr "Limite máximo de tokens atingido para este prompt."
 
-#: app/ai.php:771
+#: app/ai.php:766
 msgid "OpenAI did not return any text. Try increasing max_tokens."
-msgstr "A OpenAI não devolveu texto. Tente aumentar o max_tokens."
+msgstr "O OpenAI não devolveu nenhum texto. Tenta aumentar max_tokens."
 
-#: app/ai.php:867
+#: app/ai.php:862
 msgid "Unexpected response from Gemini."
 msgstr "Resposta inesperada do Gemini."
 
-#: app/ai.php:874
+#: app/ai.php:869
 msgid "Gemini did not return any text. Try increasing max_tokens."
-msgstr "O Gemini não devolveu texto. Tente aumentar o max_tokens."
+msgstr "O Gemini não devolveu nenhum texto. Tenta aumentar max_tokens."
 
-#: app/app.php:80
+#: app/app.php:62
 msgid "Help Center"
-msgstr "Centro de ajuda"
+msgstr "Centro de Ajuda"
 
-#: app/app.php:81
+#: app/app.php:63
 msgid "Feature Request"
 msgstr "Pedido de funcionalidade"
 
-#: app/app.php:82
+#: app/app.php:64
 msgid "Customer Support"
-msgstr "Apoio ao cliente"
+msgstr "Suporte ao Cliente"
 
-#: app/app.php:94
-#: app/app.php:103
+#: app/app.php:76 app/app.php:85
 msgid "Latest blog posts on Hippoo"
-msgstr "Últimas publicações do blog do Hippoo"
+msgstr "Últimos artigos do blog Hippoo"
 
-#: app/app.php:111
+#: app/app.php:93
 msgid "Read more on our blog"
-msgstr "Leia mais no nosso blog"
+msgstr "Ler mais no nosso blog"
 
-#: app/app.php:141
-msgid "Enjoying the Hippoo Mobile App for WooCommerce? We would love to hear your feedback! Please take a moment to leave a review."
-msgstr "Está a gostar da App móvel Hippoo para WooCommerce? Adorávamos ouvir o seu feedback! Por favor, dedique um momento para deixar uma avaliação."
+#: app/app.php:123
+msgid ""
+"Enjoying the Hippoo Mobile App for WooCommerce? We would love to hear your "
+"feedback! Please take a moment to leave a review."
+msgstr "Estás a gostar da App móvel Hippoo para WooCommerce? Adoraríamos ouvir a tua opinião! Dedica um momento a deixar uma avaliação."
 
-#: app/app.php:143
+#: app/app.php:125
 msgid "Leave a Review"
 msgstr "Deixar uma avaliação"
 
-#: app/app.php:144
-#: app/app.php:200
+#: app/app.php:126 app/app.php:182
 msgid "Dismiss"
 msgstr "Dispensar"
 
-#: app/app.php:192
+#: app/app.php:174
 msgid "Hippoo Logo"
-msgstr "Logótipo do Hippoo"
+msgstr "Logótipo Hippoo"
 
-#: app/app.php:195
+#: app/app.php:177
 msgid "Hippoo app can’t connect to your WooCommerce"
-msgstr "A app Hippoo não consegue ligar ao seu WooCommerce"
+msgstr "A app Hippoo não consegue ligar ao teu WooCommerce"
 
-#: app/app.php:202
+#: app/app.php:184
 msgid "Try again"
 msgstr "Tentar novamente"
 
-#: app/app.php:244
+#: app/app.php:226
 msgid "Upgrade to Hippoo Premium"
 msgstr "Atualizar para Hippoo Premium"
 
-#: app/app.php:245
-msgid "Upgrade to Hippoo Premium for custom event notifications, full extension access, Shippo integration, advanced analytics, and smart AI tools."
-msgstr "Atualize para Hippoo Premium para ter notificações de eventos personalizadas, acesso completo a extensões, integração com Shippo, análises avançadas e ferramentas inteligentes de IA."
+#: app/app.php:227
+msgid ""
+"Upgrade to Hippoo Premium for custom event notifications, full extension "
+"access, Shippo integration, advanced analytics, and smart AI tools."
+msgstr "Atualiza para Hippoo Premium para obter notificações de eventos personalizadas, acesso completo a extensões, integração com Shippo, análises avançadas e ferramentas de IA inteligentes."
 
-#: app/app.php:252
+#: app/app.php:234
 msgid "Learn more"
-msgstr "Saiba mais"
+msgstr "Saber mais"
 
-#: app/app.php:257
+#: app/app.php:239
 msgid "Upgrade"
 msgstr "Atualizar"
 
 #: app/bugsnag.php:100
-msgid "Enable this option to send anonymous usage statistics and error reports. This helps us identify issues and improve Hippoo. No personal data will be collected."
-msgstr "Ative esta opção para enviar estatísticas de utilização anónimas e relatórios de erros. Isto ajuda-nos a identificar problemas e melhorar o Hippoo. Nenhum dado pessoal será recolhido."
+msgid ""
+"Enable this option to send anonymous usage statistics and error reports. "
+"This helps us identify issues and improve Hippoo. No personal data will be "
+"collected."
+msgstr "Ativa esta opção para enviar estatísticas de uso anónimas e relatórios de erros. Isso ajuda-nos a identificar problemas e melhorar o Hippoo. Não serão recolhidos dados pessoais."
 
 #: app/bugsnag.php:103
 msgid "Help Improve Hippoo"
-msgstr "Ajude a melhorar o Hippoo"
+msgstr "Ajuda a melhorar o Hippoo"
 
-#: app/integrations.php:25
-#: app/integrations.php:37
+#: app/integrations.php:27 app/integrations.php:37
 msgid "Hippoo Integrations"
 msgstr "Integrações Hippoo"
 
 #: app/integrations.php:38
-msgid "Integrations are free WordPress plugins that bring new features to both WooCommerce and the Hippoo App. They are completely free to install and use in WooCommerce. A Premium license is required to use these features inside the Hippoo App."
-msgstr "As integrações são plugins WordPress gratuitos que trazem novas funcionalidades tanto para o WooCommerce como para a App Hippoo. A instalação e utilização no WooCommerce são totalmente gratuitas. É necessária uma licença Premium para usar estas funcionalidades dentro da App Hippoo."
+msgid ""
+"Integrations are free WordPress plugins that bring new features to both "
+"WooCommerce and the Hippoo App. They are completely free to install and use "
+"in WooCommerce. A Premium license is required to use these features inside "
+"the Hippoo App."
+msgstr "As integrações são plugins gratuitos do WordPress que trazem novas funcionalidades tanto ao WooCommerce como à App Hippoo. São completamente gratuitos para instalar e usar no WooCommerce. É necessária uma licença Premium para usar estas funcionalidades dentro da App Hippoo."
 
-#: app/integrations.php:54
-#: app/integrations.php:165
+#: app/integrations.php:54 app/integrations.php:152
 msgid "Failed to fetch integrations."
-msgstr "Falha ao obter integrações."
+msgstr "Falha ao obter as integrações."
 
-#: app/integrations.php:68
-#: app/integrations.php:193
+#: app/integrations.php:68 app/integrations.php:168
 msgid "Invalid or unauthorized plugin."
 msgstr "Plugin inválido ou não autorizado."
 
@@ -306,454 +328,200 @@ msgstr "Ativado com sucesso."
 msgid "Installed successfully."
 msgstr "Instalado com sucesso."
 
-#: app/integrations.php:201
+#: app/integrations.php:176
 msgid "Plugin already installed."
 msgstr "O plugin já está instalado."
 
-#: app/integrations.php:211
+#: app/integrations.php:186
 msgid "Plugin installed successfully."
 msgstr "Plugin instalado com sucesso."
 
-#: app/integrations.php:227
+#: app/integrations.php:202
 msgid "Plugin already active."
 msgstr "O plugin já está ativo."
 
-#: app/integrations.php:238
+#: app/integrations.php:213
 msgid "Plugin activated successfully."
 msgstr "Plugin ativado com sucesso."
 
-#: app/integrations.php:243
+#: app/integrations.php:218
 msgid "Plugin is not active."
 msgstr "O plugin não está ativo."
 
-#: app/integrations.php:249
+#: app/integrations.php:224
 msgid "Failed to deactivate plugin."
 msgstr "Falha ao desativar o plugin."
 
-#: app/integrations.php:254
+#: app/integrations.php:229
 msgid "Plugin deactivated successfully."
 msgstr "Plugin desativado com sucesso."
 
-#: app/integrations.php:258
+#: app/integrations.php:233
 msgid "Invalid action."
 msgstr "Ação inválida."
 
-#: app/integrations.php:300
+#: app/integrations.php:251
 msgid "Installation failed."
-msgstr "A instalação falhou."
-
-#: app/permissions.php:58
-#: app/permissions.php:73
-msgid "Role & permissions"
-msgstr "Função e permissões"
-
-#: app/permissions.php:74
-msgid "Control what data each user role can see in the Hippoo app, including orders, revenue, customers, and reviews and more. These settings are managed by admins and applied directly at the API level for better data security."
-msgstr "Controle quais dados cada função de utilizador pode ver na app Hippoo, incluindo encomendas, receita, clientes, avaliações e muito mais. Estas definições são geridas por administradores e aplicadas diretamente ao nível da API para melhor segurança dos dados."
-
-#: app/permissions.php:77
-msgid "Select role"
-msgstr "Selecionar função"
-
-#: app/permissions.php:80
-msgid "Select role to manage permission"
-msgstr "Selecione a função para gerir permissões"
-
-#: app/permissions.php:110
-#: app/permissions.php:135
-#: app/permissions.php:154
-msgid "Invalid request."
-msgstr "Pedido inválido."
-
-#: app/permissions.php:115
-msgid "Role already exists."
-msgstr "A função já existe."
-
-#. translators: %s: role name
-#: app/permissions.php:805
-msgid "%s permissions"
-msgstr "Permissões de %s"
-
-#: app/permissions.php:808
-#: invoice/settings.php:252
-#: invoice/settings.php:395
-msgid "Remove"
-msgstr "Remover"
-
-#: app/permissions.php:821
-msgid "General"
-msgstr "Geral"
-
-#: app/permissions.php:824
-msgid "Enable access for this role"
-msgstr "Ativar acesso para esta função"
-
-#: app/permissions.php:828
-msgid "Read-only mode"
-msgstr "Modo só de leitura"
-
-#: app/permissions.php:836
-msgid "Orders"
-msgstr "Encomendas"
-
-#: app/permissions.php:838
-#: app/permissions.php:936
-#: app/permissions.php:1005
-#: app/permissions.php:1038
-msgid "Select all"
-msgstr "Selecionar tudo"
-
-#: app/permissions.php:840
-#: app/permissions.php:938
-#: app/permissions.php:1007
-#: app/permissions.php:1040
-msgid "Deselect all"
-msgstr "Desselecionar tudo"
-
-#: app/permissions.php:845
-msgid "Access orders"
-msgstr "Acesso às encomendas"
-
-#: app/permissions.php:849
-msgid "Order count"
-msgstr "Número de encomendas"
-
-#: app/permissions.php:853
-msgid "Order totals"
-msgstr "Totais das encomendas"
-
-#: app/permissions.php:857
-msgid "Order details"
-msgstr "Detalhes da encomenda"
-
-#: app/permissions.php:863
-#: app/permissions.php:1016
-msgid "Name"
-msgstr "Nome"
-
-#: app/permissions.php:867
-msgid "Items"
-msgstr "Itens"
-
-#: app/permissions.php:871
-msgid "Taxes"
-msgstr "Impostos"
-
-#: app/permissions.php:875
-msgid "Shipping info"
-msgstr "Informações de envio"
-
-#: app/permissions.php:879
-msgid "Order statuses"
-msgstr "Estados da encomenda"
-
-#: app/permissions.php:883
-msgid "Coupon info"
-msgstr "Informações do cupão"
-
-#: app/permissions.php:887
-msgid "Payment info"
-msgstr "Informações de pagamento"
-
-#: app/permissions.php:891
-msgid "Customer info"
-msgstr "Informações do cliente"
-
-#: app/permissions.php:895
-msgid "Order note"
-msgstr "Nota da encomenda"
-
-#: app/permissions.php:899
-msgid "Order custom fields"
-msgstr "Campos personalizados da encomenda"
-
-#: app/permissions.php:903
-msgid "Customer note"
-msgstr "Nota do cliente"
-
-#: app/permissions.php:907
-#: invoice/templates/simple/hippoo-factor.php:3
-#: invoice/templates/simple/hippoo-factor.php:162
-#: invoice/templates/simple/hippoo-label.php:113
-msgid "Invoice"
-msgstr "Fatura"
-
-#: app/permissions.php:911
-msgid "Shipping label"
-msgstr "Etiqueta de envio"
-
-#: app/permissions.php:916
-msgid "Allowed order status"
-msgstr "Estados de encomenda permitidos"
-
-#: app/permissions.php:934
-msgid "Products"
-msgstr "Produtos"
-
-#: app/permissions.php:943
-msgid "Access products"
-msgstr "Acesso aos produtos"
-
-#: app/permissions.php:947
-msgid "Product name"
-msgstr "Nome do produto"
-
-#: app/permissions.php:951
-msgid "Prices"
-msgstr "Preços"
-
-#: app/permissions.php:955
-msgid "Stock quantity"
-msgstr "Quantidade em stock"
-
-#: app/permissions.php:959
-msgid "Out of stock list"
-msgstr "Lista de esgotados"
-
-#: app/permissions.php:963
-#: invoice/templates/simple/hippoo-factor.php:198
-#: invoice/woocommerce/product.php:24
-msgid "SKU"
-msgstr "SKU"
-
-#: app/permissions.php:967
-msgid "Status"
-msgstr "Estado"
-
-#: app/permissions.php:971
-msgid "Limit to categories"
-msgstr "Limitar a categorias"
-
-#: app/permissions.php:985
-msgid "Limit to product type"
-msgstr "Limitar a tipo de produto"
-
-#: app/permissions.php:1003
-msgid "Customers"
-msgstr "Clientes"
-
-#: app/permissions.php:1012
-msgid "Access customers"
-msgstr "Acesso aos clientes"
-
-#: app/permissions.php:1020
-msgid "Address"
-msgstr "Endereço"
-
-#: app/permissions.php:1024
-msgid "Phone number"
-msgstr "Número de telefone"
-
-#: app/permissions.php:1028
-msgid "Email"
-msgstr "E-mail"
-
-#: app/permissions.php:1036
-msgid "Reviews"
-msgstr "Avaliações"
-
-#: app/permissions.php:1045
-msgid "Access reviews"
-msgstr "Acesso às avaliações"
-
-#: app/permissions.php:1049
-msgid "Reviewer name"
-msgstr "Nome do avaliador"
-
-#: app/permissions.php:1053
-msgid "Review content"
-msgstr "Conteúdo da avaliação"
-
-#: app/permissions.php:1060
-msgid "Sale analytics"
-msgstr "Análises de vendas"
-
-#: app/permissions.php:1063
-msgid "Show sale analytics"
-msgstr "Mostrar análises de vendas"
-
-#: app/permissions.php:1070
-msgid "Coupons"
-msgstr "Cupões"
-
-#: app/permissions.php:1073
-msgid "Access coupons"
-msgstr "Acesso aos cupões"
-
-#: app/permissions.php:1080
-#: app/settings.php:101
-#: invoice/settings.php:50
-msgid "Settings"
-msgstr "Definições"
-
-#: app/permissions.php:1083
-msgid "Show shop settings"
-msgstr "Mostrar definições da loja"
-
-#: app/permissions.php:1090
-msgid "App features"
-msgstr "Funcionalidades da app"
-
-#: app/permissions.php:1093
-msgid "Access extensions"
-msgstr "Acesso a extensões"
-
-#: app/permissions.php:1097
-msgid "Limit to selected extensions"
-msgstr "Limitar às extensões selecionadas"
-
-#: app/permissions.php:1113
-msgid "Settings updated successfully."
-msgstr "Definições atualizadas com sucesso."
-
-#: app/permissions.php:1116
-msgid "Save changes"
-msgstr "Guardar alterações"
-
-#. translators: %s: role name
-#: app/permissions.php:1127
-msgid "Delete %s role permissions?"
-msgstr "Eliminar permissões da função %s?"
-
-#: app/permissions.php:1129
-msgid "This will remove all custom access rules for this role. This action can’t be undone."
-msgstr "Isto irá remover todas as regras de acesso personalizadas desta função. Esta ação não pode ser anulada."
-
-#: app/permissions.php:1131
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: app/permissions.php:1132
-msgid "Delete"
-msgstr "Eliminar"
-
-#: app/pwa.php:98
-msgid "Showcase your products with a clean, minimal design. This lightweight theme creates a mobile-friendly product display. Use the link below as an Instagram-style shop to share your products. We recommend keeping it enabled."
-msgstr "Mostre os seus produtos com um design limpo e minimalista. Este tema leve cria uma vitrine de produtos otimizada para dispositivos móveis. Use o link abaixo como uma loja ao estilo Instagram para partilhar os seus produtos. Recomendamos mantê-lo ativado."
-
-#: app/pwa.php:101
+msgstr "Instalação falhou."
+
+#: app/pwa.php:100
+msgid ""
+"Showcase your products with a clean, minimal design. This lightweight theme "
+"creates a mobile-friendly product display. Use the link below as an "
+"Instagram-style shop to share your products. We recommend keeping it enabled."
+msgstr "Apresenta os teus produtos com um design limpo e minimalista. Este tema leve cria uma exibição de produtos adaptada a dispositivos móveis. Usa o link abaixo como loja estilo Instagram para partilhar os teus produtos. Recomendamos mantê-lo ativado."
+
+#: app/pwa.php:103
 msgid "Hippoo Mobile Storefront"
 msgstr "Vitrine móvel Hippoo"
 
-#: app/pwa.php:109
+#: app/pwa.php:111
 msgid "Storefront address"
 msgstr "Endereço da vitrine"
 
-#: app/pwa.php:115
-msgid "Add your own CSS rules for Hippoo Shop. Styles entered here override defaults."
-msgstr "Adicione as suas próprias regras CSS para o Hippoo Shop. Os estilos inseridos aqui substituem os predefinidos."
+#: app/pwa.php:117
+msgid ""
+"Add your own CSS rules for Hippoo Shop. Styles entered here override "
+"defaults."
+msgstr "Adiciona as tuas próprias regras CSS para a loja Hippoo. Os estilos introduzidos aqui sobrescrevem os predefinidos."
 
-#: app/pwa.php:118
+#: app/pwa.php:120
 msgid "Custom CSS"
 msgstr "CSS personalizado"
 
-#: app/settings.php:17
-#: app/settings.php:194
+#: app/settings.php:17 app/settings.php:175
 msgid "Hippoo Settings"
-msgstr "Definições do Hippoo"
+msgstr "Definições Hippoo"
 
-#: app/settings.php:18
-#: app/web_api.php:98
+#: app/settings.php:18 app/web_api.php:98
 msgid "Hippoo"
 msgstr "Hippoo"
 
-#: app/settings.php:37
-msgid "Provides PDF invoices and shipping labels for easy printing. Also generates barcodes for orders and product SKUs inside the WooCommerce dashboard, allowing you to scan them with the Hippoo WooCommerce app's barcode scanner to quickly find orders and products."
-msgstr "Fornece faturas em PDF e etiquetas de envio para impressão fácil. Também gera códigos de barras para encomendas e SKUs de produtos no painel do WooCommerce, permitindo digitalizá-los com o leitor de códigos de barras da app Hippoo para WooCommerce para encontrar encomendas e produtos rapidamente."
+#: app/settings.php:39
+msgid ""
+"Provides PDF invoices and shipping labels for easy printing. Also generates "
+"barcodes for orders and product SKUs inside the WooCommerce dashboard, "
+"allowing you to scan them with the Hippoo WooCommerce app's barcode scanner "
+"to quickly find orders and products."
+msgstr "Fornece faturas PDF e etiquetas de envio para impressão fácil. Também gera códigos de barras para pedidos e SKUs de produtos no painel do WooCommerce, permitindo escaneá-los com o leitor de códigos de barras da app Hippoo para encontrar rapidamente pedidos e produtos."
 
-#: app/settings.php:40
+#: app/settings.php:42
 msgid "Enable Hippoo invoice and shipping label"
 msgstr "Ativar fatura e etiqueta de envio Hippoo"
 
-#: app/settings.php:105
+#: app/settings.php:102 invoice/settings.php:54
+msgid "Settings"
+msgstr "Definições"
+
+#: app/settings.php:103
 msgid "Hippoo App"
 msgstr "App Hippoo"
 
-#: app/settings.php:133
+#: app/settings.php:122
 msgid "Hippoo Woocommerce app"
-msgstr "App Hippoo para WooCommerce"
+msgstr "App WooCommerce Hippoo"
+
+#: app/settings.php:123
+msgid ""
+"Hippoo! is not just a shop management app, it's also a platform that enables "
+"you to extend its capabilities. With the ability to install extensions, you "
+"can customize your experience and add new features to the app. Browse and "
+"install other Hippoo plugins from our app to enhance your store's "
+"functionality."
+msgstr "O Hippoo não é apenas uma app de gestão de loja, é também uma plataforma que te permite expandir as suas capacidades. Com a possibilidade de instalar extensões, podes personalizar a tua experiência e adicionar novas funcionalidades à app. Navega e instala outros plugins Hippoo a partir da nossa app para melhorar a funcionalidade da tua loja."
+
+#: app/settings.php:125 app/settings.php:126
+msgid "Download Hippoo Android app"
+msgstr "Transferir app Hippoo para Android"
+
+#: app/settings.php:129 app/settings.php:130
+msgid "Download Hippoo iOS app"
+msgstr "Transferir app Hippoo para iOS"
 
 #: app/settings.php:134
-msgid "Hippoo! is not just a shop management app, it's also a platform that enables you to extend its capabilities. With the ability to install extensions, you can customize your experience and add new features to the app. Browse and install other Hippoo plugins from our app to enhance your store's functionality."
-msgstr "O Hippoo não é apenas uma app de gestão de loja; é também uma plataforma que lhe permite expandir as suas capacidades. Com a possibilidade de instalar extensões, pode personalizar a sua experiência e adicionar novas funcionalidades à app. Navegue e instale outros plugins Hippoo a partir da nossa app para melhorar a funcionalidade da sua loja."
-
-#: app/settings.php:136
-#: app/settings.php:137
-msgid "Download Hippoo Android app"
-msgstr "Descarregar app Hippoo para Android"
-
-#: app/settings.php:140
-#: app/settings.php:141
-msgid "Download Hippoo iOS app"
-msgstr "Descarregar app Hippoo para iOS"
-
-#: app/settings.php:145
 msgid "Scan QR code with your Android phone to install the app"
-msgstr "Digitalize o código QR com o seu telemóvel Android para instalar a app"
+msgstr "Escaneia o código QR com o teu telemóvel Android para instalar a app"
 
-#: app/settings.php:146
+#: app/settings.php:135
 msgid "QR Code"
 msgstr "Código QR"
 
-#: app/settings.php:152
+#: app/settings.php:141
 msgid "App screenshot 1"
 msgstr "Captura de ecrã da app 1"
 
-#: app/settings.php:153
+#: app/settings.php:142
 msgid "App screenshot 2"
 msgstr "Captura de ecrã da app 2"
 
-#: app/settings.php:154
+#: app/settings.php:143
 msgid "App screenshot 3"
 msgstr "Captura de ecrã da app 3"
 
-#: app/settings.php:155
+#: app/settings.php:144
 msgid "App screenshot 4"
 msgstr "Captura de ecrã da app 4"
 
-#: app/settings.php:156
+#: app/settings.php:145
 msgid "App screenshot 5"
 msgstr "Captura de ecrã da app 5"
 
-#: app/settings.php:190
+#: app/settings.php:171
 msgid "Settings saved successfully."
 msgstr "Definições guardadas com sucesso."
 
 #. translators: %s: URL to the Permalink Settings page in wp-admin
 #: app/utils.php:46
-msgid "Hippoo can’t connect because your WordPress permalinks are set to “Plain”. To enable the WordPress REST API, open your <a href=\"%s\">Permalink Settings</a> and select Post name or Custom Structure, then save changes."
-msgstr "O Hippoo não consegue ligar porque os links permanentes do WordPress estão definidos como “Plain”. Para ativar a WordPress REST API, abra as <a href=\"%s\">Definições de links permanentes</a> e selecione “Nome do artigo” ou “Estrutura personalizada”, e depois guarde as alterações."
+msgid ""
+"Hippoo can’t connect because your WordPress permalinks are set to “Plain”. "
+"To enable the WordPress REST API, open your <a href=\"%s\">Permalink "
+"Settings</a> and select Post name or Custom Structure, then save changes."
+msgstr "O Hippoo não consegue ligar porque os permalinks do WordPress estão definidos como «Simples». Para ativar a REST API do WordPress, abre as <a href=\"%s\">Definições de Permalinks</a> e seleciona Nome do artigo ou Estrutura personalizada, depois guarda as alterações."
 
 #: app/utils.php:56
-msgid "Hippoo can’t connect because the WordPress REST API has been disabled by a theme or plugin."
-msgstr "O Hippoo não consegue ligar porque a WordPress REST API foi desativada por um tema ou plugin."
+msgid ""
+"Hippoo can’t connect because the WordPress REST API has been disabled by a "
+"theme or plugin."
+msgstr "O Hippoo não consegue ligar porque a REST API do WordPress foi desativada por um tema ou plugin."
 
 #: app/utils.php:69
-msgid "Hippoo can’t connect to your website because the WordPress REST API is not responding. Please check your firewall or hosting settings."
-msgstr "O Hippoo não consegue ligar ao seu site porque a WordPress REST API não está a responder. Verifique a sua firewall ou as definições de alojamento."
+msgid ""
+"Hippoo can’t connect to your website because the WordPress REST API is not "
+"responding. Please check your firewall or hosting settings."
+msgstr "O Hippoo não consegue ligar ao teu site porque a REST API do WordPress não está a responder. Por favor, verifica as definições da firewall ou do alojamento."
 
 #: app/utils.php:80
-msgid "Hippoo can’t connect to your site because the WordPress REST API is restricted. Please allow public access to the REST API."
-msgstr "O Hippoo não consegue ligar ao seu site porque a WordPress REST API está restringida. Permita o acesso público à REST API."
+msgid ""
+"Hippoo can’t connect to your site because the WordPress REST API is "
+"restricted. Please allow public access to the REST API."
+msgstr "O Hippoo não consegue ligar ao teu site porque a REST API do WordPress está restringida. Por favor, permite o acesso público à REST API."
 
 #: app/utils.php:86
-msgid "Hippoo can’t connect because something on your site (like a security plugin or server rule) is blocking access to the WordPress REST API."
-msgstr "O Hippoo não consegue ligar porque algo no seu site (como um plugin de segurança ou uma regra do servidor) está a bloquear o acesso à WordPress REST API."
+msgid ""
+"Hippoo can’t connect because something on your site (like a security plugin "
+"or server rule) is blocking access to the WordPress REST API."
+msgstr "O Hippoo não consegue ligar porque algo no teu site (como um plugin de segurança ou regra do servidor) está a bloquear o acesso à REST API do WordPress."
 
 #: app/utils.php:92
-msgid "Hippoo can’t connect because the WordPress API endpoint wasn’t found. Please make sure your WordPress installation is complete and .htaccess is correctly configured."
-msgstr "O Hippoo não consegue ligar porque o endpoint da WordPress API não foi encontrado. Certifique-se de que a instalação do WordPress está completa e que o .htaccess está configurado corretamente."
+msgid ""
+"Hippoo can’t connect because the WordPress API endpoint wasn’t found. Please "
+"make sure your WordPress installation is complete and .htaccess is correctly "
+"configured."
+msgstr "O Hippoo não consegue ligar porque o endpoint da API do WordPress não foi encontrado. Certifica-te de que a instalação do WordPress está completa e que o .htaccess está corretamente configurado."
 
 #: app/utils.php:98
-msgid "Hippoo can’t connect right now because your site returned an internal error when trying to reach the WordPress REST API."
-msgstr "O Hippoo não consegue ligar neste momento porque o seu site devolveu um erro interno ao tentar aceder à WordPress REST API."
+msgid ""
+"Hippoo can’t connect right now because your site returned an internal error "
+"when trying to reach the WordPress REST API."
+msgstr "O Hippoo não consegue ligar agora porque o teu site devolveu um erro interno ao tentar aceder à REST API do WordPress."
 
 #: app/utils.php:108
-msgid "Hippoo can’t connect because essential WordPress API routes are missing. A plugin may have disabled them."
-msgstr "O Hippoo não consegue ligar porque faltam rotas essenciais da WordPress API. Um plugin pode tê-las desativado."
+msgid ""
+"Hippoo can’t connect because essential WordPress API routes are missing. A "
+"plugin may have disabled them."
+msgstr "O Hippoo não consegue ligar porque faltam rotas essenciais da API do WordPress. Um plugin pode tê-las desativado."
 
-#: app/web_api.php:126
-#: app/web_api.php:180
+#: app/web_api.php:126 app/web_api.php:180
 msgid "Invalid token."
 msgstr "Token inválido."
 
@@ -763,11 +531,11 @@ msgstr "Payload JSON inválido."
 
 #: app/web_api.php:147
 msgid "No valid token data."
-msgstr "Sem dados de token válidos."
+msgstr "Não há dados de token válidos."
 
 #: app/web_api.php:200
 msgid "Unauthenticated. No token found. Please reauthenticate."
-msgstr "Não autenticado. Não foi encontrado nenhum token. Por favor, volte a autenticar-se."
+msgstr "Não autenticado. Nenhum token encontrado. Por favor, autentica-te novamente."
 
 #: app/web_api.php:206
 msgid "Unauthenticated. No token data found."
@@ -779,11 +547,11 @@ msgstr "Redirecionamento automático"
 
 #: app/web_api.php:217
 msgid "This page will automatically redirect in a few seconds..."
-msgstr "Esta página será redirecionada automaticamente dentro de alguns segundos..."
+msgstr "Esta página será redirecionada automaticamente em poucos segundos..."
 
 #: app/web_api.php:242
 msgid "You can get the data from here"
-msgstr "Pode obter os dados aqui"
+msgstr "Podes obter os dados a partir daqui"
 
 #: app/web_api.php:248
 msgid "Unauthenticated, No Token Data"
@@ -791,7 +559,7 @@ msgstr "Não autenticado, sem dados de token"
 
 #: app/web_api.php:348
 msgid "Country code must be a valid two-letter uppercase code."
-msgstr "O código do país deve ser um código válido de duas letras em maiúsculas."
+msgstr "O código do país deve ser um código válido de duas letras maiúsculas."
 
 #: app/web_api.php:353
 msgid "Invalid or unauthorized country code."
@@ -812,7 +580,7 @@ msgstr "Imagem não encontrada!"
 #. translators: 1: order ID, 2: order status
 #: app/web_api.php:661
 msgid "Order %1$d %2$s!"
-msgstr "Encomenda %1$d %2$s!"
+msgstr "Pedido %1$d %2$s!"
 
 #. translators: %d: number of items in the order
 #: app/web_api.php:663
@@ -826,7 +594,7 @@ msgstr "Estado: %s"
 
 #: app/web_api.php:701
 msgid "Product is out of stock!"
-msgstr "O produto está esgotado!"
+msgstr "Produto sem stock!"
 
 #: app/web_api.php:702
 msgid "Product "
@@ -834,11 +602,11 @@ msgstr "Produto "
 
 #: app/web_api_auth.php:40
 msgid "Array of media item IDs to delete."
-msgstr "Array de IDs de itens de média para eliminar."
+msgstr "Array de IDs de itens de media a eliminar."
 
 #: app/web_api_auth.php:156
 msgid "Invalid or missing file."
-msgstr "Ficheiro inválido ou em falta."
+msgstr "Ficheiro inválido ou ausente."
 
 #: app/web_api_auth.php:167
 msgid "Failed to read file content."
@@ -846,7 +614,7 @@ msgstr "Falha ao ler o conteúdo do ficheiro."
 
 #: app/web_api_auth.php:174
 msgid "Media upload failed."
-msgstr "Falha no carregamento de média."
+msgstr "Falha no upload de media."
 
 #: app/web_api_auth.php:189
 msgid "Failed to create attachment."
@@ -868,9 +636,7 @@ msgstr "Anexo(s) eliminado(s) com sucesso."
 msgid "Nothing to delete."
 msgstr "Nada para eliminar."
 
-#: app/web_api_notification.php:345
-#: app/web_api_notification.php:387
-#: app/web_api_notification.php:411
+#: app/web_api_notification.php:345 app/web_api_notification.php:387 app/web_api_notification.php:411
 msgid "Notification not found."
 msgstr "Notificação não encontrada."
 
@@ -885,124 +651,124 @@ msgstr "Hook de evento inválido."
 
 #: invoice/main.php:64
 msgid "You do not have access to view this order."
-msgstr "Não tem acesso para ver esta encomenda."
+msgstr "Não tens acesso para visualizar este pedido."
 
-#: invoice/settings.php:17
-#: invoice/settings.php:18
-msgid "Hippoo Invoice"
-msgstr "Fatura Hippoo"
-
-#: invoice/settings.php:46
+#: invoice/settings.php:50
 msgid "Hippoo invoice and shipping label"
-msgstr "Fatura Hippoo e etiqueta de envio"
+msgstr "Fatura e etiqueta de envio Hippoo"
 
-#: invoice/settings.php:69
+#: invoice/settings.php:73
 msgid "General settings"
 msgstr "Definições gerais"
 
-#: invoice/settings.php:76
+#: invoice/settings.php:80
 msgid "Shop logo"
 msgstr "Logótipo da loja"
 
-#: invoice/settings.php:84
+#: invoice/settings.php:88
 msgid "Language direction"
-msgstr "Direção do idioma"
+msgstr "Direção da linguagem"
 
-#: invoice/settings.php:92
+#: invoice/settings.php:96
 msgid "Show barcode(Order id) in order list"
-msgstr "Mostrar código de barras (ID da encomenda) na lista de encomendas"
+msgstr "Mostrar código de barras (ID do pedido) na lista de pedidos"
 
-#: invoice/settings.php:100
+#: invoice/settings.php:104
 msgid "Show barcode(Order id) in order details"
-msgstr "Mostrar código de barras (ID da encomenda) nos detalhes da encomenda"
+msgstr "Mostrar código de barras (ID do pedido) nos detalhes do pedido"
 
-#: invoice/settings.php:108
+#: invoice/settings.php:112
 msgid "Show barcode(SKU) in products list"
 msgstr "Mostrar código de barras (SKU) na lista de produtos"
 
-#: invoice/settings.php:116
+#: invoice/settings.php:120
 msgid "Show barcode(SKU) in products details"
-msgstr "Mostrar código de barras (SKU) nos detalhes do produto"
+msgstr "Mostrar código de barras (SKU) nos detalhes dos produtos"
 
-#: invoice/settings.php:126
+#: invoice/settings.php:130
 msgid "Invoice settings"
-msgstr "Definições da fatura"
+msgstr "Definições de fatura"
 
-#: invoice/settings.php:133
-#: invoice/settings.php:199
+#: invoice/settings.php:137 invoice/settings.php:203
 msgid "Paper Size"
 msgstr "Tamanho do papel"
 
-#: invoice/settings.php:141
+#: invoice/settings.php:145
 msgid "Font name"
 msgstr "Nome da fonte"
 
-#: invoice/settings.php:149
-#: invoice/settings.php:207
+#: invoice/settings.php:153 invoice/settings.php:211
 msgid "Show logo"
 msgstr "Mostrar logótipo"
 
-#: invoice/settings.php:157
+#: invoice/settings.php:161
 msgid "Show customer note"
 msgstr "Mostrar nota do cliente"
 
-#: invoice/settings.php:165
+#: invoice/settings.php:169
 msgid "Show product SKU in invoice"
 msgstr "Mostrar SKU do produto na fatura"
 
-#: invoice/settings.php:173
+#: invoice/settings.php:177
 msgid "Footer description"
 msgstr "Descrição do rodapé"
 
-#: invoice/settings.php:192
+#: invoice/settings.php:196
 msgid "Shipping label settings"
-msgstr "Definições da etiqueta de envio"
+msgstr "Definições de etiqueta de envio"
 
-#: invoice/settings.php:215
+#: invoice/settings.php:219
 msgid "Calculate Weight"
 msgstr "Calcular peso"
 
-#: invoice/settings.php:223
+#: invoice/settings.php:227
 msgid "Courier logo"
 msgstr "Logótipo do transportador"
 
-#: invoice/settings.php:249
-#: invoice/templates/simple/hippoo-factor.php:154
-#: invoice/templates/simple/hippoo-label.php:91
+#: invoice/settings.php:251 invoice/templates/simple/hippoo-factor.php:154 invoice/templates/simple/hippoo-label.php:91
 msgid "Shop Logo"
 msgstr "Logótipo da loja"
 
-#: invoice/settings.php:251
-#: invoice/settings.php:394
+#: invoice/settings.php:253 invoice/settings.php:390
 msgid "Upload Logo"
 msgstr "Carregar logótipo"
 
-#: invoice/settings.php:253
-msgid "512x512 is perfect size for logo"
-msgstr "512x512 é o tamanho ideal para o logótipo"
+#: invoice/settings.php:254 invoice/settings.php:391
+msgid "Remove"
+msgstr "Remover"
 
-#: invoice/settings.php:363
+#: invoice/settings.php:255
+msgid "512x512 is perfect size for logo"
+msgstr "512x512 é o tamanho perfeito para o logótipo"
+
+#: invoice/settings.php:360
 msgid "Exclamation Icon"
 msgstr "Ícone de exclamação"
 
-#: invoice/settings.php:366
+#: invoice/settings.php:363
 msgid "Need more invoice or shipping label customization?"
-msgstr "Precisa de mais personalização da fatura ou da etiqueta de envio?"
+msgstr "Precisas de mais personalização de faturas ou etiquetas de envio?"
 
-#: invoice/settings.php:367
-msgid "You can customize your invoice layout by copying the template file from the plugin folder to your active theme folder. Then edit the copied file to adjust the design, paper size, or language to fit your needs."
-msgstr "Pode personalizar o layout da sua fatura copiando o ficheiro de modelo da pasta do plugin para a pasta do tema ativo. Depois, edite o ficheiro copiado para ajustar o design, o tamanho do papel ou o idioma às suas necessidades."
+#: invoice/settings.php:364
+msgid ""
+"You can customize your invoice layout by copying the template file from the "
+"plugin folder to your active theme folder. Then edit the copied file to "
+"adjust the design, paper size, or language to fit your needs."
+msgstr "Podes personalizar o layout da tua fatura copiando o ficheiro de modelo da pasta do plugin para a pasta do teu tema ativo. Em seguida, edita o ficheiro copiado para ajustar o design, tamanho do papel ou idioma às tuas necessidades."
 
-#: invoice/settings.php:368
+#: invoice/settings.php:365
 msgid "Learn more here"
-msgstr "Saiba mais aqui"
+msgstr "Saber mais aqui"
 
-#: invoice/settings.php:433
+#: invoice/settings.php:428
 msgid "Setting saved."
 msgstr "Definição guardada."
 
-#: invoice/templates/simple/hippoo-factor.php:164
-#: invoice/templates/simple/hippoo-label.php:115
+#: invoice/templates/simple/hippoo-factor.php:3 invoice/templates/simple/hippoo-factor.php:162 invoice/templates/simple/hippoo-label.php:113
+msgid "Invoice"
+msgstr "Fatura"
+
+#: invoice/templates/simple/hippoo-factor.php:164 invoice/templates/simple/hippoo-label.php:115
 msgid "Invoice Barcode"
 msgstr "Código de barras da fatura"
 
@@ -1018,6 +784,10 @@ msgstr "Nota do cliente:"
 msgid "Item"
 msgstr "Item"
 
+#: invoice/templates/simple/hippoo-factor.php:198 invoice/woocommerce/product.php:27
+msgid "SKU"
+msgstr "SKU"
+
 #: invoice/templates/simple/hippoo-factor.php:200
 msgid "Qty"
 msgstr "Qtd."
@@ -1028,7 +798,7 @@ msgstr "Preço"
 
 #: invoice/templates/simple/hippoo-factor.php:202
 msgid "Amount"
-msgstr "Montante"
+msgstr "Valor"
 
 #: invoice/templates/simple/hippoo-factor.php:216
 msgid "Product SKU Barcode"
@@ -1070,14 +840,13 @@ msgstr "Peso:"
 msgid "Courier Logo"
 msgstr "Logótipo do transportador"
 
-#: invoice/woocommerce/order-copy.php:46
-#: invoice/woocommerce/order.php:72
+#: invoice/woocommerce/order-copy.php:46 invoice/woocommerce/order.php:72
 msgid "Barcode"
 msgstr "Código de barras"
 
 #: invoice/woocommerce/order-copy.php:160
 msgid "Custom Meta Box"
-msgstr "Meta box personalizada"
+msgstr "Caixa Meta personalizada"
 
 #: invoice/woocommerce/order-test.php:48
 msgid "Validate Address"
@@ -1085,8 +854,8 @@ msgstr "Validar endereço"
 
 #: invoice/woocommerce/order.php:215
 msgid "Order ID Barcode"
-msgstr "Código de barras do ID da encomenda"
+msgstr "Código de barras do ID do pedido"
 
-#: invoice/woocommerce/product.php:48
+#: invoice/woocommerce/product.php:51
 msgid "Product Barcode (SKU)"
 msgstr "Código de barras do produto (SKU)"
