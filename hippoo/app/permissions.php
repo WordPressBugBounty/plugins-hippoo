@@ -192,7 +192,7 @@ class HippooPermissions
         if ($this->has_role_access('orders', 'allowed_status')) {
             $perms = self::get_user_permissions();
             $order_perms = $perms['orders'] ?? [];
-            $allowed = (array) $order_perms['allowed_status'];
+            $allowed = (array) ($order_perms['allowed_status'] ?? []);
 
             $clean = array_filter(array_map(function($s) {
                 return str_replace('wc-', '', trim($s));
@@ -342,7 +342,7 @@ class HippooPermissions
         }
 
         if (is_wp_error($response)) {
-            return new WP_REST_Response([], 200);
+            return $response;
         }
 
         if (!$this->has_role_access('orders', 'order_count')) {
@@ -418,20 +418,26 @@ class HippooPermissions
             $args['tax_query'] = [];
         }
 
-        if ($this->has_role_access('products', 'categories')) {
+        if (
+            $this->has_role_access('products', 'categories') &&
+            !empty($prod_perms['categories'])
+        ) {
             $args['tax_query'][] = [
                 'taxonomy'         => 'product_cat',
                 'field'            => 'term_id',
-                'terms'            => (array) $prod_perms['categories'],
+                'terms'            => (array) ($prod_perms['categories'] ?? []),
                 'include_children' => true,
             ];
         }
 
-        if ($this->has_role_access('products', 'types')) {
+        if (
+            $this->has_role_access('products', 'types') &&
+            !empty($prod_perms['types'])
+        ) {
             $args['tax_query'][] = [
                 'taxonomy' => 'product_type',
                 'field'    => 'slug',
-                'terms'    => (array) $prod_perms['types'],
+                'terms'    => (array) ($prod_perms['types'] ?? []),
             ];
         }
 

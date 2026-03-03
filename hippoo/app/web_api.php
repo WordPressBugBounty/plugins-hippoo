@@ -631,7 +631,7 @@ add_action('plugins_loaded', function () {
 add_action('init', 'hippoo_add_order_status_filters');
 
 function hippoo_add_order_status_filters() {
-    $settings = get_option('hippoo_settings');
+    $settings = get_option('hippoo_settings', []);
     if (empty($settings)) {
         return;
     }

@@ -1,15 +1,11 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
 class Hippoo_Ticket_Woo_Product {
-    public $settings;
-
     public function __construct() {
         add_filter( 'manage_edit-product_columns', array( $this, 'remove_product_sku_column' ) );
         add_filter( 'manage_edit-product_columns', array( $this, 'product_sku_column' ), 20 );
         add_action( 'manage_posts_custom_column', array( $this, 'populate_product_columns' ) );
         add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
-
-        $this->settings = get_option( 'hippoo_invoice_settings' );
     }
 
     function remove_product_sku_column( $columns ) {
@@ -19,7 +15,8 @@ class Hippoo_Ticket_Woo_Product {
     }
 
     function product_sku_column( $columns ) {
-        if ( ! $this->settings['show_barcode_products_list'] ) {
+        $settings = get_option( 'hippoo_invoice_settings', [] );
+        if ( ! $settings['show_barcode_products_list'] ) {
             return $columns;
         }
 
@@ -44,8 +41,8 @@ class Hippoo_Ticket_Woo_Product {
     }
 
     function add_meta_boxes() {
-        // Check if the index exists before using it
-        if ( isset( $this->settings['show_barcode_products_details'] ) && $this->settings['show_barcode_products_details'] ) {
+        $settings = get_option( 'hippoo_invoice_settings', [] );
+        if ( isset( $settings['show_barcode_products_details'] ) && $settings['show_barcode_products_details'] ) {
             add_meta_box(
                 'product_barcode_meta',
                 __( 'Product Barcode (SKU)', 'hippoo' ),
@@ -56,7 +53,6 @@ class Hippoo_Ticket_Woo_Product {
             );
         }
     }
-    
     
     function render_product_barcode_meta_box( $post ) {
         $product = wc_get_product( $post->ID );

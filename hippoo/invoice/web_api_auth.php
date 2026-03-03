@@ -1,6 +1,6 @@
 
 <?php
-class HippooInvoiceControllerWithAuth {
+class HippooInvoiceControllerWithAuth extends WC_REST_Customers_Controller {
     public $namespace;
     public function __construct() {
         $this->namespace = 'wc-hippoo-invoice/v1';
@@ -11,7 +11,7 @@ class HippooInvoiceControllerWithAuth {
             array(
                 'methods'   => 'GET',
                 'callback'  => array( $this, 'get_setting' ),
-                'permission_callback' => array( $this, 'permissions_check' ),
+                'permission_callback' => array( $this, 'get_items_permissions_check' ),
             ),
         ) );
  
@@ -19,32 +19,21 @@ class HippooInvoiceControllerWithAuth {
             array(
                 'methods'   => 'PUT',
                 'callback'  => array( $this, 'update_setting' ),
-                'permission_callback' => array( $this, 'permissions_check' ),
+                'permission_callback' => array( $this, 'get_items_permissions_check' ),
             ),
         ) );
 
         register_rest_route( $this->namespace, '/invoice/(?P<order_id>\d+)', array(
             'methods' => 'GET',
             'callback' => array( $this, 'get_invoice' ),
-            'permission_callback' => array( $this, 'permissions_check' ),
+            'permission_callback' => array( $this, 'get_items_permissions_check' ),
         ) );
     
         register_rest_route( $this->namespace, '/shipping-label/(?P<order_id>\d+)', array(
             'methods' => 'GET',
             'callback' => array( $this, 'get_shipping_label' ),
-            'permission_callback' => array( $this, 'permissions_check' ),
+            'permission_callback' => array( $this, 'get_items_permissions_check' ),
         ) );
-    }
-
-    public function permissions_check( $request ) {
-        global $wpdb;
-
-        $current_user = wp_get_current_user();
-        if (current_user_can('edit_products')) {
-            return true;
-        } else {
-            return false;
-        }    
     }
 
     public function get_setting($request) {

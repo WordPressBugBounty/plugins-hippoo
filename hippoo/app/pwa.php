@@ -2,8 +2,6 @@
 
 class HippooPwa
 {
-    public $settings;
-
     public function __construct()
     {
         add_action('init', array($this, 'add_pwa_route'));
@@ -12,19 +10,19 @@ class HippooPwa
         add_action('admin_init', array($this, 'settings_init'));
         add_action('update_option_hippoo_settings', 'flush_rewrite_rules');
 
-        $this->settings = get_option('hippoo_settings', []);
-
         register_activation_hook(hippoo_main_file_path, array($this, 'activate'));
         register_deactivation_hook(hippoo_main_file_path, array($this, 'deactivate'));
     }
 
     public function activate()
     {
-        if (!isset($this->settings['pwa_plugin_enabled'])) {
-            $this->settings['pwa_plugin_enabled'] = 1;
+        $settings = get_option('hippoo_settings', []);
+
+        if (!isset($settings['pwa_plugin_enabled'])) {
+            $settings['pwa_plugin_enabled'] = 1;
         }
 
-        update_option('hippoo_settings', $this->settings);
+        update_option('hippoo_settings', $settings);
 
         $this->add_pwa_route();
         flush_rewrite_rules();
@@ -149,17 +147,20 @@ class HippooPwa
 
     public function is_plugin_enabled()
     {
-        return isset($this->settings['pwa_plugin_enabled']) && $this->settings['pwa_plugin_enabled'];
+        $settings = get_option('hippoo_settings', []);
+        return isset($settings['pwa_plugin_enabled']) && $settings['pwa_plugin_enabled'];
     }
 
     public function get_route_name()
     {
-        return isset($this->settings['pwa_route_name']) ? $this->settings['pwa_route_name'] : 'hippooshop';
+        $settings = get_option('hippoo_settings', []);
+        return isset($settings['pwa_route_name']) ? $settings['pwa_route_name'] : 'hippooshop';
     }
 
     public function get_custom_css()
     {
-        return isset($this->settings['pwa_custom_css']) ? $this->settings['pwa_custom_css'] : '';
+        $settings = get_option('hippoo_settings', []);
+        return isset($settings['pwa_custom_css']) ? $settings['pwa_custom_css'] : '';
     }
 
     private function get_mime_type($file_path)
