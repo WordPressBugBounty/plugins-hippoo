@@ -1,5 +1,9 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooSettings
 {
     public function __construct()
@@ -25,7 +29,10 @@ class HippooSettings
 
     public function settings_init()
     {
-        register_setting('hippoo_settings', 'hippoo_settings'); // phpcs:ignore
+        register_setting('hippoo_settings', 'hippoo_settings', array(
+            'type'              => 'array',
+            'sanitize_callback' => array($this, 'sanitize_settings'),
+        ));
 
         add_settings_section(
             'hippoo_general_settings_section',
@@ -80,6 +87,51 @@ class HippooSettings
         <?php
     }
 
+    public function sanitize_settings($input) {
+        $sanitized = array();
+        
+        if (isset($input['invoice_plugin_enabled'])) {
+            $sanitized['invoice_plugin_enabled'] = (bool) $input['invoice_plugin_enabled'];
+        }
+        
+        if (isset($input['image_optimization_enabled'])) {
+            $sanitized['image_optimization_enabled'] = (bool) $input['image_optimization_enabled'];
+        }
+        
+        if (isset($input['image_size_selection'])) {
+            $sanitized['image_size_selection'] = sanitize_text_field($input['image_size_selection']);
+        }
+        
+        // PWA settings
+        if (isset($input['pwa_plugin_enabled'])) {
+            $sanitized['pwa_plugin_enabled'] = (bool) $input['pwa_plugin_enabled'];
+        }
+        
+        if (isset($input['pwa_route_name'])) {
+            $sanitized['pwa_route_name'] = sanitize_text_field($input['pwa_route_name']);
+        }
+        
+        if (isset($input['pwa_custom_css'])) {
+            $sanitized['pwa_custom_css'] = wp_strip_all_tags($input['pwa_custom_css']);
+        }
+        
+        // Error logging settings
+        if (isset($input['bugsnag_enabled'])) {
+            $sanitized['bugsnag_enabled'] = (bool) $input['bugsnag_enabled'];
+        } else {
+            // If checkbox is not checked, it won't be in the input, so set to false
+            $sanitized['bugsnag_enabled'] = false;
+        }
+        
+        foreach ($input as $key => $value) {
+            if (strpos($key, 'send_notification_') === 0) {
+                $sanitized[$key] = (bool) $value;
+            }
+        }
+        
+        return $sanitized;
+    }
+
     public function image_size_selection_render()
     {
         $settings = get_option('hippoo_settings', []);
@@ -87,10 +139,10 @@ class HippooSettings
         $image_sizes = hippoo_get_available_image_sizes();
         $disabled = isset($settings['image_optimization_enabled']) && $settings['image_optimization_enabled'] ? '' : 'disabled';
         
-        echo '<select id="image_size_selection" name="hippoo_settings[image_size_selection]" ' . $disabled . '>';
+        echo '<select id="image_size_selection" name="hippoo_settings[image_size_selection]" ' . esc_attr($disabled) . '>';
         foreach ($image_sizes as $size => $dimensions) {
             $selected = selected($selected_size, $size, false);
-            echo '<option value="' . esc_attr($size) . '" ' . $selected . '>' . esc_html($size) . ' (' . $dimensions['width'] . '×' . $dimensions['height'] . ')</option>';
+            echo '<option value="' . esc_attr($size) . '" ' . esc_attr($selected) . '>' . esc_html($size) . ' (' . esc_html($dimensions['width']) . '×' . esc_html($dimensions['height']) . ')</option>';
         }
         echo '</select>';
     }
@@ -149,11 +201,11 @@ class HippooSettings
             <div id="image-carousel">
                 <div class="carousel-wrapper">
                     <div class="carousel-inner">
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/1.png'); ?>" alt="<?php esc_attr_e('App screenshot 1', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/2.png'); ?>" alt="<?php esc_attr_e('App screenshot 2', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/3.png'); ?>" alt="<?php esc_attr_e('App screenshot 3', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/4.png'); ?>" alt="<?php esc_attr_e('App screenshot 4', 'hippoo'); ?>" />
-                        <img class="carousel-image" src="<?php echo esc_url('https://hippoo.app/static/img/android-app/5.png'); ?>" alt="<?php esc_attr_e('App screenshot 5', 'hippoo'); ?>" />
+                        <img class="carousel-image" src="<?php echo esc_url(hippoo_url . 'images/android-app/1.png'); ?>" alt="<?php esc_attr_e('App screenshot 1', 'hippoo'); ?>" />
+                        <img class="carousel-image" src="<?php echo esc_url(hippoo_url . 'images/android-app/2.png'); ?>" alt="<?php esc_attr_e('App screenshot 2', 'hippoo'); ?>" />
+                        <img class="carousel-image" src="<?php echo esc_url(hippoo_url . 'images/android-app/3.png'); ?>" alt="<?php esc_attr_e('App screenshot 3', 'hippoo'); ?>" />
+                        <img class="carousel-image" src="<?php echo esc_url(hippoo_url . 'images/android-app/4.png'); ?>" alt="<?php esc_attr_e('App screenshot 4', 'hippoo'); ?>" />
+                        <img class="carousel-image" src="<?php echo esc_url(hippoo_url . 'images/android-app/5.png'); ?>" alt="<?php esc_attr_e('App screenshot 5', 'hippoo'); ?>" />
                     </div>
                 </div>
                 <div class="carousel-nav">
@@ -187,7 +239,7 @@ class HippooSettings
         ?>
         
         <?php if (isset($_GET['settings-updated']) && $_GET['settings-updated']): ?>
-            <div class="updated notice is-dismissible"><p><?php _e('Settings saved successfully.', 'hippoo'); ?></p></div>
+            <div class="updated notice is-dismissible"><p><?php esc_html_e('Settings saved successfully.', 'hippoo'); ?></p></div>
         <?php endif; ?>
         
         <div id="hippoo_settings">
@@ -205,6 +257,7 @@ class HippooSettings
                     <div id="tab-<?php echo esc_attr($id); ?>" class="tab-content <?php echo $id === $active_tab ? 'active' : ''; ?>">
                         <?php
                         if (isset($tab_contents[$id])) {
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output is from registered tab content callbacks
                             echo $tab_contents[$id]();
                         }
                         ?>

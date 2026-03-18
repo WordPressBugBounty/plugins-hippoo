@@ -1,0 +1,208 @@
+{
+    "generated_at": "2026-03-12 22:50:53",
+    "plugin": "Hippoo Mobile app for WooCommerce",
+    "results": {
+        "libs/bugsnag-php/Notification.php": [
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_init",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=225",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 225,
+                "column": 17
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=228",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 228,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=229",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 229,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=230",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 230,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=231",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 231,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=232",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 232,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=233",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 233,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=234",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 234,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=235",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 235,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=236",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 236,
+                "column": 9
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=240",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 240,
+                "column": 17
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=246",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 246,
+                "column": 17
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=249",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 249,
+                "column": 17
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_setopt",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=254",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 254,
+                "column": 17
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_exec",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=259",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 259,
+                "column": 25
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_getinfo",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=260",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 260,
+                "column": 23
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_errno",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=271",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 271,
+                "column": 13
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_error",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=272",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 272,
+                "column": 61
+            },
+            {
+                "message": "Using cURL functions is highly discouraged. Use wp_remote_get() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.curl_curl_close",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=275",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 275,
+                "column": 9
+            },
+            {
+                "message": "File operations should use WP_Filesystem methods instead of direct PHP filesystem calls. Found: fopen().",
+                "code": "WordPress.WP.AlternativeFunctions.file_system_operations_fopen",
+                "link": "https://dev.hippoo.app/wp-admin/plugin-editor.php?plugin=hippoo%2Fhippoo.php&file=hippoo%2Flibs%2Fbugsnag-php%2FNotification.php&line=307",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 307,
+                "column": 23
+            }
+        ]
+    }
+}

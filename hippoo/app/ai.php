@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooAI
 {
     public $namespace = 'hippoo-ai/v1';
@@ -416,7 +420,9 @@ class HippooAI
         set_transient($cache_key, $result, HOUR_IN_SECONDS * 12);
 
         foreach ($optimized_images as $img) {
-            if (file_exists($img)) @unlink($img);
+            if (file_exists($img)) {
+                wp_delete_file($img);
+            }
         }
 
         return rest_ensure_response(array_merge($result, ['cache_hit' => false]));

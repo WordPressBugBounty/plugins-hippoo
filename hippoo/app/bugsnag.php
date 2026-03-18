@@ -1,58 +1,63 @@
 <?php
 
-if (!defined('hippoo_bugsnag_api_key')) {
-    define('hippoo_bugsnag_api_key', '76ed4ce2921ad893f4ae5581f3f109a8');
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
 }
 
-require_once hippoo_path . 'libs/bugsnag-php/Autoload.php';
+// Bugsnag has been removed for WordPress.org compatibility
+// Using WordPress native error logging instead
 
 class HippooBugsnag
 {
-    private $client;
     private $default_notify_severities = 'fatal,error';
 
     public function __construct()
     {
-        $this->init();
-        add_action('init', array($this, 'test_bugsnag'));
-        add_action('admin_init', array($this, 'settings_init'));
+        // add_action('admin_init', array($this, 'settings_init'));
         add_action('update_option_hippoo_settings', array($this, 'update_hippoo_settings'), 10, 2);
+        
+        // Set up WordPress native error handler if enabled
+        if ($this->is_enabled()) {
+            $this->init_wp_error_logging();
+        }
     }
 
-    public function init()
+    public function init_wp_error_logging()
     {
-        if (!class_exists('Bugsnag_Client')) {
-            error_log('Hippoo BugSnag: SDK not found. Please ensure bugsnag-php is in libs/bugsnag-php.');
-            return;
-        }
-
-        if (!$this->is_enabled()) {
-            return;
-        }
-
-        try {
-            $this->client = new Bugsnag_Client(hippoo_bugsnag_api_key);
-
-            $this->client->setContext(get_bloginfo('name'));
-            $this->client->setAppVersion(hippoo_version);
-
-            $this->client->setUser([]);
-
-            $this->client->setErrorReportingLevel($this->error_reporting_level());
-
-            $this->client->setBeforeNotifyFunction(array($this, 'filter_hippoo_errors'));
-        } catch (Exception $e) {
-            error_log('Hippoo Bugsnag init failed: ' . $e->getMessage());
+        // WordPress native error logging is already enabled via WP_DEBUG_LOG
+        // This method is kept for backward compatibility
+        if (!defined('WP_DEBUG_LOG')) {
+            // Recommend enabling WP_DEBUG_LOG in wp-config.php for error logging
+            // define('WP_DEBUG_LOG', true);
         }
     }
 
     public function error_reporting_level()
     {
-        $level = 0;
+        $settings = get_option('hippoo_settings', []);
+        $notify_severities = isset($settings['bugsnag_notify_severities'])
+            ? $settings['bugsnag_notify_severities']
+            : $this->default_notify_severities;
 
-        $severities = explode(',', $this->default_notify_severities);
+        $severities = array_map('trim', explode(',', $notify_severities));
+        
+        // Map to PHP error levels
+        $level = 0;
         foreach ($severities as $severity) {
-            $level |= Bugsnag_ErrorTypes::getLevelsForSeverity($severity);
+            switch ($severity) {
+                case 'fatal':
+                    $level |= E_ERROR | E_PARSE | E_CORE_ERROR | E_COMPILE_ERROR;
+                    break;
+                case 'error':
+                    $level |= E_ERROR | E_WARNING | E_USER_ERROR;
+                    break;
+                case 'warning':
+                    $level |= E_WARNING | E_USER_WARNING;
+                    break;
+                case 'info':
+                    $level |= E_NOTICE | E_USER_NOTICE;
+                    break;
+            }
         }
 
         return $level;
@@ -60,47 +65,35 @@ class HippooBugsnag
 
     public function filter_hippoo_errors($error)
     {
-        $stacktrace = $error->stacktrace;
-        if (!$stacktrace) {
-            return false;
-        }
-
-        $plugins = get_plugins();
-        $hippoo_plugins = array_filter($plugins, function ($plugin_data, $plugin_file) {
-            $plugin_folder = dirname($plugin_file);
-            return stripos(strtolower($plugin_data['Name']), 'hippoo') !== false 
-                || stripos(strtolower($plugin_folder), 'hippoo') !== false;
-        }, ARRAY_FILTER_USE_BOTH);
-
-        $hippoo_plugin_paths = array_map(function ($plugin_file) {
-            return WP_PLUGIN_DIR . '/' . dirname($plugin_file);
-        }, array_keys($hippoo_plugins));
-
-        foreach ($stacktrace->frames as $frame) {
-            $file = $frame['file'] ?? '';
-            foreach ($hippoo_plugin_paths as $path) {
-                if (stripos($file, $path) !== false) {
-                    return true;
-                }
+        // Filter to only report Hippoo-related errors
+        if (isset($error['file'])) {
+            $file = $error['file'];
+            if (strpos($file, 'hippoo') === false && strpos($file, 'woocommerce') === false) {
+                return false;
             }
         }
+        return true;
+    }
 
-        return false;
+    public function test_bugsnag()
+    {
+        // Removed Bugsnag test - using WordPress native logging
+        // Errors will be logged to debug.log if WP_DEBUG_LOG is enabled
     }
 
     public function settings_init()
     {
         add_settings_section(
             'hippoo_bugsnag_section',
-            null,
-            null,
+            __('Error Logging', 'hippoo'),
+            '__return_empty_string',
             'hippoo_settings'
         );
 
-        $description = '<p>' . esc_html__( 'Enable this option to send anonymous usage statistics and error reports. This helps us identify issues and improve Hippoo. No personal data will be collected.', 'hippoo' ) . '</p>';
+        $description = '<p>' . esc_html__('Enable WordPress native error logging for Hippoo plugin errors. Errors will be logged to wp-content/debug.log if WP_DEBUG_LOG is enabled.', 'hippoo') . '</p>';
         add_settings_field(
             'bugsnag_enabled',
-            __('Help Improve Hippoo', 'hippoo') . $description,
+            __('Enable Error Logging', 'hippoo') . $description,
             array($this, 'field_bugsnag_enabled_render'),
             'hippoo_settings',
             'hippoo_bugsnag_section'
@@ -115,29 +108,49 @@ class HippooBugsnag
     public function is_enabled()
     {
         $settings = get_option('hippoo_settings', []);
-        return isset($settings['bugsnag_enabled']) ? $settings['bugsnag_enabled'] : 1;
+        return isset($settings['bugsnag_enabled']) ? $settings['bugsnag_enabled'] : 0;
     }
 
-    public function update_hippoo_settings($old_value, $value)
+    public function update_hippoo_settings($old_value, $new_value)
     {
-        if (!isset($value['bugsnag_enabled'])) {
-            $value['bugsnag_enabled'] = 0;
-            update_option('hippoo_settings', $value);
+        // Re-initialize if error logging setting changed
+        if (isset($old_value['bugsnag_enabled']) && isset($new_value['bugsnag_enabled'])) {
+            if ($old_value['bugsnag_enabled'] !== $new_value['bugsnag_enabled']) {
+                if ($new_value['bugsnag_enabled']) {
+                    $this->init_wp_error_logging();
+                }
+            }
         }
     }
 
-    public function test_bugsnag() {
-        if (!current_user_can('manage_options') || !isset($_GET['hippoo_error_test'])) {
+    // Helper function to log Hippoo errors
+    public static function log_error($message, $context = array())
+    {
+        if (!defined('WP_DEBUG_LOG') || !WP_DEBUG_LOG) {
             return;
         }
 
-        $test_type = sanitize_text_field($_GET['hippoo_error_test']);
-
-        if ($test_type === 'error') {
-            trigger_error('Hippoo Test Error (E_USER_ERROR)', E_USER_ERROR);
-        } elseif ($test_type === 'fatal') {
-            non_existent_function();
+        $log_message = '[Hippoo] ' . $message;
+        if (!empty($context)) {
+            $log_message .= ' | Context: ' . wp_json_encode($context);
         }
+
+        error_log($log_message);
+    }
+
+    // Helper function to log Hippoo notices
+    public static function log_notice($message, $context = array())
+    {
+        if (!defined('WP_DEBUG_LOG') || !WP_DEBUG_LOG) {
+            return;
+        }
+
+        $log_message = '[Hippoo Notice] ' . $message;
+        if (!empty($context)) {
+            $log_message .= ' | Context: ' . wp_json_encode($context);
+        }
+
+        error_log($log_message);
     }
 }
 

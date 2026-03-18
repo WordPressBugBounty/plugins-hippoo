@@ -1,5 +1,9 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class Hippoo_Ticket_Woo_Product {
     public function __construct() {
         add_filter( 'manage_edit-product_columns', array( $this, 'remove_product_sku_column' ) );

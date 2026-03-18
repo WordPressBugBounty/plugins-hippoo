@@ -1,13 +1,11 @@
 <?php
 
-function hippoo_load_textdomain() {
-    load_plugin_textdomain(
-        'hippoo',
-        false,
-        plugin_basename(hippoo_dir) . '/languages'
-    );
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
 }
-add_action('plugins_loaded', 'hippoo_load_textdomain');
+
+// Removed load_plugin_textdomain as it's automatically handled by WordPress.org for plugins
+// add_action('plugins_loaded', 'hippoo_load_textdomain');
 
 function hippoo_page_style( $hook ) {
     wp_deregister_script('select2');
@@ -108,7 +106,7 @@ function hippoo_render_dashboard_widget_content() {
     ] );
     ?>
     <div style="border-top: 1px solid #e7e7e7; padding-top: 12px !important; font-size: 14px;">
-        <a href="https://hippoo.app/category/blog/" target="_blank"><?php _e('Read more on our blog', 'hippoo'); ?></a>
+        <a href="https://hippoo.app/category/blog/" target="_blank"><?php esc_html_e('Read more on our blog', 'hippoo'); ?></a>
     </div>
     <?php
 }
@@ -140,7 +138,7 @@ function hippoo_display_review_banner() {
     <div class="notice notice-info is-dismissible hippoo-review-banner">
         <p><?php esc_html_e('Enjoying the Hippoo Mobile App for WooCommerce? We would love to hear your feedback! Please take a moment to leave a review.', 'hippoo'); ?></p>
         <p>
-            <a href="https://wordpress.org/support/plugin/hippoo/reviews/?rate=5#new-post" target="_blank" class="button button-primary"><?php esc_html_e('Leave a Review', 'hippoo'); ?></a>
+            <a href="https://wordpress.org/support/plugin/hippoo/reviews/#new-post" target="_blank" class="button button-primary"><?php esc_html_e('Leave a Review', 'hippoo'); ?></a>
             <button class="button hippoo-dismiss-review"><?php esc_html_e('Dismiss', 'hippoo'); ?></button>
         </p>
     </div>
@@ -232,7 +230,7 @@ add_action('wp_ajax_hippoo_dismiss_api_error', 'hippoo_dismiss_api_error');
 function hippoo_display_upgrade_banner() {
     $license_status = hippoo_check_user_license();
     $email = get_option('admin_email');
-    $hostname = parse_url(home_url(), PHP_URL_HOST);
+    $hostname = wp_parse_url(home_url(), PHP_URL_HOST);
 
     if ($license_status === 'basic') : ?>
         <div class="hippoo-upgrade-banner">

@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 // namespace Your_Namespace;
 
 use Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController;

@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooEventNotificationController {
     protected $namespace = 'wc-hippoo/v1';
     protected $rest_base = 'event-notification';

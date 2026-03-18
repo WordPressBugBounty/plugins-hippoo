@@ -1,5 +1,9 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooInvoiceSettings {
     public $hippoo_icon = HIPPOO_INVOICE_PLUGIN_URL . 'assets/images/hippoo-mono.svg';
 
@@ -7,8 +11,8 @@ class HippooInvoiceSettings {
         add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
         add_action( 'admin_init', array( $this, 'settings_init' ) );
         // add_action( 'admin_notices', array( $this, 'admin_notice' ) );
-        add_action( 'wp_ajax_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
-        add_action( 'wp_ajax_nopriv_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
+        add_action( 'wp_ajax_hippoo_invoice_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
+        add_action( 'wp_ajax_nopriv_hippoo_invoice_dismiss_admin_notice', array( $this, 'handle_dismiss' ) );
     }
 
     public function add_admin_menu() {
@@ -32,11 +36,32 @@ class HippooInvoiceSettings {
     }
 
     public function settings_init() {
-        register_setting('hippoo_invoice_settings', 'hippoo_invoice_settings'); // phpcs:ignore
+        register_setting('hippoo_invoice_settings', 'hippoo_invoice_settings', array(
+            'type'              => 'array',
+            'sanitize_callback' => array($this, 'sanitize_invoice_settings'),
+        ));
 
         $this->general_settings_init();
         $this->invoice_settings_init();
         $this->shipping_settings_init();
+    }
+
+    public function sanitize_invoice_settings($input) {
+        $sanitized = array();
+        
+        foreach ($input as $key => $value) {
+            if (is_array($value)) {
+                $sanitized[$key] = array_map('sanitize_text_field', $value);
+            } elseif (is_bool($value) || in_array($value, array('0', '1', 0, 1, true, false), true)) {
+                $sanitized[$key] = (bool) $value;
+            } elseif (is_numeric($value)) {
+                $sanitized[$key] = floatval($value);
+            } else {
+                $sanitized[$key] = sanitize_text_field($value);
+            }
+        }
+        
+        return $sanitized;
     }
 
     public function settings_page_render() {
@@ -273,7 +298,7 @@ class HippooInvoiceSettings {
             <?php
             foreach ( $options as $value => $label ) {
                 $selected_attr = selected( $selected, $value, false );
-                echo '<option value="' . esc_attr( $value ) . '" ' . esc_html($selected_attr) . '>' . esc_html( $label ) . '</option>';
+                echo '<option value="' . esc_attr( $value ) . '" ' . esc_attr( $selected_attr ) . '>' . esc_html( $label ) . '</option>';
             }
             ?>
         </select>
@@ -309,7 +334,7 @@ class HippooInvoiceSettings {
             foreach ($options as $font_name) {
                 $selected_attr = selected($selected, $font_name, false);
                 ?>
-                <option value="<?php echo esc_attr($font_name); ?>" <?php echo esc_html($selected_attr); ?>><?php echo esc_html($font_name); ?></option>
+                <option value="<?php echo esc_attr($font_name); ?>" <?php echo esc_attr( $selected_attr ); ?>><?php echo esc_html($font_name); ?></option>
                 <?php
             }
             ?>
@@ -349,7 +374,7 @@ class HippooInvoiceSettings {
             <?php
             foreach ($options as $value => $label) {
                 $selected_attr = selected($selected, $value, false);
-                echo '<option value="' . esc_attr($value) . '" ' . esc_html($selected_attr) . '>' . esc_html($label) . '</option>';
+                echo '<option value="' . esc_attr($value) . '" ' . esc_attr( $selected_attr ) . '>' . esc_html($label) . '</option>';
             }
             ?>
         </select>
@@ -411,7 +436,7 @@ class HippooInvoiceSettings {
             <?php
             foreach ($options as $value => $label) {
                 $selected_attr = selected($selected, $value, false);
-                echo '<option value="' . esc_attr($value) . '" ' . esc_html($selected_attr) . '>' . esc_html($label) . '</option>';
+                echo '<option value="' . esc_attr($value) . '" ' . esc_attr( $selected_attr ) . '>' . esc_html($label) . '</option>';
             }
             ?>
         </select>

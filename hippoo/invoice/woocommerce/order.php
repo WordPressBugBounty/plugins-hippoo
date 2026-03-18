@@ -1,5 +1,9 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 ## Add Colums to orders table
 add_filter(
     ( hippoo_invoice_check_hpos_enabled() )

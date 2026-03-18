@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 function hippoo_get_temp_dir() {
     $wp_upload_dir = wp_upload_dir();
     $temp_dir = implode( DIRECTORY_SEPARATOR, [ $wp_upload_dir['basedir'], 'hippoo', 'tmp' ] ) . DIRECTORY_SEPARATOR;

@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 function get_template_params($order_id) {
     $order_id = absint($order_id);
     $order = wc_get_order($order_id);
@@ -77,6 +81,12 @@ function generate_barcode_html($sku) {
 
 function generate_html( $order_id, $type ) {
     $type = sanitize_file_name( $type );
+    
+    // Security: Only allow specific template types
+    $allowed_types = array( 'factor', 'label' );
+    if ( ! in_array( $type, $allowed_types, true ) ) {
+        return false;
+    }
 
     $custom_template_path = get_stylesheet_directory() . '/hippoo-' . $type . '.php';
     if ( ! file_exists( $custom_template_path ) || ! is_readable( $custom_template_path ) ) {
@@ -88,6 +98,20 @@ function generate_html( $order_id, $type ) {
         : HIPPOO_INVOICE_PLUGIN_TEMPLATE_PATH . 'hippoo-' . $type . '.php';
     
     $file_path = apply_filters( 'hippoo_invoice_template_path', $file_path, $type, $order_id );
+    
+    // Security: Validate file path is within allowed directories
+    $plugin_path = realpath( HIPPOO_INVOICE_PLUGIN_PATH );
+    $theme_path = realpath( get_stylesheet_directory() );
+    $parent_theme_path = realpath( get_template_directory() );
+    $real_file_path = realpath( $file_path );
+    
+    if ( ! $real_file_path || 
+         ( strpos( $real_file_path, $plugin_path ) !== 0 && 
+           strpos( $real_file_path, $theme_path ) !== 0 && 
+           strpos( $real_file_path, $parent_theme_path ) !== 0 ) ) {
+        return false;
+    }
+    
     if ( ! file_exists( $file_path ) || ! is_readable( $file_path ) ) {
         return false;
     }

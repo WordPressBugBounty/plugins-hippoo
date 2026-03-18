@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooPermissions
 {
     public function __construct()
@@ -926,7 +930,7 @@ class HippooPermissions
                                 $selected_statuses = $role_settings['orders']['allowed_status'] ?? [];
                                 foreach ($statuses as $status_key => $status_label) {
                                     $sel = in_array($status_key, $selected_statuses) ? 'selected' : '';
-                                    echo '<option value="' . esc_attr($status_key) . '" ' . $sel . '>' . esc_html($status_label) . '</option>';
+                                    echo '<option value="' . esc_attr($status_key) . '" ' . esc_attr( $sel ) . '>' . esc_html($status_label) . '</option>';
                                 }
                                 ?>
                             </select>
@@ -981,7 +985,7 @@ class HippooPermissions
                                 $selected_cats = $role_settings['products']['categories'] ?? [];
                                 foreach ($categories as $cat_id => $cat_name) {
                                     $sel = in_array($cat_id, $selected_cats) ? 'selected' : '';
-                                    echo '<option value="' . esc_attr($cat_id) . '" ' . $sel . '>' . esc_html($cat_name) . '</option>';
+                                    echo '<option value="' . esc_attr($cat_id) . '" ' . esc_attr( $sel ) . '>' . esc_html($cat_name) . '</option>';
                                 }
                                 ?>
                             </select>
@@ -995,7 +999,7 @@ class HippooPermissions
                                 $selected_types = $role_settings['products']['types'] ?? [];
                                 foreach ($product_types as $type_key => $type_label) {
                                     $sel = in_array($type_key, $selected_types) ? 'selected' : '';
-                                    echo '<option value="' . esc_attr($type_key) . '" ' . $sel . '>' . esc_html($type_label) . '</option>';
+                                    echo '<option value="' . esc_attr($type_key) . '" ' . esc_attr( $sel ) . '>' . esc_html($type_label) . '</option>';
                                 }
                                 ?>
                             </select>
@@ -1107,7 +1111,7 @@ class HippooPermissions
                                 $selected_ext = $role_settings['app_features']['extensions'] ?? [];
                                 foreach ($extensions as $extension) {
                                     $sel = in_array($extension['slug'], $selected_ext) ? 'selected' : '';
-                                    echo '<option value="' . esc_attr($extension['slug']) . '" ' . $sel . '>' . esc_html($extension['name']) . '</option>';
+                                    echo '<option value="' . esc_attr($extension['slug']) . '" ' . esc_attr( $sel ) . '>' . esc_html($extension['name']) . '</option>';
                                 }
                                 ?>
                             </select>

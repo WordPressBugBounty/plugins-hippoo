@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooControllerWithAuth extends WC_REST_Customers_Controller
 {
     protected $hippoo_namespace = 'wc-hippoo/v1';

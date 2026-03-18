@@ -1,4 +1,9 @@
-<?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage ?><html>
+<?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+?><html>
 <head>
     <title><?php esc_html_e( 'Invoice', 'hippoo' ); ?> <?php echo esc_html( $order->get_id() ); ?></title>
     <meta charset="utf-8">
@@ -16,7 +21,7 @@
         }
 
         body {
-            font-family: <?php echo esc_attr( $settings['font_name'] ); ?>;
+            font-family: <?php echo ! empty( $settings['font_name'] ) ? esc_attr( $settings['font_name'] ) : 'Arial, sans-serif'; ?>;
             margin: 0;
             padding: 0;
         }

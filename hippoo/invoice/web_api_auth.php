@@ -1,5 +1,9 @@
-
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooInvoiceControllerWithAuth extends WC_REST_Customers_Controller {
     public $namespace;
     public function __construct() {
@@ -94,7 +98,7 @@ class HippooInvoiceControllerWithAuth extends WC_REST_Customers_Controller {
         $order_id = intval( $request->get_param('order_id') );
         $html_doc = generate_html( $order_id, 'factor' );
         header( 'Content-Type: text/html; charset=utf-8' );
-        echo $html_doc; // phpcs:ignore
+        echo wp_kses_post($html_doc);
         exit;
     }
 
@@ -102,7 +106,7 @@ class HippooInvoiceControllerWithAuth extends WC_REST_Customers_Controller {
         $order_id = intval( $request->get_param('order_id') );
         $html_doc = generate_html( $order_id, 'label' );
         header( 'Content-Type: text/html; charset=utf-8' );
-        echo $html_doc; // phpcs:ignore
+        echo wp_kses_post($html_doc);
         exit;
     }
 }

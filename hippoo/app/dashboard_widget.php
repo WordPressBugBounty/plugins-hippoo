@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooDashboardWidget {
     public function __construct() {
         add_action('wp_dashboard_setup', array($this, 'add_dashboard_widget'));
@@ -24,7 +28,7 @@ class HippooDashboardWidget {
         ] );
         ?>
         <div style="border-top: 1px solid #e7e7e7; padding-top: 12px !important; font-size: 14px;">
-            <a href="https://hippoo.app/category/blog/" target="_blank"><?php _e('Read more on our blog', 'hippoo'); ?></a>
+            <a href="https://hippoo.app/category/blog/" target="_blank"><?php esc_html_e('Read more on our blog', 'hippoo'); ?></a>
         </div>
         <?php
     }

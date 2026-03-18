@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class HippooIntegrations
 {
     public $namespace = 'hippoo-integrations/v1';

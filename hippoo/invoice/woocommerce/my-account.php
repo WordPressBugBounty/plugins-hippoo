@@ -1,5 +1,9 @@
 <?php // phpcs:disable PluginCheck.CodeAnalysis.ImageFunctions.NonEnqueuedImage
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class Hippoo_Ticket_Woo_My_Account {
     public function __construct() {
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );

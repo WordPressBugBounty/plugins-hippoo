@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 // Add CORS headers to all rest responses
 add_action('rest_api_init', function () {
     $origin = get_http_origin();
@@ -107,7 +112,7 @@ function hippoo_get_token_from_wc() {
 
     if (headers_sent()) {
         // Fallback: Output JavaScript redirect
-        echo '<script>window.location.href="' . $url . '";</script>';
+        echo '<script>window.location.href="' . esc_url( $url ) . '";</script>';
         exit;
     }
     
