@@ -3,7 +3,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-?><html>
+?>
+<html>
 <head>
     <title><?php esc_html_e( 'Invoice', 'hippoo' ); ?> <?php echo esc_html( $order->get_id() ); ?></title>
     <meta charset="utf-8">

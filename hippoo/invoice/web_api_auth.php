@@ -98,7 +98,7 @@ class HippooInvoiceControllerWithAuth extends WC_REST_Customers_Controller {
         $order_id = intval( $request->get_param('order_id') );
         $html_doc = generate_html( $order_id, 'factor' );
         header( 'Content-Type: text/html; charset=utf-8' );
-        echo wp_kses_post($html_doc);
+        echo hippoo_wp_kses( $html_doc );
         exit;
     }
 
@@ -106,7 +106,7 @@ class HippooInvoiceControllerWithAuth extends WC_REST_Customers_Controller {
         $order_id = intval( $request->get_param('order_id') );
         $html_doc = generate_html( $order_id, 'label' );
         header( 'Content-Type: text/html; charset=utf-8' );
-        echo wp_kses_post($html_doc);
+        echo hippoo_wp_kses( $html_doc );
         exit;
     }
 }

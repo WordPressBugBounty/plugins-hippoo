@@ -159,4 +159,25 @@ function hippoo_invoice_check_hpos_enabled() {
         $hpos_enabled = FALSE;
     }
     return $hpos_enabled;
+
+}
+
+function hippoo_wp_kses($html) {
+    $allowed_html = wp_kses_allowed_html( 'post' );
+    $allowed_html['style'] = [];
+    $allowed_html['link'] = array(
+        'rel' => true,
+        'href' => true,
+        'type' => true,
+    );
+    $allowed_html['img'] = array(
+        'src' => true,
+        'alt' => true,
+        'width' => true,
+        'height' => true,
+        'class' => true,
+    );
+    $allowed_protocols = wp_allowed_protocols();
+    $allowed_protocols[] = 'data';
+    return wp_kses( $html, $allowed_html, $allowed_protocols );
 }

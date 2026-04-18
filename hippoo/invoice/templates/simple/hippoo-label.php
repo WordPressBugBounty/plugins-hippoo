@@ -3,7 +3,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-?><html>
+?>
+<html>
 <head>
     <title><?php esc_html_e( 'Label', 'hippoo' ); ?></title>
     <meta charset="utf-8">
