@@ -265,7 +265,7 @@ class HippooIntegrations
     public static function get_products()
     {
         $cache_key = 'hippoo_products';
-        $products  = wp_cache_get($cache_key);
+        $products  = get_transient($cache_key);
 
         if ($products !== false) {
             return $products;
@@ -281,7 +281,7 @@ class HippooIntegrations
             return false;
         }
 
-        wp_cache_set($cache_key, $products, '', HOUR_IN_SECONDS);
+        set_transient($cache_key, $products, 12 * HOUR_IN_SECONDS);
 
         return $products;
     }

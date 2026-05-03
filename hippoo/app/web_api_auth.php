@@ -92,6 +92,14 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
                 $methods = is_array($handler['methods']) 
                     ? implode(',', array_keys($handler['methods']))
                     : $handler['methods'];
+
+                $default_permission_callback = array($this, 'is_user_wordpress_admin');
+                $permission_callback = apply_filters(
+                    'hippoo_extension_permission_check',
+                    $default_permission_callback,
+                    $route,
+                    $handler
+                );
     
                 register_rest_route(
                     $new_namespace,
@@ -100,7 +108,7 @@ class HippooControllerWithAuth extends WC_REST_Customers_Controller
                         'methods'             => $methods,
                         'callback'            => $handler['callback'],
                         'args'                => $handler['args'],
-                        'permission_callback' => array($this, 'is_user_wordpress_admin')
+                        'permission_callback' => $permission_callback,
                     )
                 );
             }

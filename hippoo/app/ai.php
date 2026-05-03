@@ -417,7 +417,7 @@ class HippooAI
             return $result;
         }
 
-        set_transient($cache_key, $result, HOUR_IN_SECONDS * 12);
+        set_transient($cache_key, $result, 12 * HOUR_IN_SECONDS);
 
         foreach ($optimized_images as $img) {
             if (file_exists($img)) {
@@ -678,14 +678,14 @@ class HippooAI
     private function check_rate_limit()
     {
         $ip = $_SERVER['REMOTE_ADDR'];
-        $transient_key = 'hippoo_ai_rate_limit_' . $ip;
-        $requests = get_transient($transient_key) ?: 0;
+        $cache_key = 'hippoo_ai_rate_limit_' . $ip;
+        $requests = get_transient($cache_key) ?: 0;
         
         if ($requests >= 30) { // 30 requests per minute
             return false;
         }
         
-        set_transient($transient_key, $requests + 1, MINUTE_IN_SECONDS);
+        set_transient($cache_key, $requests + 1, MINUTE_IN_SECONDS);
         return true;
     }
 

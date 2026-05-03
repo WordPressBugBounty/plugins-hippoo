@@ -122,10 +122,18 @@ function hippoo_check_rest_api_status() {
 }
 
 function hippoo_check_user_license() {
+    $cache_key = 'hippoo_license_status';
+    $license   = get_transient($cache_key);
+
+    if ($license !== false) {
+        return $license;
+    }
+
     $email = get_option('admin_email'); 
     $hostname = home_url();
 
     if (!$email) {
+        set_transient($cache_key, 'basic', HOUR_IN_SECONDS);
         return 'basic';
     }
 
@@ -142,12 +150,14 @@ function hippoo_check_user_license() {
     $response = wp_remote_post($url, $args);
 
     if (is_wp_error($response)) {
+        set_transient($cache_key, 'basic', HOUR_IN_SECONDS);
         return 'basic';
     }
 
     $data = json_decode(wp_remote_retrieve_body($response), true);
 
     if (!isset($data['Licenses'])) {
+        set_transient($cache_key, 'basic', HOUR_IN_SECONDS);
         return 'basic';
     }
 
@@ -158,9 +168,11 @@ function hippoo_check_user_license() {
 
     foreach ($licenses as $sku) {
         if (in_array($sku, $premium_skus)) {
+            set_transient($cache_key, 'premium', 12 * HOUR_IN_SECONDS);
             return 'premium';
         }
     }
 
+    set_transient($cache_key, 'basic', HOUR_IN_SECONDS);
     return 'basic';
 }

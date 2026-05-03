@@ -1,5 +1,24 @@
 jQuery(document).ready(function($) {
 
+    /* Settings */
+    $(document).on('click', '#hippoo_settings .nav-tab-wrapper a', function(event) {
+        event.preventDefault();
+        
+        var tabId = $(this).attr('href').split('tab=')[1];
+        
+        $('.nav-tab-wrapper a').removeClass('nav-tab-active');
+        $(this).addClass('nav-tab-active');
+        
+        $('.tab-content').removeClass('active');
+        
+        $('#tab-' + tabId).addClass('active');
+        
+        if (history.pushState) {
+            var newUrl = $(this).attr('href');
+            history.pushState(null, null, newUrl);
+        }
+    });
+
     /* Notice */
     $(document).on('click', '.hippoo-notice .notice-dismiss', function(event) {
         event.preventDefault();

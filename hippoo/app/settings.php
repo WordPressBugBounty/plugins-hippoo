@@ -115,14 +115,6 @@ class HippooSettings
             $sanitized['pwa_custom_css'] = wp_strip_all_tags($input['pwa_custom_css']);
         }
         
-        // Error logging settings
-        if (isset($input['bugsnag_enabled'])) {
-            $sanitized['bugsnag_enabled'] = (bool) $input['bugsnag_enabled'];
-        } else {
-            // If checkbox is not checked, it won't be in the input, so set to false
-            $sanitized['bugsnag_enabled'] = false;
-        }
-        
         foreach ($input as $key => $value) {
             if (strpos($key, 'send_notification_') === 0) {
                 $sanitized[$key] = (bool) $value;

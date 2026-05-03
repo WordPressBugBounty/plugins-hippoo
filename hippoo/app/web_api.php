@@ -152,8 +152,8 @@ function hippoo_save_token_callback($data) {
             return new WP_REST_Response(['Message' => __('No valid token data.', 'hippoo')], 400);
         }
 
-        $transient_key = 'hippoo_token_' . $token_id;
-        set_transient($transient_key, $clean, 20000);
+        $cache_key = 'hippoo_token_' . $token_id;
+        set_transient($cache_key, $clean, 20000);
 
         $msg = 'Token Saved';
     } else {
@@ -185,11 +185,11 @@ function hippoo_show_token($data) {
             return new WP_REST_Response(['Message' => __('Invalid token.', 'hippoo')], 400);
         }
 
-        $transient_key = 'hippoo_token_' . $token_id;
-        $token         = get_transient($transient_key);
+        $cache_key = 'hippoo_token_' . $token_id;
+        $token     = get_transient($cache_key);
 
         if (false !== $token) {
-            delete_transient($transient_key);
+            delete_transient($cache_key);
             return new WP_REST_Response($token, 200);
         }
 

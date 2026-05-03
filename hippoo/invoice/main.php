@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'HIPPOO_INVOICE_PLUGIN_LANG_DIR', HIPPOO_INVOICE_PLUGIN_PATH . 'languages'. DIRECTORY_SEPARATOR );
 define( 'HIPPOO_INVOICE_PLUGIN_TEMPLATE_PATH', HIPPOO_INVOICE_PLUGIN_PATH . 'templates' . DIRECTORY_SEPARATOR . 'simple' . DIRECTORY_SEPARATOR );
 
-error_log('Hippoo Invoice: main.php loaded successfully');
+
 
 add_action( 'admin_enqueue_scripts', 'hippoo_enqueue_scripts' );
 function hippoo_enqueue_scripts() {
@@ -56,33 +56,19 @@ function hippoo_handle_html_display() {
     $_get = map_deep($_GET, 'sanitize_key'); // phpcs:ignore
 
     if ( isset( $_get['download_type'] ) && isset( $_get['post_id'] ) ) {
-        error_log('Hippoo Invoice: Handler triggered');
-        error_log('Hippoo Invoice: post_id = ' . $_get['post_id']);
-        error_log('Hippoo Invoice: download_type = ' . $_get['download_type']);
-        
         $post_id = sanitize_text_field( $_get['post_id'] );
         $download_type = sanitize_text_field( $_get['download_type'] );
-
-        error_log('Hippoo Invoice: Current user ID = ' . get_current_user_id());
-        error_log('Hippoo Invoice: Is admin? ' . (current_user_can( 'administrator' ) ? 'YES' : 'NO'));
-        error_log('Hippoo Invoice: Has order access? ' . (user_has_order_access( $post_id ) ? 'YES' : 'NO'));
         
         // Security: Only administrators or order owners can view invoices
         if ( user_has_order_access( $post_id ) || current_user_can( 'administrator' ) ) {
-            error_log('Hippoo Invoice: Access granted, generating HTML');
-            
             // Generate HTML from secure template (input is sanitized, template is from plugin directory)
             $html_doc = generate_html( $post_id, $download_type );
             
             if ($html_doc === false) {
-                error_log('Hippoo Invoice: ERROR - generate_html returned false');
                 echo '<p>Error: Template file not found</p>';
             } elseif (empty($html_doc)) {
-                error_log('Hippoo Invoice: ERROR - generate_html returned empty string');
                 echo '<p>Error: Generated HTML is empty</p>';
             } else {
-                error_log('Hippoo Invoice: HTML generated successfully, length = ' . strlen($html_doc));
-                
                 // Set proper headers for HTML document
                 header('Content-Type: text/html; charset=utf-8');
                 nocache_headers();
@@ -93,7 +79,6 @@ function hippoo_handle_html_display() {
                 echo $html_doc;
             }
         } else {
-            error_log('Hippoo Invoice: Access denied');
             echo esc_html(__('You do not have access to view this order.', 'hippoo'));
         }
         exit;

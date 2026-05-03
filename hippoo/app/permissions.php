@@ -20,40 +20,30 @@ class HippooPermissions
 
     public function register_rest_filters()
     {
+        // General
         add_filter('woocommerce_rest_check_permissions', array($this, 'override_woocommerce_permissions'), 9999, 4);
-        
+        add_filter('rest_pre_dispatch', array($this, 'block_unauthorized_access'), 9999, 3);
+
         // Orders
         add_filter('woocommerce_rest_shop_order_object_query', array($this, 'filter_orders_query'), 99, 2);
         add_filter('woocommerce_rest_prepare_shop_order_object', array($this, 'filter_orders_response'), 99, 3);
         add_filter('rest_request_after_callbacks', array($this, 'filter_order_count_response'), 99, 3);
-        add_filter('rest_request_after_callbacks', array($this, 'filter_order_note_response'), 99, 3);
-        add_filter('rest_pre_dispatch', array($this, 'filter_hippoo_invoice_response'), 99, 3);
-        add_filter('rest_pre_dispatch', array($this, 'filter_hippoo_shipping_label_response'), 99, 3);
 
         // Products
         add_filter('woocommerce_rest_product_object_query', array($this, 'filter_products_query'), 99, 2);
         add_filter('woocommerce_rest_prepare_product_object', array($this, 'filter_products_response'), 99, 3);
-        add_filter('rest_request_after_callbacks', array($this, 'filter_out_of_stock_list_response'), 99, 3);
 
         // Customers
-        add_filter('woocommerce_rest_customer_query', array($this, 'filter_customers_query'), 99, 2);
         add_filter('woocommerce_rest_prepare_customer', array($this, 'filter_customers_response'), 99, 3); 
 
         // Reviews
-        add_filter('woocommerce_rest_product_review_query', array($this, 'filter_reviews_query'), 99, 2);
         add_filter('woocommerce_rest_prepare_product_review', array($this, 'filter_reviews_response'), 99, 3);
 
-        // Reports 
-        add_filter('rest_request_after_callbacks', array($this, 'filter_reports_response'), 99, 3);
-
-        // Coupons
-        add_filter('woocommerce_rest_shop_coupon_object_query', array($this, 'filter_coupons_query'), 99, 2);
-
-        // Settings
-        add_filter('rest_request_after_callbacks', array($this, 'filter_settings_response'), 99, 3);
-        
         // App features
         add_filter('hippoo_system_info_extensions', array($this, 'filter_system_info_response'), 99, 2);
+
+        // Override permission callback for Hippoo extensions
+        add_filter('hippoo_extension_permission_check', array($this, 'override_extension_permission_callback'), 10, 3);
     }
 
     public function add_settings_tab($tabs)
@@ -169,12 +159,13 @@ class HippooPermissions
     {
         $perms = self::get_user_permissions();
 
+        // Admin or no restrictions - allow everything
         if ($perms === null) {
             return $permission;
         }
 
         $general_perms = $perms['general'] ?? [];
-        
+
         if (!empty($general_perms['read_only'])) {
             $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
@@ -185,14 +176,135 @@ class HippooPermissions
 
         return true;
     }
+
+    public function block_unauthorized_access($response, $server, $request)
+    {
+        $route = untrailingslashit($request->get_route());
+
+        // Orders
+        if (preg_match('#^/wc/v\d+/orders#', $route)) {
+            if (!$this->has_role_access('orders', 'access_orders')) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Order note
+        elseif (preg_match('#^/wc/v\d+/orders/notes#', $route)) {
+            if (
+                !$this->has_role_access('orders', 'access_orders') || 
+                !$this->has_role_access('orders', 'order_details') || 
+                !$this->has_role_access('orders', 'order_notes')
+            ) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Invoice
+        elseif (preg_match('#^/wc-hippoo-invoice/v\d+/invoice#', $route)) {
+            if (
+                !$this->has_role_access('orders', 'access_orders') || 
+                !$this->has_role_access('orders', 'order_details') || 
+                !$this->has_role_access('orders', 'invoice')
+            ) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Shipping label
+        elseif (preg_match('#^/wc-hippoo-invoice/v\d+/shipping-label#', $route)) {
+            if (
+                !$this->has_role_access('orders', 'access_orders') || 
+                !$this->has_role_access('orders', 'order_details') || 
+                !$this->has_role_access('orders', 'shipping_label')
+            ) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Products
+        elseif (preg_match('#^/wc/v\d+/products#', $route)) {
+            if (preg_match('#^/wc/v\d+/products/attributes#', $route)) {
+                if (!$this->has_role_access('products', 'access_attributes')) {
+                    return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+                }
+            }
+            elseif (preg_match('#^/wc/v\d+/products/categories#', $route)) {
+                if (!$this->has_role_access('products', 'access_categories')) {
+                    return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+                }
+            }
+            elseif (preg_match('#^/wc/v\d+/products/tags#', $route)) {
+                if (!$this->has_role_access('products', 'access_tags')) {
+                    return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+                }
+            }
+            elseif (preg_match('#^/wc/v\d+/products/brands#', $route)) {
+                if (!$this->has_role_access('products', 'access_brands')) {
+                    return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+                }
+            }
+            elseif (preg_match('#^/wc/v\d+/products/shipping_classes#', $route)) {
+                if (!$this->has_role_access('products', 'access_shipping_classes')) {
+                    return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+                }
+            }
+            elseif (preg_match('#^/wc/v\d+/products/reviews#', $route)) {
+                if (!$this->has_role_access('reviews', 'access_reviews')) {
+                    return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+                }
+            }
+            else {
+                if (!$this->has_role_access('products', 'access_products')) {
+                    return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+                }
+            }
+        }
+        // Out of stock list
+        elseif (preg_match('#^/wc-hippoo/v\d+/wc/stock#', $route)) {
+            if (
+                !$this->has_role_access('products', 'access_products') || 
+                !$this->has_role_access('products', 'out_of_stock_list')
+            ) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Customers
+        elseif (preg_match('#^/wc/v\d+/customers#', $route)) {
+            if (!$this->has_role_access('customers', 'access_customers')) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Reports
+        elseif (preg_match('#^/wc/v\d+/reports#', $route)) {
+            if (!$this->has_role_access('analytics', 'show_sale_analytics')) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Coupons
+        elseif (preg_match('#^/wc/v\d+/coupons#', $route)) {
+            if (!$this->has_role_access('coupons', 'access_coupons')) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Settings
+        elseif (preg_match('#^/wc/v\d+/settings#', $route)) {
+            if (!$this->has_role_access('settings', 'show_shop_settings')) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        // Extensions
+        elseif (preg_match('#^/wc-hippoo/v\d+/wp/system/info#', $route)) {
+            if (!$this->has_role_access('app_features', 'access_extensions')) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+        elseif (preg_match('#^/wc-hippoo/v\d+/ext#', $route)) {
+            if (!$this->has_role_access('app_features', 'access_extensions')) {
+                return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to do that.', 'hippoo'), ['status' => 403]);
+            }
+        }
+
+        return $response;
+    }
     
     public function filter_orders_query($args, $request)
     {
-        if (!$this->has_role_access('orders', 'access_orders')) {
-            $args['post__in'] = [0];
-            return $args;
-        }
-
         if ($this->has_role_access('orders', 'allowed_status')) {
             $perms = self::get_user_permissions();
             $order_perms = $perms['orders'] ?? [];
@@ -341,7 +453,9 @@ class HippooPermissions
 
     public function filter_order_count_response($response, $handler, $request)
     {
-        if (strpos($request->get_route(), '/wc/v3/orders') !== 0) {
+        $route = untrailingslashit($request->get_route());
+
+        if (!preg_match('#^/wc/v\d+/orders#', $route)) {
             return $response;
         }
 
@@ -357,64 +471,8 @@ class HippooPermissions
         return $response;
     }
 
-    public function filter_order_note_response($response, $server, $request)
-    {
-        if (strpos($request->get_route(), '/wc/v3/orders/') !== 0 || strpos($request->get_route(), '/notes') === false) {
-            return $response;
-        }
-
-        if (
-            !$this->has_role_access('orders', 'access_orders') || 
-            !$this->has_role_access('orders', 'order_details') || 
-            !$this->has_role_access('orders', 'order_notes')
-        ) {
-            return new WP_REST_Response([], 200);
-        }
-
-        return $response;
-    }
-
-    public function filter_hippoo_invoice_response($response, $server, $request)
-    {
-        if (strpos($request->get_route(), '/wc-hippoo-invoice/v1/invoice') !== 0) {
-            return $response;
-        }
-
-        if (
-            !$this->has_role_access('orders', 'access_orders') || 
-            !$this->has_role_access('orders', 'order_details') || 
-            !$this->has_role_access('orders', 'invoice')
-        ) {
-            return new WP_REST_Response([], 200);
-        }
-
-        return $response;
-    }
-
-    public function filter_hippoo_shipping_label_response($response, $server, $request)
-    {
-        if (strpos($request->get_route(), '/wc-hippoo-invoice/v1/shipping-label') !== 0) {
-            return $response;
-        }
-
-        if (
-            !$this->has_role_access('orders', 'access_orders') || 
-            !$this->has_role_access('orders', 'order_details') || 
-            !$this->has_role_access('orders', 'shipping_label')
-        ) {
-            return new WP_REST_Response([], 200);
-        }
-
-        return $response;
-    }
-
     public function filter_products_query($args, $request)
     {
-        if (!$this->has_role_access('products', 'access_products')) {
-            $args['post__in'] = [0];
-            return $args;
-        }
-
         $perms = self::get_user_permissions();
         $prod_perms = $perms['products'] ?? [];
 
@@ -480,32 +538,6 @@ class HippooPermissions
         return $response;
     }
 
-    public function filter_out_of_stock_list_response($response, $server, $request)
-    {
-        if (strpos($request->get_route(), '/wc-hippoo/v1/wc/stock') !== 0) {
-            return $response;
-        }
-
-        if (
-            !$this->has_role_access('products', 'access_products') || 
-            !$this->has_role_access('products', 'out_of_stock_list')
-        ) {
-            return new WP_REST_Response([], 200);
-        }
-
-        return $response;
-    }
-
-    public function filter_customers_query($args, $request)
-    {
-        if (!$this->has_role_access('customers', 'access_customers')) {
-            $args['include'] = [0];
-            return $args;
-        }
-
-        return $args;
-    }
-    
     public function filter_customers_response($response, $server, $request)
     {
         $data = $response->get_data();
@@ -545,16 +577,6 @@ class HippooPermissions
         return $response;
     }
 
-    public function filter_reviews_query($args, $request)
-    {
-        if (!$this->has_role_access('reviews', 'access_reviews')) {
-            $args['post__in'] = [0];
-            return $args;
-        }
-
-        return $args;
-    }
-
     public function filter_reviews_response($response, $server, $request)
     {
         $data = $response->get_data();
@@ -569,42 +591,6 @@ class HippooPermissions
         }
 
         $response->set_data($data);
-        return $response;
-    }
-
-    public function filter_reports_response($response, $server, $request)
-    {
-        if (strpos($request->get_route(), '/wc/v3/reports') !== 0) {
-            return $response;
-        }
-        
-        if (!$this->has_role_access('analytics', 'show_sale_analytics')) {
-            return new WP_REST_Response([], 200);
-        }
-
-        return $response;
-    }
-
-    public function filter_coupons_query($args, $request)
-    {
-        if (!$this->has_role_access('coupons', 'access_coupons')) {
-            $args['post__in'] = [0];
-            return $args;
-        }
-
-        return $args;
-    }
-
-    public function filter_settings_response($response, $server, $request)
-    {
-        if (strpos($request->get_route(), '/wc/v3/settings') !== 0) {
-            return $response;
-        }
-
-        if (!$this->has_role_access('settings', 'show_shop_settings')) {
-            return new WP_REST_Response([], 200);
-        }
-
         return $response;
     }
 
@@ -631,6 +617,29 @@ class HippooPermissions
         });
 
         return array_values($filtered);
+    }
+
+    public function override_extension_permission_callback($default_callback, $route, $handler)
+    {
+        if (!$this->has_role_access('app_features', 'access_extensions')) {
+            return $default_callback;
+        }
+
+        $parts = explode('/', trim($route, '/'));
+        $extension_slug = $parts[0] ?? '';
+        
+        $perms = self::get_user_permissions();
+        $allowed_slugs = $perms['app_features']['extensions'] ?? [];
+
+        if (empty($allowed_slugs)) {
+            return '__return_true';
+        }
+
+        if (in_array($extension_slug, $allowed_slugs)) {
+            return '__return_true';
+        }
+
+        return $default_callback;
     }
 
     public static function get_available_roles()
@@ -760,6 +769,12 @@ class HippooPermissions
             'types'              => isset($data['products']['types']) && is_array($data['products']['types'])
                 ? array_map('sanitize_text_field', $data['products']['types'])
                 : [],
+            
+            'access_categories'  => isset($data['products']['access_categories']) ? 1 : 0,
+            'access_attributes'  => isset($data['products']['access_attributes']) ? 1 : 0,
+            'access_tags'        => isset($data['products']['access_tags']) ? 1 : 0,
+            'access_brands'      => isset($data['products']['access_brands']) ? 1 : 0,
+            'access_shipping_classes' => isset($data['products']['access_shipping_classes']) ? 1 : 0,
         ];
 
         // Customers
@@ -1085,6 +1100,56 @@ class HippooPermissions
                     </div>
                     <hr>
 
+                    <!-- Product categories -->
+                    <div class="permission-section">
+                        <div class="permission-label"><?php esc_html_e('Product categories', 'hippoo'); ?></div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="hippoo_permissions_settings[<?php echo esc_attr($role_key); ?>][products][access_categories]" <?php checked($role_settings['products']['access_categories'] ?? 0, 1); ?> value="1" class="section-toggle">
+                            <?php esc_html_e('Access product categories', 'hippoo'); ?>
+                        </label>
+                    </div>
+                    <hr>
+
+                    <!-- Product attributes -->
+                    <div class="permission-section">
+                        <div class="permission-label"><?php esc_html_e('Product attributes', 'hippoo'); ?></div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="hippoo_permissions_settings[<?php echo esc_attr($role_key); ?>][products][access_attributes]" <?php checked($role_settings['products']['access_attributes'] ?? 0, 1); ?> value="1" class="section-toggle">
+                            <?php esc_html_e('Access product attributes', 'hippoo'); ?>
+                        </label>
+                    </div>
+                    <hr>
+
+                    <!-- Product tags -->
+                    <div class="permission-section">
+                        <div class="permission-label"><?php esc_html_e('Product tags', 'hippoo'); ?></div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="hippoo_permissions_settings[<?php echo esc_attr($role_key); ?>][products][access_tags]" <?php checked($role_settings['products']['access_tags'] ?? 0, 1); ?> value="1" class="section-toggle">
+                            <?php esc_html_e('Access product tags', 'hippoo'); ?>
+                        </label>
+                    </div>
+                    <hr>
+
+                    <!-- Product brands -->
+                    <div class="permission-section">
+                        <div class="permission-label"><?php esc_html_e('Product brands', 'hippoo'); ?></div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="hippoo_permissions_settings[<?php echo esc_attr($role_key); ?>][products][access_brands]" <?php checked($role_settings['products']['access_brands'] ?? 0, 1); ?> value="1" class="section-toggle">
+                            <?php esc_html_e('Access product brands', 'hippoo'); ?>
+                        </label>
+                    </div>
+                    <hr>
+
+                    <!-- Product shipping classes -->
+                    <div class="permission-section">
+                        <div class="permission-label"><?php esc_html_e('Product shipping classes', 'hippoo'); ?></div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="hippoo_permissions_settings[<?php echo esc_attr($role_key); ?>][products][access_shipping_classes]" <?php checked($role_settings['products']['access_shipping_classes'] ?? 0, 1); ?> value="1" class="section-toggle">
+                            <?php esc_html_e('Access product shipping classes', 'hippoo'); ?>
+                        </label>
+                    </div>
+                    <hr>
+
                     <!-- Settings -->
                     <div class="permission-section">
                         <div class="permission-label"><?php esc_html_e('Settings', 'hippoo'); ?></div>
@@ -1109,9 +1174,11 @@ class HippooPermissions
                                 <?php
                                 $extensions = HippooIntegrations::get_products();
                                 $selected_ext = $role_settings['app_features']['extensions'] ?? [];
-                                foreach ($extensions as $extension) {
-                                    $sel = in_array($extension['slug'], $selected_ext) ? 'selected' : '';
-                                    echo '<option value="' . esc_attr($extension['slug']) . '" ' . esc_attr( $sel ) . '>' . esc_html($extension['name']) . '</option>';
+                                if ($extensions) {
+                                    foreach ($extensions as $extension) {
+                                        $sel = in_array($extension['slug'], $selected_ext) ? 'selected' : '';
+                                        echo '<option value="' . esc_attr($extension['slug']) . '" ' . esc_attr( $sel ) . '>' . esc_html($extension['name']) . '</option>';
+                                    }
                                 }
                                 ?>
                             </select>
